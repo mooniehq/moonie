@@ -9,12 +9,12 @@ const config = {
     freezeTableName: true,
     underscored: true
   }
-};
+}
 
 const configs = {
   development: config,
   test: config,
   production: config
-};
+}
 
-module.exports = configs;
+module.exports = configs

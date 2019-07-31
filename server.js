@@ -1,27 +1,27 @@
-require('dotenv').config();
+import express from 'express'
+import { createServer } from 'http'
+import next from 'next'
+import test from './api/test'
 
-const express = require('express');
-const { createServer } = require('http');
-const next = require('next');
-const test = require('./api/test');
+import { sequelize } from './models'
 
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
-const handle = app.getRequestHandler();
+require('dotenv').config()
 
-const db = require('./models');
+const dev = process.env.NODE_ENV !== 'production'
+const app = next({ dev })
+const handle = app.getRequestHandler()
 
-db.sequelize.sync().then(function () {
+sequelize.sync().then(function () {
   app.prepare().then(function () {
-    const server = express();
-    server.use(test);
+    const server = express()
+    server.use(test)
     // handling everything else with Next.js
-    server.get('*', handle);
+    server.get('*', handle)
 
-    const port = process.env.PORT || 3000;
+    const port = process.env.PORT || 3000
     createServer(server).listen(port, err => {
-      if (err) throw err;
-      console.log(`Listening on port ${process.env.PORT}`);
-    });
-  });
-});
+      if (err) throw err
+      console.log(`Listening on port ${process.env.PORT}`)
+    })
+  })
+})
