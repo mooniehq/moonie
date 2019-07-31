@@ -4,13 +4,17 @@ const config = {
   database: 'moonie',
   host: process.env.DB_HOST || 'localhost',
   dialect: 'postgres',
-  operatorsAliases: false
-}
+  operatorsAliases: false,
+  define: {
+    freezeTableName: true,
+    underscored: true
+  }
+};
 
 const configs = {
   development: config,
   test: config,
   production: config
-}
+};
 
 module.exports = configs;
