@@ -1,6 +1,8 @@
 # Moonie
 
-## Contributing guidelines
+## Local development
+
+Root directory: `./functions`.
 
 ```
 npm install && npm prune
@@ -18,6 +20,14 @@ VSCode settings (`/.vscode/settings.json`):
     "editor.tabSize": 2,
     "javascript.validate.enable": false
 }
+```
+
+## Deploy
+
+Root directory: `.`.
+
+```
+npm run build && npm run deploy
 ```
 
 ## References
