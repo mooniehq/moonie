@@ -1,5 +1,5 @@
-import { json } from 'body-parser'
-import { Router } from 'express'
+const { json } = require('body-parser')
+const { Router } = require('express')
 
 const router = Router()
 
@@ -17,4 +17,4 @@ router.post('/api/test', (req, res) => {
   res.send({ message: 'Thanks!' })
 })
 
-export default router
+module.exports = router
