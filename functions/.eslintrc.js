@@ -6,7 +6,8 @@ module.exports = {
     node: true
   },
   extends: [
-    'standard'
+    'standard',
+    'plugin:react/recommended'
   ],
   globals: {
     Atomics: 'readonly',
@@ -23,5 +24,6 @@ module.exports = {
     'react'
   ],
   rules: {
+    'react/react-in-jsx-scope': 'off'
   }
 }
