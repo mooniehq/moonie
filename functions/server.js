@@ -12,6 +12,8 @@ const healthcheck = require('express-healthcheck')
 const configPassport = require('./config/passport')
 const { sequelize } = require('./models')
 
+const authRoute = require('./api/auth-route.js')
+
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
@@ -34,6 +36,11 @@ sequelize.sync().then(() => {
     server.use(passport.initialize())
     server.use(passport.session()) // persistent login sessions
     // app.use(flash()) // use connect-flash for flash messages stored in session
+
+    // load our routes and pass in our app and fully configured passport
+    const authRouter = authRoute(server, passport)
+    // authRouter.use(nocache())
+    server.use('/signin', authRouter)
 
     server.use(test)
     // handling everything else with Next.js
