@@ -5,7 +5,7 @@ const passport = require('passport')
 // const flash = require('connect-flash')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
-// const bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const session = require('express-session')
 const healthcheck = require('express-healthcheck')
 
@@ -25,7 +25,9 @@ sequelize.sync().then(() => {
     // set up our express application
     server.use(morgan('dev')) // log every request to the console
     server.use(cookieParser()) // read cookies (needed for auth)
-    // server.use(bodyParser()) // get information from html forms
+    server.use(bodyParser({
+      extended: true
+    })) // get information from html forms
 
     // healthcheck
     server.use('/healthcheck', healthcheck())
@@ -40,7 +42,7 @@ sequelize.sync().then(() => {
     // load our routes and pass in our app and fully configured passport
     const authRouter = authRoute(server, passport)
     // authRouter.use(nocache())
-    server.use('/signin', authRouter)
+    server.use(authRouter)
 
     server.use(test)
     // handling everything else with Next.js
