@@ -1,5 +1,6 @@
-# Decrypt the file containing the key
 steps:
+
+# Decrypt the file containing the key
 - name: 'gcr.io/cloud-builders/gcloud'
   args:
   - kms
