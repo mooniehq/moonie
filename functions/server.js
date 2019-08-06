@@ -34,7 +34,9 @@ sequelize.sync().then(() => {
 
     // required for passport
     configPassport(passport) // pass passport for configuration
-    server.use(session({ secret: 'ilovescotchscotchyscotchscotch' })) // session secret
+    server.use(session({ secret: 'ilovescotchscotchyscotchscotch',
+      saveUninitialized: false
+    })) // session secret
     server.use(passport.initialize())
     server.use(passport.session()) // persistent login sessions
     server.use(flash()) // use connect-flash for flash messages stored in session
