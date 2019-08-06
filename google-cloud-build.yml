@@ -7,8 +7,8 @@ steps:
   - --ciphertext-file=id_rsa.enc
   - --plaintext-file=/root/.ssh/id_rsa
   - --location=global
-  - --keyring=my-keyring
-  - --key=github-key
+  - --keyring=moonie-keyring
+  - --key=moonie-key
 
 # Set up git with key and domain.
 - name: 'gcr.io/cloud-builders/git'
@@ -40,17 +40,17 @@ steps:
     npm run build && npm run deploy
 
 options:
-    logStreamingOption: STREAM_OFF
-    sourceProvenanceHash: ['SHA256']
-    diskSizeGb: 200
-    logging: GCS_ONLY
-    volumes: [
-      {
-        name: 'moonie',
-        path: /moonie
-      }, 
-      {
-        name: 'moonie-ssh',
-        path: /root/.ssh
-      }
-    ]
+  logStreamingOption: STREAM_OFF
+  sourceProvenanceHash: ['SHA256']
+  diskSizeGb: 200
+  logging: GCS_ONLY
+  volumes: [
+    {
+      name: 'moonie',
+      path: /moonie
+    }, 
+    {
+      name: 'moonie-ssh',
+      path: /root/.ssh
+    }
+  ]
