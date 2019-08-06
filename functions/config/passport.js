@@ -11,6 +11,17 @@ const User = require('../models').user
 // const configAuth = require('./auth')
 
 module.exports = function (passport) {
+  // used to serialize the user for the session
+  passport.serializeUser(function (user, done) {
+    done(null, user)
+  })
+
+  // used to deserialize the user
+  passport.deserializeUser(function (id, done) {
+    User.findOne({ id })
+      .then(user => done(null, user))
+  })
+
   passport.use(new LocalStrategy(
     function (username, password, done) {
       User.findOne({ email: username }).then((user) => {

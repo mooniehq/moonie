@@ -10,6 +10,11 @@ function Home () {
             <a>Sign In</a>
           </Link>
         </li>
+        <li>
+          <Link href="/signup">
+            <a>Sign Up</a>
+          </Link>
+        </li>
       </ul>
 
       <h1>This is our homepage.</h1>

@@ -12,10 +12,8 @@ module.exports = function (app, passport) {
     res.redirect('/')
   })
 
-  router.post('/login', passport.authenticate('local', { failureRedirect: '/login-fail' },
-    function (req, res) {
-      res.redirect('/success')
-    }
+  router.post('/login', passport.authenticate('local', { failureRedirect: '/login-fail',
+    successRedirect: '/api/test' }
   ))
 
   router.post('/signup', (req, res) => {

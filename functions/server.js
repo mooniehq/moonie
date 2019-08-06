@@ -2,7 +2,7 @@ const express = require('express')
 const next = require('next')
 const test = require('./api/test')
 const passport = require('passport')
-// const flash = require('connect-flash')
+const flash = require('connect-flash')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
@@ -37,7 +37,7 @@ sequelize.sync().then(() => {
     server.use(session({ secret: 'ilovescotchscotchyscotchscotch' })) // session secret
     server.use(passport.initialize())
     server.use(passport.session()) // persistent login sessions
-    // app.use(flash()) // use connect-flash for flash messages stored in session
+    server.use(flash()) // use connect-flash for flash messages stored in session
 
     // load our routes and pass in our app and fully configured passport
     const authRouter = authRoute(server, passport)
