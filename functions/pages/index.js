@@ -1,8 +1,11 @@
-import Link from 'next/link'
+import Link from 'next/link';
+import HeadPage from './widgets/head'
+
 
 function Home () {
   return (
     <>
+      <HeadPage></HeadPage>
       <ul>
         <li>Home</li>
         <li>

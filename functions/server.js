@@ -22,6 +22,9 @@ const server = express()
 
 sequelize.sync().then(() => {
   app.prepare().then(() => {
+    //allow static file
+    server.use('/css', express.static('css'))
+
     // set up our express application
     server.use(morgan('dev')) // log every request to the console
     server.use(cookieParser()) // read cookies (needed for auth)
