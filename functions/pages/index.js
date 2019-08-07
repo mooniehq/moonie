@@ -1,25 +1,34 @@
-import Link from 'next/link'
 
-function Home () {
+
+import {  Link, withTranslation } from '../i18n';
+
+
+function Home ( { t }) {
   return (
     <>
       <ul>
-        <li>Home</li>
+        <li>{t('home')}</li>
         <li>
           <Link href="/signin">
-            <a>Sign In</a>
+            <a>{t('sign-in')}</a>
           </Link>
         </li>
         <li>
           <Link href="/signup">
-            <a>Sign Up</a>
+            <a>{t('sign-up')}</a>
           </Link>
         </li>
       </ul>
 
-      <h1>This is our homepage.</h1>
+      <h1>{t('our-homepage')}</h1>
     </>
   )
 }
 
-export default Home
+Home.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
+// HOC for translation
+// common is the namespace of the translation file
+export default withTranslation('common')(Home);

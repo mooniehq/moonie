@@ -8,6 +8,8 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const healthcheck = require('express-healthcheck')
+const nextI18NextMiddleware = require('next-i18next/middleware').default
+const nextI18next = require('./i18n')
 
 const configPassport = require('./config/passport')
 const { sequelize } = require('./models')
@@ -39,6 +41,8 @@ sequelize.sync().then(() => {
     server.use(passport.session()) // persistent login sessions
     server.use(flash()) // use connect-flash for flash messages stored in session
 
+    server.use(nextI18NextMiddleware(nextI18next))
+    
     // load our routes and pass in our app and fully configured passport
     const authRouter = authRoute(server, passport)
     // authRouter.use(nocache())
@@ -48,6 +52,8 @@ sequelize.sync().then(() => {
     // handling everything else with Next.js
     server.get('*', handle)
   })
+}).catch(err => {
+    console.log(err);
 })
 
 module.exports = server

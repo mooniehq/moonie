@@ -1,16 +1,22 @@
-function SignIn () {
+import {  withTranslation } from '../i18n';
+
+const SignIn = ({t}) => {
   return (
   <>
-    <div>Sign in</div>
+    <div>{t('sign-in')}</div>
     <form action="/login" method="post">
-      <label>Email</label>
+      <label>{t('email')}</label>
       <input name="username"/>
-      <label>Password</label>
+      <label>{t('password')}</label>
       <input name="password"/>
-      <button type="submit">Login</button>
+      <button type="submit">{t('login')}</button>
     </form>
   </>
   )
 }
 
-export default SignIn
+SignIn.getInitialProps = () => ({
+  namespacesRequired: ['common'] 
+});
+
+export default withTranslation(['common'])(SignIn);
