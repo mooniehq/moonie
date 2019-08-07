@@ -1,13 +1,14 @@
 const functions = require('firebase-functions')
 
-function getFirebaseConfig(key) {
-  return functions.config()[key]
+function getConfig(key) {
+  return process.env[key] || functions.config()[key]
 }
+
 const dbConfig = {
-  username: process.env.DB_USERNAME || functions.config().db.username,
-  password: process.env.DB_PASSWORD || functions.config().db.password,
+  username: getConfig('DB_USERNAME'),
+  password: getConfig('DB_PASSWORD'),
   database: 'moonie',
-  host: process.env.DB_HOST || functions.config().db.host,
+  host: getConfig('DB_HOST'),
   dialect: 'postgres',
   define: {
     freezeTableName: true,
