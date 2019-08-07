@@ -26,6 +26,10 @@ router.get('/api/test', isLoggedIn, (req, res) => {
   res.send(testMessage)
 })
 
+router.get('/test/page', isLoggedIn, (req, res) => {
+  res.send('page 123')
+})
+
 router.post('/api/test', isLoggedIn, (req, res) => {
   const { message } = req.body
   testMessage = message
