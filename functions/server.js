@@ -1,6 +1,6 @@
 const express = require('express')
 const next = require('next')
-const test = require('./api/test')
+const test = require('./api/test') // for quick test
 const passport = require('passport')
 const flash = require('connect-flash')
 const morgan = require('morgan')
@@ -34,7 +34,8 @@ sequelize.sync().then(() => {
 
     // required for passport
     configPassport(passport) // pass passport for configuration
-    server.use(session({ secret: 'ilovescotchscotchyscotchscotch',
+    server.use(session({
+      secret: 'ilovescotchscotchyscotchscotch',
       saveUninitialized: false
     })) // session secret
     server.use(passport.initialize())
@@ -47,6 +48,7 @@ sequelize.sync().then(() => {
     server.use(authRouter)
 
     server.use(test)
+
     // handling everything else with Next.js
     server.get('*', handle)
   })
