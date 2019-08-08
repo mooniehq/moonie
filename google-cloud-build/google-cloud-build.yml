@@ -46,7 +46,7 @@ steps:
 
 # Buid and deploy
 - name: 'gcr.io/cloud-builders/npm'
-  dir: '/moonie/moonie/functions'
+  dir: '/functions'
   entrypoint: 'bash'
   args:
   - '-c'
