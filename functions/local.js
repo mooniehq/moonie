@@ -1,3 +1,5 @@
+// For local development
+
 require('dotenv').config()
 const server = require('./server')
 

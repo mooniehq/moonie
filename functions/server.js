@@ -1,8 +1,8 @@
 const express = require('express')
 const next = require('next')
-const test = require('./api/test')
+const test = require('./api/test') // for quick test
 const passport = require('passport')
-// const flash = require('connect-flash')
+const flash = require('connect-flash')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
@@ -20,8 +20,11 @@ const handle = app.getRequestHandler()
 
 const server = express()
 
-sequelize.sync().then(() => {
+sequelize.sync({ alter: true }).then(() => {
   app.prepare().then(() => {
+    //allow static file
+    server.use('/css', express.static('css'))
+
     // set up our express application
     server.use(morgan('dev')) // log every request to the console
     server.use(cookieParser()) // read cookies (needed for auth)
@@ -34,10 +37,13 @@ sequelize.sync().then(() => {
 
     // required for passport
     configPassport(passport) // pass passport for configuration
-    server.use(session({ secret: 'ilovescotchscotchyscotchscotch' })) // session secret
+    server.use(session({
+      secret: 'ilovescotchscotchyscotchscotch',
+      saveUninitialized: false
+    })) // session secret
     server.use(passport.initialize())
     server.use(passport.session()) // persistent login sessions
-    // app.use(flash()) // use connect-flash for flash messages stored in session
+    server.use(flash()) // use connect-flash for flash messages stored in session
 
     // load our routes and pass in our app and fully configured passport
     const authRouter = authRoute(server, passport)
@@ -45,6 +51,7 @@ sequelize.sync().then(() => {
     server.use(authRouter)
 
     server.use(test)
+
     // handling everything else with Next.js
     server.get('*', handle)
   })

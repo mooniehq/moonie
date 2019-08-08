@@ -1,39 +1,41 @@
 const express = require('express')
 const router = express.Router()
 // load up the user model
-const User = require('../models').user
+const { Community, User } = require('../models')
 
 module.exports = function (app, passport) {
-  // =====================================
-  // LOGOUT ==============================
-  // =====================================
-  router.get('/logout', function (req, res) {
+
+  router.get('/signout', function (req, res) {
     req.logout()
     res.redirect('/')
   })
 
-  router.post('/login', passport.authenticate('local', { failureRedirect: '/login-fail' },
-    function (req, res) {
-      res.redirect('/success')
-    }
-  ))
+  router.post('/signin',
+    passport.authenticate('local', {
+      failureRedirect: '/signin',
+      successRedirect: '/api/test'
+    }))
 
-  router.post('/signup', (req, res) => {
-    const body = req.body
-    const { username, password } = body
-    // find the user in the database based on their facebook id
-    User.findOne({ where: { email: username } }).then(user => {
-      if (!user) {
-        return User.create({
-          email: username,
-          password: password
-        }).then(user => res.json(user))
-      } else {
-        res.json(user)
+  router.post('/signup', async (req, res) => {
+    try {
+      const { body } = req
+      const { subdomain, email, password } = body
+      let community = await Community.findOne({ where: { subdomain } })
+      if (!community) {
+        community = await Community.create({ subdomain })
       }
-    }).catch((e) => {
-      res.json(e)
-    })
+      let user = await User.findOne({ where: { email } })
+      if (!user) {
+        user = await User.create({
+          community_id: community.id,
+          email,
+          password
+        })
+      }
+      return res.json(user)
+    } catch (err) {
+      res.json(err)
+    }
   })
 
   return router
