@@ -1,28 +1,28 @@
 steps:
 
 # Decrypt the file containing the key
-- name: 'gcr.io/cloud-builders/gcloud'
-  args:
-  - kms
-  - decrypt
-  - --ciphertext-file=id_rsa.enc
-  - --plaintext-file=/root/.ssh/id_rsa
-  - --location=global
-  - --keyring=moonie-keyring
-  - --key=moonie-key
+# - name: 'gcr.io/cloud-builders/gcloud'
+#   args:
+#   - kms
+#   - decrypt
+#   - --ciphertext-file=id_rsa.enc
+#   - --plaintext-file=/root/.ssh/id_rsa
+#   - --location=global
+#   - --keyring=moonie-keyring
+#   - --key=moonie-key
 
 # Set up git with key and domain.
-- name: 'gcr.io/cloud-builders/git'
-  entrypoint: 'bash'
-  args:
-  - '-c'
-  - |
-    chmod 600 /root/.ssh/id_rsa
-    cat <<EOF >/root/.ssh/config
-    Hostname github.com
-    IdentityFile /root/.ssh/id_rsa
-    EOF
-    mv known_hosts /root/.ssh/known_hosts    
+# - name: 'gcr.io/cloud-builders/git'
+#   entrypoint: 'bash'
+#   args:
+#   - '-c'
+#   - |
+#     chmod 600 /root/.ssh/id_rsa
+#     cat <<EOF >/root/.ssh/config
+#     Hostname github.com
+#     IdentityFile /root/.ssh/id_rsa
+#     EOF
+#     mv known_hosts /root/.ssh/known_hosts    
 
 # For local test
 # - name: 'gcr.io/cloud-builders/git'
@@ -38,11 +38,11 @@ steps:
 #     EOF
 
 # Clone code
-- name: 'gcr.io/cloud-builders/git'
-  dir: '/moonie'
-  args:
-  - clone
-  - git@github.com:minhhai2209/moonie
+# - name: 'gcr.io/cloud-builders/git'
+#   dir: '/moonie'
+#   args:
+#   - clone
+#   - git@github.com:minhhai2209/moonie
 
 # Buid and deploy
 - name: 'gcr.io/cloud-builders/npm'
@@ -61,13 +61,13 @@ options:
   sourceProvenanceHash: ['SHA256']
   diskSizeGb: 200
   logging: GCS_ONLY
-  volumes: [
-    {
-      name: 'moonie',
-      path: /moonie
-    }, 
-    {
-      name: 'moonie-ssh',
-      path: /root/.ssh
-    }
-  ]
+  # volumes: [
+  #   {
+  #     name: 'moonie',
+  #     path: /moonie
+  #   }, 
+  #   {
+  #     name: 'moonie-ssh',
+  #     path: /root/.ssh
+  #   }
+  # ]
