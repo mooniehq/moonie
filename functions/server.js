@@ -1,6 +1,6 @@
 const express = require('express')
 const next = require('next')
-const test = require('./api/test')
+const test = require('./api/test') // for quick test
 const passport = require('passport')
 const flash = require('connect-flash')
 const morgan = require('morgan')
@@ -20,7 +20,7 @@ const handle = app.getRequestHandler()
 
 const server = express()
 
-sequelize.sync().then(() => {
+sequelize.sync({ alter: true }).then(() => {
   app.prepare().then(() => {
     //allow static file
     server.use('/css', express.static('css'))
@@ -37,7 +37,10 @@ sequelize.sync().then(() => {
 
     // required for passport
     configPassport(passport) // pass passport for configuration
-    server.use(session({ secret: 'ilovescotchscotchyscotchscotch' })) // session secret
+    server.use(session({
+      secret: 'ilovescotchscotchyscotchscotch',
+      saveUninitialized: false
+    })) // session secret
     server.use(passport.initialize())
     server.use(passport.session()) // persistent login sessions
     server.use(flash()) // use connect-flash for flash messages stored in session
@@ -48,6 +51,7 @@ sequelize.sync().then(() => {
     server.use(authRouter)
 
     server.use(test)
+
     // handling everything else with Next.js
     server.get('*', handle)
   })
