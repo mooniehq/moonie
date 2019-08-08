@@ -4,7 +4,6 @@ function HeadPage () {
   return ( 
     <>
       <Head>
-        <link rel="stylesheet" media="screen" href="./css/bootstrap.min.css" />
       </Head>
     </>
   )

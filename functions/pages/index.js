@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import HeadPage from './widgets/head'
+import HeadPage from './widgets/head';
+import "../css/main.css";
+import "../css/bootstrap.min.css";
 
 
 function Home () {
