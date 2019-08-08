@@ -20,7 +20,7 @@ const handle = app.getRequestHandler()
 
 const server = express()
 
-sequelize.sync().then(() => {
+sequelize.sync({ alter: true }).then(() => {
   app.prepare().then(() => {
     // set up our express application
     server.use(morgan('dev')) // log every request to the console
