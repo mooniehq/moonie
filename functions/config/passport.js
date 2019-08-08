@@ -2,7 +2,7 @@
 const LocalStrategy = require('passport-local').Strategy
 
 // load up the user model
-const User = require('../models').user
+const { sequelize, User } = require('../models')
 
 // load the auth variables
 // const configAuth = require('./auth')
@@ -15,21 +15,40 @@ module.exports = function (passport) {
 
   // used to deserialize the user
   passport.deserializeUser(function (id, done) {
-    User.findOne({ id })
+    return User.findOne({ id })
       .then(user => done(null, user))
   })
 
   passport.use(new LocalStrategy(
-    function (username, password, done) {
-      User.findOne({ email: username }).then((user) => {
-        if (!user) {
+    {
+      usernameField: 'email',
+      passwordField: 'password',
+      passReqToCallback: true
+    },
+    async (req, email, password, done) => {
+      try {
+        const { subdomain } = req.body
+        // { where: { subdomain, email } }
+        const users = await sequelize.query(
+          'select m.* from member m inner join community c on m.community_id = c.id where c.subdomain = :subdomain',
+          {
+            model: User,
+            mapToModel: true,
+            replacements: { subdomain },
+            type: sequelize.QueryTypes.SELECT
+          }
+        )
+        if (users.length === 0) {
           return done('Email or password is incorrect.', false)
         }
+        const user = users[0]
         if (!user.validPassword(password)) {
           return done('Email or password is incorrect.', false)
         }
         return done(null, user)
-      }).catch(err => done(err))
+      } catch (err) {
+        return done(err)
+      }
     }
   ))
 }
