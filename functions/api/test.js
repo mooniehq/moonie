@@ -1,3 +1,5 @@
+// for quick test
+
 const { json } = require('body-parser')
 const { Router } = require('express')
 
@@ -24,6 +26,10 @@ let testMessage = 'Hello, World!'
 
 router.get('/api/test', isLoggedIn, (req, res) => {
   res.send(testMessage)
+})
+
+router.get('/test/page', isLoggedIn, (req, res) => {
+  res.send('page 123')
 })
 
 router.post('/api/test', isLoggedIn, (req, res) => {
