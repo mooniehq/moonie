@@ -1,3 +1,7 @@
+import Link from 'next/link';
+import HeadPage from './widgets/head';
+import "../css/main.css";
+import "../css/bootstrap.min.css";
 
 
 import {  Link, withTranslation } from '../i18n';
@@ -6,6 +10,7 @@ import {  Link, withTranslation } from '../i18n';
 function Home ( { t }) {
   return (
     <>
+      <HeadPage></HeadPage>
       <ul>
         <li>{t('home')}</li>
         <li>
