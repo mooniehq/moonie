@@ -1,13 +1,13 @@
 import * as React from "react";
-import Link from 'next/link';
 import HeadPage from './widgets/head';
 import "../css/main.css";
 import "../css/bootstrap.min.css";
 import MarkdownEditor from 'react-mde';
 import * as Showdown from 'showdown';
 import 'react-mde/lib/styles/css/react-mde-all.css';
+import {  Link, withTranslation } from '../i18n';
 
-function Home () {
+function Home ( { t }) {
   const markdownToHtmlConverter = new Showdown.Converter({
     tables: true,
     simplifiedAutoLink: true,
@@ -16,25 +16,24 @@ function Home () {
   });
   const [markdownContent, setMarkdownContent] = React.useState("");
   const [selectedMardownMode, setSelectedMarkdownMode] = React.useState("write");
-
   return (
     <>
       <HeadPage></HeadPage>
       <ul>
-        <li>Home</li>
+        <li>{t('home')}</li>
         <li>
           <Link href="/signin">
-            <a>Sign In</a>
+            <a>{t('sign-in')}</a>
           </Link>
         </li>
         <li>
           <Link href="/signup">
-            <a>Sign Up</a>
+            <a>{t('sign-up')}</a>
           </Link>
         </li>
       </ul>
 
-      <h1>This is our homepage.</h1>
+      <h1>{t('our-homepage')}</h1>
 
       <div>
         <MarkdownEditor 
@@ -51,4 +50,10 @@ function Home () {
   )
 }
 
-export default Home
+Home.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
+// HOC for translation
+// common is the namespace of the translation file
+export default withTranslation('common')(Home);
