@@ -2,9 +2,8 @@ import * as React from 'react'
 // import MarkdownEditor from 'react-mde'
 // import 'react-mde/lib/styles/css/react-mde-all.css'
 // import * as Showdown from 'showdown'
-import '../css/bootstrap.min.css'
-import '../css/main.css'
 import { Link, withTranslation } from '../i18n'
+import Page from '../components/Page'
 
 function Home ({ t }) {
   // const markdownToHtmlConverter = new Showdown.Converter({
@@ -16,7 +15,7 @@ function Home ({ t }) {
   // const [markdownContent, setMarkdownContent] = React.useState('')
   // const [selectedMardownMode, setSelectedMarkdownMode] = React.useState('write')
   return (
-    <>
+    <Page>
       <ul>
         <li>{t('home')}</li>
         <li>
@@ -44,7 +43,7 @@ function Home ({ t }) {
           }
         />
       </div> */}
-    </>
+    </Page>
   )
 }
 

@@ -8,7 +8,7 @@ import React from 'react'
 import App, { Container } from 'next/app'
 import { appWithTranslation } from '../i18n'
 
-class MoonieApp extends App {
+class MyApp extends App {
   render () {
     const { Component, pageProps } = this.props
     return (
@@ -19,4 +19,4 @@ class MoonieApp extends App {
   }
 }
 
-export default appWithTranslation(MoonieApp)
+export default appWithTranslation(MyApp)
