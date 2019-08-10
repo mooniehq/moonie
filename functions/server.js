@@ -24,7 +24,7 @@ const server = express()
 
 sequelize.sync({ alter: true }).then(() => {
   app.prepare().then(() => {
-    //allow static file
+    // allow static file
     server.use('/css', express.static('css'))
 
     // set up our express application
@@ -48,7 +48,7 @@ sequelize.sync({ alter: true }).then(() => {
     server.use(flash()) // use connect-flash for flash messages stored in session
 
     server.use(nextI18NextMiddleware(nextI18next))
-    
+
     // load our routes and pass in our app and fully configured passport
     const authRouter = authRoute(server, passport)
     // authRouter.use(nocache())
@@ -60,7 +60,7 @@ sequelize.sync({ alter: true }).then(() => {
     server.get('*', handle)
   })
 }).catch(err => {
-    console.log(err);
+  console.log(err)
 })
 
 module.exports = server
