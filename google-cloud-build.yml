@@ -10,7 +10,7 @@ steps:
     cd ..
     npm install
     npm run build
-    npm run deploy -- ${_TOKEN}
+    npm run deploy -- ${_TOKEN} ${_DB_PASSWORD}
 
 options:
   logStreamingOption: STREAM_OFF
