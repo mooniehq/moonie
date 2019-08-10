@@ -1,8 +1,9 @@
 import { withTranslation } from '../i18n'
+import Page from '../components/Page'
 
 function SignUp ({ t }) {
   return (
-    <>
+    <Page>
       <div>{t('sign-up')}</div>
       <form action="/signup" method="post">
         <label htmlFor="subdomain">{t('community')}</label>
@@ -13,7 +14,7 @@ function SignUp ({ t }) {
         <input id="password" name="password" />
         <button type="submit">{t('submit')}</button>
       </form>
-    </>
+    </Page>
   )
 }
 
