@@ -10,11 +10,9 @@ steps:
     cd ..
     npm install
     npm run build
-    
-    firebase functions:config:set service.db_username="postgres" service.db_password="dvt1KjoyBkCL47o0" service.db_host="104.197.58.229"
     npm run deploy
 
 options:
   logStreamingOption: STREAM_OFF
   sourceProvenanceHash: ['SHA256']
-  logging: GCS_ONLY
+  logging: GCS_ONLY  
