@@ -8,6 +8,7 @@ steps:
     cd functions
     npm install
     cd ..
+    npm install
     npm run build
     npm run deploy
 
