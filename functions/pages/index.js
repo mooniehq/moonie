@@ -1,16 +1,11 @@
-import Link from 'next/link';
-import HeadPage from './widgets/head';
-import "../css/main.css";
-import "../css/bootstrap.min.css";
+import '../css/main.css'
+import '../css/bootstrap.min.css'
 
+import { Link, withTranslation } from '../i18n'
 
-import {  Link, withTranslation } from '../i18n';
-
-
-function Home ( { t }) {
+function Home ({ t }) {
   return (
     <>
-      <HeadPage></HeadPage>
       <ul>
         <li>{t('home')}</li>
         <li>
@@ -31,9 +26,9 @@ function Home ( { t }) {
 }
 
 Home.getInitialProps = async () => ({
-  namespacesRequired: ['common'],
+  namespacesRequired: ['common']
 })
 
 // HOC for translation
 // common is the namespace of the translation file
-export default withTranslation('common')(Home);
+export default withTranslation('common')(Home)
