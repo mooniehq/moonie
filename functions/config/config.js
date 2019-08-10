@@ -1,7 +1,7 @@
 const functions = require('firebase-functions')
 
-function getConfig(key) {
-  return process.env[key] || functions.config()[key]
+function getConfig (key) {
+  return process.env[key] || functions.config().service[key.toLowerCase()]
 }
 
 const dbConfig = {
