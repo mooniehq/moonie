@@ -1,6 +1,6 @@
-import {  withTranslation } from '../i18n';
+import { withTranslation } from '../i18n'
 
-function SignUp ({t}) {
+function SignUp ({ t }) {
   return (
     <>
       <div>{t('sign-up')}</div>
@@ -18,7 +18,7 @@ function SignUp ({t}) {
 }
 
 SignUp.getInitialProps = () => ({
-  namespacesRequired: ['common'] 
-});
+  namespacesRequired: ['common']
+})
 
-export default withTranslation('common')(SignUp);
+export default withTranslation('common')(SignUp)

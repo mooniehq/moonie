@@ -1,24 +1,22 @@
-import * as React from "react";
-import HeadPage from './widgets/head';
-import "../css/main.css";
-import "../css/bootstrap.min.css";
-import MarkdownEditor from 'react-mde';
-import * as Showdown from 'showdown';
-import 'react-mde/lib/styles/css/react-mde-all.css';
-import {  Link, withTranslation } from '../i18n';
+import * as React from 'react'
+import MarkdownEditor from 'react-mde'
+import 'react-mde/lib/styles/css/react-mde-all.css'
+import * as Showdown from 'showdown'
+import '../css/bootstrap.min.css'
+import '../css/main.css'
+import { Link, withTranslation } from '../i18n'
 
-function Home ( { t }) {
+function Home ({ t }) {
   const markdownToHtmlConverter = new Showdown.Converter({
     tables: true,
     simplifiedAutoLink: true,
     strikethrough: true,
     tasklists: true
-  });
-  const [markdownContent, setMarkdownContent] = React.useState("");
-  const [selectedMardownMode, setSelectedMarkdownMode] = React.useState("write");
+  })
+  const [markdownContent, setMarkdownContent] = React.useState('')
+  const [selectedMardownMode, setSelectedMarkdownMode] = React.useState('write')
   return (
     <>
-      <HeadPage></HeadPage>
       <ul>
         <li>{t('home')}</li>
         <li>
@@ -36,12 +34,12 @@ function Home ( { t }) {
       <h1>{t('our-homepage')}</h1>
 
       <div>
-        <MarkdownEditor 
+        <MarkdownEditor
           value = {markdownContent}
           onChange = {setMarkdownContent}
           selectedTab = {selectedMardownMode}
           onTabChange = {setSelectedMarkdownMode}
-          generateMarkdownPreview = {markdown => 
+          generateMarkdownPreview = {markdown =>
             Promise.resolve(markdownToHtmlConverter.makeHtml(markdown))
           }
         />
@@ -51,9 +49,9 @@ function Home ( { t }) {
 }
 
 Home.getInitialProps = async () => ({
-  namespacesRequired: ['common'],
+  namespacesRequired: ['common']
 })
 
 // HOC for translation
 // common is the namespace of the translation file
-export default withTranslation('common')(Home);
+export default withTranslation('common')(Home)
