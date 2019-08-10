@@ -23,8 +23,14 @@ module.exports = {
   plugins: [
     'react'
   ],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   rules: {
-    'react/react-in-jsx-scope': 'off',
-    'padded-blocks': 'off'
+    'padded-blocks': 'off',
+    "react/prop-types": ['error', { ignore: ['t'] }],
+    'react/react-in-jsx-scope': 'off'
   }
 }

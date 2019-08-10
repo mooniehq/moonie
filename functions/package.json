@@ -3,6 +3,7 @@
   "description": "Cloud Functions for Firebase",
   "scripts": {
     "dev": "nodemon local.js",
+    "lint": "eslint **/**.js",
     "build": "next build",
     "serve": "firebase serve --only functions",
     "shell": "firebase functions:shell",
