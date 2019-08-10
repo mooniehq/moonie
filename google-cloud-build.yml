@@ -5,6 +5,9 @@ steps:
   args:
   - '-c'
   - |
+    cd functions
+    npm install
+    cd ..
     npm run build
     npm run deploy
 
