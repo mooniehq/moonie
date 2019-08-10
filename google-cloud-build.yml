@@ -11,5 +11,4 @@ steps:
 options:
   logStreamingOption: STREAM_OFF
   sourceProvenanceHash: ['SHA256']
-  diskSizeGb: 200
   logging: GCS_ONLY
