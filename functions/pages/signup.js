@@ -4,7 +4,7 @@ import Page from '../components/Page'
 function SignUp ({ t }) {
   return (
     <Page>
-      <div>{t('sign-up')}</div>
+      <h1>{t('sign-up')}</h1>
       <form action="/signup" method="post">
         <label htmlFor="subdomain">{t('community')}</label>
         <input id="subdomain" name="subdomain" />

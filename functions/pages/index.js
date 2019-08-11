@@ -2,12 +2,11 @@ import * as React from 'react'
 import { Link, withTranslation } from '../i18n'
 import Page from '../components/Page'
 
-import MarkdownEditor from '../components/MarkdownEditor'
-
 function Home ({ t }) {
 
   return (
     <Page>
+      <h1>{t('our-homepage')}</h1>
       <ul>
         <li>{t('home')}</li>
         <li>
@@ -20,11 +19,12 @@ function Home ({ t }) {
             <a>{t('sign-up')}</a>
           </Link>
         </li>
+        <li>
+          <Link href="/create-question">
+            <a>{t('create-question')}</a>
+          </Link>
+        </li>
       </ul>
-
-      <h1>{t('our-homepage')}</h1>
-
-      <MarkdownEditor value="" />
     </Page>
   )
 }

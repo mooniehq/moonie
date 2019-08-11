@@ -4,7 +4,7 @@ import Page from '../components/Page'
 const SignIn = ({ t }) => {
   return (
     <Page>
-      <div>{t('sign-in')}</div>
+      <h1>{t('sign-in')}</h1>
       <form action="/signin" method="post">
         <label htmlFor="subdomain">{t('community')}</label>
         <input id="subdomain" name="subdomain" />
