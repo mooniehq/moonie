@@ -15,7 +15,7 @@ module.exports = function (passport) {
 
   // used to deserialize the user
   passport.deserializeUser(function (id, done) {
-    return User.findOne({ id })
+    return User.findOne({ where: { id } })
       .then(user => done(null, user))
   })
 
@@ -28,7 +28,6 @@ module.exports = function (passport) {
     async (req, email, password, done) => {
       try {
         const { subdomain } = req.body
-        // { where: { subdomain, email } }
         const users = await sequelize.query(
           'select m.* from member m inner join community c on m.community_id = c.id where c.subdomain = :subdomain',
           {
@@ -47,6 +46,7 @@ module.exports = function (passport) {
         }
         return done(null, user)
       } catch (err) {
+        console.error(err)
         return done(err)
       }
     }
