@@ -5,7 +5,7 @@ function SignUp ({ t }) {
   return (
     <Page>
       <h1>{t('sign-up')}</h1>
-      <form action="/signup" method="post">
+      <form action="/api/signup" method="post">
         <label htmlFor="subdomain">{t('community')}</label>
         <input id="subdomain" name="subdomain" />
         <label htmlFor="email">{t('email')}</label>

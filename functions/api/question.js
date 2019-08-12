@@ -1,18 +1,25 @@
-const express = require('express')
-const router = express.Router()
+const { Router } = require('express')
+const { isLoggedIn } = require('../auth/authorize')
 const { Question } = require('../models')
 
-module.exports = function (app, passport) {
+const router = Router()
 
-  router.post('/create-question', async (req, res) => {
-    try {
-      const { title, content } = req
-      await Question.create({ title, content })
-      return res.redirect('/create-question')
-    } catch (err) {
-      return res.redirect('/create-question')
-    }
-  })
+router.post('/api/question', isLoggedIn, async (req, res) => {
+  try {
+    const { user } = req
+    const { title, content } = req.body
+    console.log(user)
+    await Question.create({
+      title,
+      content,
+      author_id: user.id,
+      community_id: user.community_id
+    })
+    return res.redirect('/create-question')
+  } catch (err) {
+    console.error(err)
+    return res.redirect('/create-question')
+  }
+})
 
-  return router
-}
+module.exports = router

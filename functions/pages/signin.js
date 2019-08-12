@@ -5,7 +5,7 @@ const SignIn = ({ t }) => {
   return (
     <Page>
       <h1>{t('sign-in')}</h1>
-      <form action="/signin" method="post">
+      <form action="/api/signin" method="post">
         <label htmlFor="subdomain">{t('community')}</label>
         <input id="subdomain" name="subdomain" />
         <label htmlFor="email">{t('email')}</label>

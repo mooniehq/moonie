@@ -1,22 +1,22 @@
-const express = require('express')
-const router = express.Router()
-// load up the user model
+const { Router } = require('express')
 const { Community, User } = require('../models')
 
-module.exports = function (app, passport) {
+module.exports = function (passport) {
 
-  router.get('/signout', function (req, res) {
+  const router = Router()
+
+  router.get('/api/signout', function (req, res) {
     req.logout()
     res.redirect('/')
   })
 
-  router.post('/signin',
+  router.post('/api/signin',
     passport.authenticate('local', {
       failureRedirect: '/signin',
       successRedirect: '/api/test'
     }))
 
-  router.post('/signup', async (req, res) => {
+  router.post('/api/signup', async (req, res) => {
     try {
       const { body } = req
       const { subdomain, email, password } = body
@@ -24,7 +24,7 @@ module.exports = function (app, passport) {
       if (!community) {
         community = await Community.create({ subdomain })
       }
-      let user = await User.findOne({ where: { email } })
+      let user = await User.findOne({ where: { community_id: community.id, email } })
       if (!user) {
         user = await User.create({
           community_id: community.id,
@@ -34,6 +34,7 @@ module.exports = function (app, passport) {
       }
       return res.json(user)
     } catch (err) {
+      console.error(err)
       res.json(err)
     }
   })

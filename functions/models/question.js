@@ -15,7 +15,6 @@ module.exports = function (sequelize) {
       title: {
         type: TEXT,
         allowNull: false,
-        unique: true,
         validate: {
           notEmpty: true
         }
@@ -23,7 +22,6 @@ module.exports = function (sequelize) {
       content: {
         type: TEXT,
         allowNull: false,
-        unique: true,
         validate: {
           notEmpty: true
         }

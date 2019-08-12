@@ -6,7 +6,8 @@ const Question = ({ t }) => {
   return (
     <Page>
       <h1>{t('create-question')}</h1>
-      <form action="/create-question" method="post">
+      <form action="/api/question" method="post">
+        <input type="text" name="title" />
         <MarkdownEditor name="content" value="" />
         <button type="submit">{t('submit')}</button>
       </form>
