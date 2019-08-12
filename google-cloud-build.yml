@@ -1,0 +1,18 @@
+steps:
+
+- name: 'gcr.io/cloud-builders/npm'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    cd functions
+    npm install
+    cd ..
+    npm install
+    npm run build
+    npm run deploy -- ${_TOKEN} ${_DB_PASSWORD} ${_DB_HOST}
+
+options:
+  logStreamingOption: STREAM_OFF
+  sourceProvenanceHash: ['SHA256']
+  logging: GCS_ONLY  

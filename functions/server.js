@@ -1,6 +1,9 @@
 const express = require('express')
 const next = require('next')
+
 const test = require('./api/test') // for quick test
+const question = require('./api/question')
+
 const passport = require('passport')
 const flash = require('connect-flash')
 const morgan = require('morgan')
@@ -14,8 +17,9 @@ const nextI18next = require('./i18n')
 const configPassport = require('./config/passport')
 const { sequelize } = require('./models')
 
-const authRoute = require('./api/auth-route.js')
+
 const communityRouter = require('./api/community-route.js')
+const auth = require('./api/auth')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -50,14 +54,15 @@ sequelize.sync({ alter: true }).then(() => {
 
     server.use(nextI18NextMiddleware(nextI18next))
 
-    // load our routes and pass in our app and fully configured passport
-    const authRouter = authRoute(server, passport)
     // authRouter.use(nocache())
     server.use(authRouter)
 
     server.use(communityRouter)
 
+    server.use(auth(passport))
+
     server.use(test)
+    server.use(question)
 
     // handling everything else with Next.js
     server.get('*', handle)

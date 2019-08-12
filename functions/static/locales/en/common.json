@@ -8,5 +8,6 @@
     "community": "Community",
     "communities": "Communities",    
     "password": "Password",
-    "submit": "Submit"   
+    "submit": "Submit",
+    "create-question": "Create a new question"
 }

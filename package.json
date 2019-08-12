@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "npm run build --prefix functions",
-    "deploy": "firebase deploy"
+    "deploy": "./deploy.sh"
   },
   "author": "",
   "license": "ISC",
