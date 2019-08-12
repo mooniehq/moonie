@@ -9,12 +9,13 @@ router.post('/api/question', isLoggedIn, async (req, res) => {
     const { user } = req
     const { title, content } = req.body
     console.log(user)
-    await Question.create({
+    const question = await Question.create({
       title,
       content,
       author_id: user.id,
       community_id: user.community_id
     })
+    console.log(question)
     return res.redirect('/create-question')
   } catch (err) {
     console.error(err)

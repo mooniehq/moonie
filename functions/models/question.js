@@ -1,4 +1,4 @@
-const { Model, TEXT } = require('sequelize')
+const { Model, INTEGER, TEXT } = require('sequelize')
 
 module.exports = function (sequelize) {
 
@@ -25,6 +25,14 @@ module.exports = function (sequelize) {
         validate: {
           notEmpty: true
         }
+      },
+      author_id: {
+        type: INTEGER,
+        allowNull: false
+      },
+      community_id: {
+        type: INTEGER,
+        allowNull: false
       }
     },
     {
