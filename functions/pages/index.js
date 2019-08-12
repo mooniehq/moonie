@@ -43,6 +43,11 @@ function Home ({ t }) {
             <a>{t('sign-up')}</a>
           </Link>
         </li>
+        <li>
+          <Link href="/community-list" as="/communities">
+            <a>{t('communities')}</a>
+          </Link>
+        </li>
       </ul>
 
       <h1>{t('our-homepage')}</h1>

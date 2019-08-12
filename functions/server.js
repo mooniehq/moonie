@@ -15,6 +15,7 @@ const configPassport = require('./config/passport')
 const { sequelize } = require('./models')
 
 const authRoute = require('./api/auth-route.js')
+const communityRouter = require('./api/community-route.js')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -53,6 +54,8 @@ sequelize.sync({ alter: true }).then(() => {
     const authRouter = authRoute(server, passport)
     // authRouter.use(nocache())
     server.use(authRouter)
+
+    server.use(communityRouter)
 
     server.use(test)
 
