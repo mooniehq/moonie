@@ -10,6 +10,8 @@ const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const session = require('express-session')
+// initalize sequelize with session store
+var SequelizeStore = require('connect-session-sequelize')(session.Store)
 const healthcheck = require('express-healthcheck')
 const nextI18NextMiddleware = require('next-i18next/middleware').default
 const nextI18next = require('./i18n')
@@ -25,7 +27,11 @@ const handle = app.getRequestHandler()
 
 const server = express()
 
-sequelize.sync({ alter: true }).then(() => {
+var sessionStore = new SequelizeStore({
+  db: sequelize
+})
+
+sessionStore.sync({ alter: true }).then(() => {
   app.prepare().then(() => {
     // allow static file
     server.use('/css', express.static('css'))
@@ -44,7 +50,10 @@ sequelize.sync({ alter: true }).then(() => {
     configPassport(passport) // pass passport for configuration
     server.use(session({
       secret: 'ilovescotchscotchyscotchscotch',
-      saveUninitialized: false
+      store: sessionStore,
+      saveUninitialized: false,
+      resave: false,
+      proxy: true
     })) // session secret
     server.use(passport.initialize())
     server.use(passport.session()) // persistent login sessions
