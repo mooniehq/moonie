@@ -1,5 +1,5 @@
-import { withTranslation, Link } from '../i18n'
-import Page from '../components/Page'
+import { withTranslation, Link } from '../../i18n'
+import Page from '../../components/Page'
 import fetch from 'isomorphic-unfetch'
 
 const CommunityList = ({ communities, t }) => {
