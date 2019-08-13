@@ -13,7 +13,7 @@ module.exports = function (passport) {
   router.post('/api/signin',
     passport.authenticate('local', {
       failureRedirect: '/signin',
-      successRedirect: '/api/test'
+      successRedirect: '/'
     }))
 
   router.post('/api/signup', async (req, res) => {
