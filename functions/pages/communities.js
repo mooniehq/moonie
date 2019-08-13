@@ -18,8 +18,7 @@ const CommunityList = ({ communities, t }) => {
               <td>{index + 1}</td>
               <td>
                 <Link 
-                  as={`/communities/${community.id}`}
-                  href={`/community?id=${community.id}`}>
+                  href={`/communities/[id]`} as ={`/communities/${community.id}`}>
                     {community.subdomain}
                 </Link>                
               </td>

@@ -1,5 +1,5 @@
-import Page from '../components/Page'
 import fetch from 'isomorphic-unfetch'
+import { useRouter } from 'next/router'
 
 const Community = ( {community} ) => {
   return (

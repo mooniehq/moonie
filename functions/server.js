@@ -55,8 +55,6 @@ sequelize.sync({ alter: true }).then(() => {
     server.use(nextI18NextMiddleware(nextI18next))
 
     // authRouter.use(nocache())
-    server.use(authRouter)
-
     server.use(communityRouter)
 
     server.use(auth(passport))

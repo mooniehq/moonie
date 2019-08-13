@@ -20,7 +20,7 @@ function Home ({ t }) {
           </Link>
         </li>
         <li>
-          <Link href="/community-list" as="/communities">
+          <Link href="/communities">
             <a>{t('communities')}</a>
           </Link>
         </li>
