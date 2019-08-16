@@ -23,4 +23,24 @@ router.post('/api/question', isLoggedIn, async (req, res) => {
   }
 })
 
+router.get('/api/question/:qid', isLoggedIn, async (req, res) => {
+  try {
+    const { user } = req
+    const { qid } = req.params
+    console.log(user)
+    const question = await Question.findOne({
+      where: {
+        author_id: user.id,
+        community_id: user.community_id,
+        id: qid
+      }
+    })
+    console.log(question)
+    return res.json(question)
+  } catch (err) {
+    console.error(err)
+    return res.json({})
+  }
+})
+
 module.exports = router
