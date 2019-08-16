@@ -24,6 +24,11 @@ function Home ({ t }) {
             <a>{t('create-question')}</a>
           </Link>
         </li>
+        <li>
+          <Link href="/question/1" as ="/question/1">
+            <a>question 1</a>
+          </Link>
+        </li>
       </ul>
     </Page>
   )
