@@ -23,6 +23,7 @@ module.exports = function (passport) {
     {
       usernameField: 'email',
       passwordField: 'password',
+      session: true,
       passReqToCallback: true
     },
     async (req, email, password, done) => {
