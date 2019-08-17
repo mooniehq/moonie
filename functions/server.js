@@ -3,6 +3,7 @@ const next = require('next')
 
 const test = require('./api/test') // for quick test
 const question = require('./api/question')
+const community = require('./api/community')
 
 const passport = require('passport')
 const flash = require('connect-flash')
@@ -19,8 +20,6 @@ const nextI18next = require('./i18n')
 const configPassport = require('./config/passport')
 const { sequelize } = require('./models')
 
-
-const communityRouter = require('./api/community-route.js')
 const auth = require('./api/auth')
 
 const dev = process.env.NODE_ENV !== 'production'
@@ -64,7 +63,7 @@ sessionStore.sync({ alter: true }).then(() => {
     server.use(nextI18NextMiddleware(nextI18next))
 
     // authRouter.use(nocache())
-    server.use(communityRouter)
+    server.use(community)
 
     server.use(auth(passport))
 

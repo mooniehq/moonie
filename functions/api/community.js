@@ -1,10 +1,11 @@
-const express = require('express')
-const router = express.Router()
+const { Router } = require('express')
 const { Community } = require('../models')
+
+const router = Router()
 
 router.get('/api/communities', async (req, res) => {
   try {
-    let communities = await Community.findAll()
+    const communities = await Community.findAll()
     return res.json(communities)
   } catch (err) {
     res.json(err)
@@ -14,7 +15,7 @@ router.get('/api/communities', async (req, res) => {
 router.get('/api/communities/:id', async (req, res) => {
   try {
     const { id } = req.params
-    let community = await Community.findOne({ where: { id } })
+    const community = await Community.findOne({ where: { id } })
     return res.json(community)
   } catch (err) {
     res.json(err)

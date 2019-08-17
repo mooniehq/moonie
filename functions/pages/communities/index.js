@@ -1,3 +1,4 @@
+import { array } from 'prop-types'
 import { withTranslation, Link } from '../../i18n'
 import Page from '../../components/Page'
 import fetch from 'isomorphic-unfetch'
@@ -17,10 +18,10 @@ const CommunityList = ({ communities, t }) => {
             <tr key={community.id}>
               <td>{index + 1}</td>
               <td>
-                <Link 
+                <Link
                   href={`/communities/[id]`} as ={`/communities/${community.id}`}>
-                    {community.subdomain}
-                </Link>                
+                  {community.subdomain}
+                </Link>
               </td>
             </tr>
           ))}
@@ -38,6 +39,10 @@ CommunityList.getInitialProps = async () => {
     communities: data,
     namespacesRequired: ['common']
   }
+}
+
+CommunityList.propTypes = {
+  communities: array
 }
 
 export default withTranslation(['common'])(CommunityList)

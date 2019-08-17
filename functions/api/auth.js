@@ -12,12 +12,12 @@ module.exports = function (passport) {
 
   router.post('/api/signin',
     passport.authenticate('local', {
-      failureRedirect: '/signin',
+      failureRedirect: '/signin'
       // successReturnToOrRedirect: '/test/page'
-    }), function(req, res, next) {
-      req.session.save(function() {             
-        return res.redirect('/test/page');
-      });
+    }), function (req, res, next) {
+      req.session.save(function () {
+        return res.redirect('/test/page')
+      })
     })
 
   router.post('/api/signup', async (req, res) => {

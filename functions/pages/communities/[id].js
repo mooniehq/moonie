@@ -1,7 +1,7 @@
+import { shape, string } from 'prop-types'
 import fetch from 'isomorphic-unfetch'
-import { useRouter } from 'next/router'
 
-const Community = ( {community} ) => {
+const Community = ({ community }) => {
   return (
     <div>
       {community.subdomain}
@@ -10,14 +10,20 @@ const Community = ( {community} ) => {
 }
 
 Community.getInitialProps = async (context) => {
-  const {id} = context.query
+  const { id } = context.query
   const res = await fetch(`/api/communities/${id}`)
   const community = await res.json()
 
-  return { 
+  return {
     community,
     namespacesRequired: ['common']
   }
+}
+
+Community.propTypes = {
+  community: shape({
+    subdomain: string
+  })
 }
 
 export default Community
