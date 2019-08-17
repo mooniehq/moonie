@@ -1,21 +1,27 @@
 const { Router } = require('express')
-const { isLoggedIn } = require('../auth/authorize')
+const { isLoggedIn } = require('../middleware/authorize')
 const { Question } = require('../models')
 
 const router = Router()
 
 router.post('/api/question', isLoggedIn, async (req, res) => {
   try {
-    const { user } = req
-    const { title, content } = req.body
-    console.log(user)
-    const question = await Question.create({
+    const {
+      user: {
+        id: author_id,
+        community_id
+      },
+      body: {
+        title,
+        content
+      }
+    } = req
+    await Question.create({
       title,
       content,
-      author_id: user.id,
-      community_id: user.community_id
+      author_id,
+      community_id
     })
-    console.log(question)
     return res.redirect('/create-question')
   } catch (err) {
     console.error(err)

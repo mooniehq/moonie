@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const { Community, User } = require('../models')
+const { createCommunity } = require('../services/community-service')
 
 module.exports = function (passport) {
 
@@ -13,8 +13,8 @@ module.exports = function (passport) {
   router.post('/api/signin',
     passport.authenticate('local', {
       failureRedirect: '/signin'
-      // successReturnToOrRedirect: '/test/page'
-    }), function (req, res, next) {
+    }),
+    function (req, res, next) {
       req.session.save(function () {
         return res.redirect('/test/page')
       })
@@ -22,20 +22,8 @@ module.exports = function (passport) {
 
   router.post('/api/signup', async (req, res) => {
     try {
-      const { body } = req
-      const { subdomain, email, password } = body
-      let community = await Community.findOne({ where: { subdomain } })
-      if (!community) {
-        community = await Community.create({ subdomain })
-      }
-      let user = await User.findOne({ where: { community_id: community.id, email } })
-      if (!user) {
-        user = await User.create({
-          community_id: community.id,
-          email,
-          password
-        })
-      }
+      const { subdomain, email, password } = req.body
+      const { user } = await createCommunity(subdomain, email, password)
       return res.json(user)
     } catch (err) {
       console.error(err)

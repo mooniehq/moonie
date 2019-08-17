@@ -1,10 +1,14 @@
 import { shape, string } from 'prop-types'
 import fetch from 'isomorphic-unfetch'
 
-const Community = ({ community }) => {
+const Community = ({
+  community: {
+    subdomain
+  }
+}) => {
   return (
     <div>
-      {community.subdomain}
+      {subdomain}
     </div>
   )
 }

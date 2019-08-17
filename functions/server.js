@@ -4,23 +4,24 @@ const next = require('next')
 const test = require('./api/test') // for quick test
 const question = require('./api/question')
 const community = require('./api/community')
+const auth = require('./api/auth')
 
 const passport = require('passport')
 const flash = require('connect-flash')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+
 const session = require('express-session')
-// initalize sequelize with session store
-var SequelizeStore = require('connect-session-sequelize')(session.Store)
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
+
 const healthcheck = require('express-healthcheck')
+
 const nextI18NextMiddleware = require('next-i18next/middleware').default
 const nextI18next = require('./i18n')
 
 const configPassport = require('./config/passport')
 const { sequelize } = require('./models')
-
-const auth = require('./api/auth')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -28,7 +29,7 @@ const handle = app.getRequestHandler()
 
 const server = express()
 
-var sessionStore = new SequelizeStore({
+const sessionStore = new SequelizeStore({
   db: sequelize
 })
 

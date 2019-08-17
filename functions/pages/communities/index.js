@@ -1,4 +1,4 @@
-import { array } from 'prop-types'
+import { arrayOf, shape, number, string } from 'prop-types'
 import { withTranslation, Link } from '../../i18n'
 import Page from '../../components/Page'
 import fetch from 'isomorphic-unfetch'
@@ -14,13 +14,13 @@ const CommunityList = ({ communities, t }) => {
           </tr>
         </thead>
         <tbody>
-          {communities.map((community, index) => (
-            <tr key={community.id}>
+          {communities.map(({ id, subdomain }, index) => (
+            <tr key={id}>
               <td>{index + 1}</td>
               <td>
                 <Link
-                  href={`/communities/[id]`} as ={`/communities/${community.id}`}>
-                  {community.subdomain}
+                  href={`/communities/[id]`} as ={`/communities/${id}`}>
+                  {subdomain}
                 </Link>
               </td>
             </tr>
@@ -42,7 +42,10 @@ CommunityList.getInitialProps = async () => {
 }
 
 CommunityList.propTypes = {
-  communities: array
+  communities: arrayOf(shape({
+    id: number,
+    subdomain: string
+  }))
 }
 
 export default withTranslation(['common'])(CommunityList)
