@@ -19,6 +19,8 @@ const nextI18next = require('./i18n')
 const configPassport = require('./config/passport')
 const { sequelize } = require('./models')
 
+
+const communityRouter = require('./api/community-route.js')
 const auth = require('./api/auth')
 
 const dev = process.env.NODE_ENV !== 'production'
@@ -62,7 +64,10 @@ sessionStore.sync({ alter: true }).then(() => {
     server.use(nextI18NextMiddleware(nextI18next))
 
     // authRouter.use(nocache())
+    server.use(communityRouter)
+
     server.use(auth(passport))
+
     server.use(test)
     server.use(question)
 

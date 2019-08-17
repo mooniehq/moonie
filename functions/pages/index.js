@@ -20,6 +20,11 @@ function Home ({ t }) {
           </Link>
         </li>
         <li>
+          <Link href="/communities">
+            <a>{t('communities')}</a>
+          </Link>
+        </li>
+        <li>
           <Link href="/create-question">
             <a>{t('create-question')}</a>
           </Link>
