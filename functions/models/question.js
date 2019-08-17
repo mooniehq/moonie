@@ -4,9 +4,9 @@ module.exports = function (sequelize) {
 
   class Question extends Model {
 
-    static associate (db) {
-      Question.belongsTo(db.User, { as: 'author' })
-      Question.belongsTo(db.Community)
+    static associate ({ User, Community }) {
+      Question.belongsTo(User, { as: 'author' })
+      Question.belongsTo(Community)
     }
   }
 

@@ -2,7 +2,7 @@
 
 const { json } = require('body-parser')
 const { Router } = require('express')
-const { isLoggedIn } = require('../auth/authorize')
+const { isLoggedIn } = require('../middleware/authorize')
 
 const router = Router()
 
