@@ -5,10 +5,10 @@ function getConfig (key) {
 }
 
 const dbConfig = {
-  username: getConfig('DB_USERNAME'),
-  password: getConfig('DB_PASSWORD'),
+  username: 'postgres' || getConfig('DB_USERNAME'),
+  password: 'Password1' || getConfig('DB_PASSWORD'),
   database: 'moonie',
-  host: getConfig('DB_HOST'),
+  host: 'localhost' || getConfig('DB_HOST'),
   dialect: 'postgres',
   define: {
     freezeTableName: true,
