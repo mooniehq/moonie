@@ -15,8 +15,4 @@ const Question = ({ t }) => {
   )
 }
 
-Question.getInitialProps = () => ({
-  namespacesRequired: ['common']
-})
-
-export default withTranslation(['common'])(Question)
+export default withTranslation('common')(Question)

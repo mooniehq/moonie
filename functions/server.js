@@ -1,10 +1,11 @@
 const express = require('express')
 const next = require('next')
 
-const test = require('./api/test') // for quick test
-const question = require('./api/question')
-const community = require('./api/community')
-const auth = require('./api/auth')
+const test = require('./routes/test') // for quick test
+const question = require('./routes/question')
+const community = require('./routes/community')
+const auth = require('./routes/auth')
+const nextFallback = require('./routes/nextFallback')
 
 const passport = require('passport')
 const flash = require('connect-flash')
@@ -24,8 +25,7 @@ const configPassport = require('./config/passport')
 const { sequelize } = require('./models')
 
 const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
-const handle = app.getRequestHandler()
+const nextApp = next({ dev })
 
 const server = express()
 
@@ -34,7 +34,7 @@ const sessionStore = new SequelizeStore({
 })
 
 sessionStore.sync({ alter: true }).then(() => {
-  app.prepare().then(() => {
+  nextApp.prepare().then(() => {
     // allow static file
     server.use('/css', express.static('css'))
 
@@ -64,15 +64,11 @@ sessionStore.sync({ alter: true }).then(() => {
     server.use(nextI18NextMiddleware(nextI18next))
 
     // authRouter.use(nocache())
-    server.use(community)
-
-    server.use(auth(passport))
-
     server.use(test)
-    server.use(question)
-
-    // handling everything else with Next.js
-    server.get('*', handle)
+    server.use(auth(passport))
+    server.use(community(nextApp))
+    server.use(question(nextApp))
+    server.use(nextFallback(nextApp))
   })
 }).catch(err => {
   console.log(err)
