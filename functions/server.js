@@ -64,6 +64,21 @@ sessionStore.sync({ alter: true }).then(() => {
     server.use(nextI18NextMiddleware(nextI18next))
 
     // authRouter.use(nocache())
+
+    server.use((err, req, res, next) => {
+      // https://expressjs.com/en/guide/error-handling.html
+      // If you call next() with an error after you have started writing the response
+      // (for example, if you encounter an error while streaming the response to the client)
+      // the Express default error handler closes the connection and fails the request.
+      // So when you add a custom error handler, you must delegate to the default Express error handler,
+      // when the headers have already been sent to the client.
+      if (res.headersSent) {
+        return next(err)
+      }
+      res.status(500)
+      res.render('error', { error: err })
+    })
+
     server.use(test)
     server.use(auth(passport))
     server.use(community(nextApp))
