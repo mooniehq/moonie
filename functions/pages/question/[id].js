@@ -11,7 +11,7 @@ function Question ({ question: { title, content } }) {
   )
 }
 
-Question.getInitialProps = async ({ query: { question } }) => {
+Question.getInitialProps = async ({ query: { question, answers } }) => {
   console.log(question)
   return {
     question

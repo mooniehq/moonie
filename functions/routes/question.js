@@ -1,16 +1,39 @@
 const { Router } = require('express')
 const { isLoggedIn } = require('../middleware/authorize')
-const { Question } = require('../models')
+const { Question, Answer } = require('../models')
 
 module.exports = function (nextApp) {
 
   const router = Router()
 
-  router.get('/question/:id', async (req, res) => {
+  router.get('/question/:id', isLoggedIn, async (req, res) => {
     try {
+      const {
+        user: {
+          id: author_id,
+          community_id
+        }
+      } = req
+
       const { id } = req.params
-      const question = await Question.findOne({ where: { id } })
-      return nextApp.render(req, res, '/question/:id', { question })
+      const question = await Question.findOne({ 
+        where: {
+          author_id,
+          community_id,
+          id
+        }  
+      })
+      let answers = []
+      if (question) {
+        answers = await Answer.findAll({
+          where: {
+            author_id,
+            community_id,
+            question_id: question.id
+          }
+        }) 
+      }
+      return nextApp.render(req, res, '/question/:id', { question, answers })
     } catch (err) {
       res.send(err)
     }
