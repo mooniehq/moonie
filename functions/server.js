@@ -33,7 +33,7 @@ const sessionStore = new SequelizeStore({
   db: sequelize
 })
 
-sessionStore.sync({ alter: true }).then(() => {
+sequelize.sync({ alter: true }).then(() => {
   nextApp.prepare().then(() => {
     // allow static file
     server.use('/css', express.static('css'))
