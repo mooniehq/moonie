@@ -16,7 +16,7 @@ module.exports = function (passport) {
     }),
     function (req, res, next) {
       req.session.save(function () {
-        return res.redirect('/test/page')
+        return res.send('Success')
       })
     })
 
@@ -26,8 +26,7 @@ module.exports = function (passport) {
       const { user } = await createCommunity(subdomain, email, password)
       return res.json(user)
     } catch (err) {
-      console.error(err)
-      res.json(err)
+      res.send(err)
     }
   })
 

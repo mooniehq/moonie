@@ -18,8 +18,4 @@ function SignUp ({ t }) {
   )
 }
 
-SignUp.getInitialProps = () => ({
-  namespacesRequired: ['common']
-})
-
 export default withTranslation('common')(SignUp)
