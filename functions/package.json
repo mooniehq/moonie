@@ -10,7 +10,8 @@
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
-    "debug": "nodemon --inspect local.js"
+    "debug": "nodemon --inspect local.js",
+    "test": "jest"
   },
   "engines": {
     "node": "8"
@@ -61,7 +62,11 @@
     "eslint-plugin-standard": "^4.0.0",
     "firebase-functions-test": "^0.1.6",
     "nodemon": "^1.19.1",
-    "sequelize-cli": "^5.5.0"
+    "sequelize-cli": "^5.5.0",
+    "babel-jest": "24.8.0",
+    "enzyme": "3.10.0",
+    "enzyme-adapter-react-16": "1.14.0",
+    "jest": "24.8.0"
   },
   "private": true
 }
