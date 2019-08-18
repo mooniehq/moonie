@@ -3,7 +3,8 @@ module.exports = {
     browser: true,
     es6: true,
     commonjs: true,
-    node: true
+    "jest/globals": true
+    node: true,
   },
   extends: [
     'standard',
@@ -21,6 +22,7 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
+    'jest',
     'react'
   ],
   settings: {
