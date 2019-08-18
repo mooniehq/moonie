@@ -17,7 +17,7 @@ const Communities = ({ communities, t }) => {
             <tr key={`community-${id}`}>
               <td>{id}</td>
               <td>
-                <a href={`/communities/${id}`}>
+                <a href={`/community/${id}`}>
                   {subdomain}
                 </a>
               </td>

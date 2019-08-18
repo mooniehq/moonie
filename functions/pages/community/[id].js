@@ -1,4 +1,4 @@
-import { withTranslation } from '../i18n'
+import { withTranslation } from '../../i18n'
 import { shape, string } from 'prop-types'
 import Page from '../../components/Page'
 

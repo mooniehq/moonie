@@ -1,10 +1,8 @@
 import { withTranslation } from '../../i18n'
 import { shape, string } from 'prop-types'
 import Page from '../../components/Page'
-import { useRouter } from 'next/router'
 
-function Question () {
-  const { query: { question: { title, content } } } = useRouter()
+function Question ({ question: { title, content } }) {
   console.log(title)
   return (
     <Page>
@@ -12,6 +10,12 @@ function Question () {
       <p>{content}</p>
     </Page>
   )
+}
+
+Question.getInitialProps = async ({ query: { question } }) => {
+  return {
+    question
+  }
 }
 
 Question.propTypes = {
