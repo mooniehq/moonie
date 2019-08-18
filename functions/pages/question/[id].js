@@ -3,7 +3,6 @@ import { shape, string } from 'prop-types'
 import Page from '../../components/Page'
 
 function Question ({ question: { title, content } }) {
-  console.log(title)
   return (
     <Page>
       <h1>{title}</h1>
