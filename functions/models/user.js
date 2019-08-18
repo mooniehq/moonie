@@ -5,8 +5,8 @@ module.exports = function (sequelize) {
 
   class User extends Model {
 
-    static associate (db) {
-      User.belongsTo(db.Community)
+    static associate ({ Community }) {
+      User.belongsTo(Community)
     }
 
     validPassword (password) {

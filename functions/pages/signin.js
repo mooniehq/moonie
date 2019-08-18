@@ -18,8 +18,4 @@ const SignIn = ({ t }) => {
   )
 }
 
-SignIn.getInitialProps = () => ({
-  namespacesRequired: ['common']
-})
-
-export default withTranslation(['common'])(SignIn)
+export default withTranslation('common')(SignIn)

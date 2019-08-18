@@ -29,6 +29,7 @@ module.exports = {
     }
   },
   rules: {
+    'camelcase': 'off',
     'padded-blocks': 'off',
     "react/prop-types": ['error', { ignore: ['children', 't'] }],
     'react/react-in-jsx-scope': 'off'
