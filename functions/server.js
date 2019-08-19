@@ -1,6 +1,10 @@
 const express = require('express')
 const next = require('next')
 
+const { isDev } = require('./config/config')
+
+const { lookUpCommunity } = require('./middleware/community')
+
 const test = require('./routes/test') // for quick test
 const question = require('./routes/question')
 const community = require('./routes/community')
@@ -8,15 +12,15 @@ const auth = require('./routes/auth')
 const nextFallback = require('./routes/nextFallback')
 
 const passport = require('passport')
+
 const flash = require('connect-flash')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+const healthcheck = require('express-healthcheck')
 
 const session = require('express-session')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
-
-const healthcheck = require('express-healthcheck')
 
 const nextI18NextMiddleware = require('next-i18next/middleware').default
 const nextI18next = require('./i18n')
@@ -24,8 +28,7 @@ const nextI18next = require('./i18n')
 const configPassport = require('./config/passport')
 const { sequelize } = require('./models')
 
-const dev = process.env.NODE_ENV !== 'production'
-const nextApp = next({ dev })
+const nextApp = next({ dev: isDev })
 
 const server = express()
 
@@ -79,6 +82,7 @@ sessionStore.sync({ alter: true }).then(() => {
       res.render('error', { error: err })
     })
 
+    server.use(lookUpCommunity)
     server.use(test)
     server.use(auth(passport))
     server.use(community(nextApp))

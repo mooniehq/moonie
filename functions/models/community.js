@@ -1,6 +1,6 @@
 const { Model, STRING } = require('sequelize')
 
-module.exports = function (sequelize) {
+module.exports = (sequelize) => {
 
   class Community extends Model {
   }

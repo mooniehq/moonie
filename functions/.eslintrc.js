@@ -3,11 +3,12 @@ module.exports = {
     browser: true,
     es6: true,
     commonjs: true,
-    "jest/globals": true
-    node: true,
+    'jest/globals': true,
+    node: true
   },
   extends: [
     'standard',
+    'plugin:jest/recommended',
     'plugin:react/recommended'
   ],
   globals: {

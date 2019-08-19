@@ -2,7 +2,7 @@ const { Router } = require('express')
 const asyncRoute = require('route-async')
 const { Community } = require('../models')
 
-module.exports = function (nextApp) {
+module.exports = (nextApp) => {
 
   const router = Router()
 

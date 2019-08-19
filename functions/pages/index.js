@@ -2,7 +2,7 @@ import * as React from 'react'
 import { withTranslation } from '../i18n'
 import Page from '../components/Page'
 
-function Home ({ t }) {
+const Home = ({ t }) => {
 
   return (
     <Page>

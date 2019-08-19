@@ -3,7 +3,7 @@ const asyncRoute = require('route-async')
 const { isLoggedIn } = require('../middleware/authorize')
 const { Question } = require('../models')
 
-module.exports = function (nextApp) {
+module.exports = (nextApp) => {
 
   const router = Router()
 

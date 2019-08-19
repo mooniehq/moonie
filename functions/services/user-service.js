@@ -1,6 +1,6 @@
 const { sequelize, User } = require('../models')
 
-async function findUser (subdomain, email) {
+const findUser = async (subdomain, email) => {
   const users = await sequelize.query(
     'select m.* from member m inner join community c on m.community_id = c.id where m.email = :email and c.subdomain = :subdomain',
     {

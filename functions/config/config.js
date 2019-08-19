@@ -1,14 +1,20 @@
 const functions = require('firebase-functions')
 
-function getConfig (key) {
-  return process.env[key] || functions.config().service[key.toLowerCase()]
+const isDev = process.env.NODE_ENV !== 'production'
+
+const getConfig = (key, defaultValue) => {
+  if (isDev) {
+    return process.env[key] || defaultValue
+  } else {
+    return functions.config().service[key.toLowerCase()]
+  }
 }
 
 const dbConfig = {
-  username: getConfig('DB_USERNAME'),
-  password: getConfig('DB_PASSWORD'),
+  username: getConfig('DB_USERNAME', 'postgres'),
+  password: getConfig('DB_PASSWORD', 'root'),
   database: 'moonie',
-  host: getConfig('DB_HOST'),
+  host: getConfig('DB_HOST', 'localhost'),
   dialect: 'postgres',
   define: {
     freezeTableName: true,
@@ -16,4 +22,8 @@ const dbConfig = {
   }
 }
 
-module.exports = { dbConfig }
+const appConfig = {
+  baseDomain: getConfig('DOMAIN', 'localtest.me')
+}
+
+module.exports = { isDev, dbConfig, appConfig }

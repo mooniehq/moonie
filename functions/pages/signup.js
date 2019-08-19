@@ -1,7 +1,7 @@
 import { withTranslation } from '../i18n'
 import Page from '../components/Page'
 
-function SignUp ({ t }) {
+const SignUp = ({ t }) => {
   return (
     <Page>
       <h1>{t('sign-up')}</h1>

@@ -2,11 +2,11 @@ const { Router } = require('express')
 const asyncRoute = require('route-async')
 const { createCommunity } = require('../services/community-service')
 
-module.exports = function (passport) {
+module.exports = (passport) => {
 
   const router = Router()
 
-  router.get('/api/signout', function (req, res) {
+  router.get('/api/signout', (req, res) => {
     req.logout()
     res.redirect('/')
   })
@@ -15,8 +15,8 @@ module.exports = function (passport) {
     passport.authenticate('local', {
       failureRedirect: '/signin'
     }),
-    function (req, res, next) {
-      req.session.save(function () {
+    (req, res, next) => {
+      req.session.save(() => {
         return res.send('Success')
       })
     })

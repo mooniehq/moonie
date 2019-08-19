@@ -1,6 +1,6 @@
 const { Community, User } = require('../models')
 
-async function createCommunity (subdomain, email, password) {
+const createCommunity = async (subdomain, email, password) => {
   let community = await Community.findOne({ where: { subdomain } })
   if (!community) {
     community = await Community.create({ subdomain })
