@@ -1,45 +1,47 @@
-import { arrayOf, shape, number, string } from 'prop-types'
 import { withTranslation } from '../../i18n'
+import { shape, string } from 'prop-types'
 import Page from '../../components/Page'
 
-const Communities = ({ communities, t }) => {
+const Community = ({
+  community: {
+    subdomain
+  },
+  t
+}) => {
   return (
     <Page>
-      <table>
-        <thead>
-          <tr key="communities-header">
-            <th>#</th>
-            <th>{t('community')}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {communities.map(({ id, subdomain }) => (
-            <tr key={`community-${id}`}>
-              <td>{id}</td>
-              <td>
-                <a href={`/community/${id}`}>
-                  {subdomain}
-                </a>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <h1>{subdomain}</h1>
+      <ul>
+        <li>
+          <a href="/signin">
+            {t('sign-in')}
+          </a>
+        </li>
+        <li>
+          <a href="/signup">
+            {t('sign-up')}
+          </a>
+        </li>
+        <li>
+          <a href="/ask">
+            {t('create-question')}
+          </a>
+        </li>
+      </ul>
     </Page>
   )
 }
 
-Communities.getInitialProps = async ({ query: { communities } }) => {
+Community.getInitialProps = async ({ query: { community } }) => {
   return {
-    communities
+    community
   }
 }
 
-Communities.propTypes = {
-  communities: arrayOf(shape({
-    id: number,
+Community.propTypes = {
+  community: shape({
     subdomain: string
-  }))
+  })
 }
 
-export default withTranslation('common')(Communities)
+export default withTranslation('common')(Community)

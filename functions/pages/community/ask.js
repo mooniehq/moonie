@@ -1,6 +1,6 @@
-import { withTranslation } from '../i18n'
-import Page from '../components/Page'
-import MarkdownEditor from '../components/MarkdownEditor'
+import { withTranslation } from '../../i18n'
+import Page from '../../components/Page'
+import MarkdownEditor from '../../components/MarkdownEditor'
 
 const Question = ({ t }) => {
   return (

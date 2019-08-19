@@ -10,7 +10,7 @@ module.exports = (nextApp) => {
   router.get('/question/:id', asyncRoute(async (req, res) => {
     const { id } = req.params
     const question = await Question.findOne({ where: { id } })
-    return nextApp.render(req, res, '/question/:id', { question })
+    return nextApp.render(req, res, '/community/question', { question })
   }))
 
   router.post('/api/question', isLoggedIn, asyncRoute(async (req, res) => {

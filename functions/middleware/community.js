@@ -1,12 +1,20 @@
+const { Community } = require('../models')
+
 const { appConfig: { baseDomain } } = require('../config/config')
 
-const lookUpCommunity = ({ host }, res, next) => {
-  const domainIndex = host.indexOf(baseDomain)
-  let subDomain
-  if (domainIndex > 0) {
-    subDomain = host.substring(0, domainIndex - 1)
+const lookUpCommunity = async (req, res, next) => {
+  const { hostname } = req
+  const domainIndex = hostname.indexOf(baseDomain)
+  let subdomain
+  if (domainIndex > 1) { // subdomain.basedomain
+    subdomain = hostname.substring(0, domainIndex - 1)
   }
-  console.log(subDomain)
+  if (subdomain) {
+    const community = await Community.findOne({ where: { subdomain } })
+    if (community) {
+      req.community = community
+    }
+  }
   next()
 }
 

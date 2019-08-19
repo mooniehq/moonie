@@ -1,13 +1,11 @@
-import { withTranslation } from '../i18n'
-import Page from '../components/Page'
+import { withTranslation } from '../../i18n'
+import Page from '../../components/Page'
 
 const SignUp = ({ t }) => {
   return (
     <Page>
       <h1>{t('sign-up')}</h1>
       <form action="/api/signup" method="post">
-        <label htmlFor="subdomain">{t('community')}</label>
-        <input id="subdomain" name="subdomain" />
         <label htmlFor="email">{t('email')}</label>
         <input id="email" name="email" />
         <label htmlFor="password">{t('password')}</label>

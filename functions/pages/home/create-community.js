@@ -1,11 +1,11 @@
-import { withTranslation } from '../i18n'
-import Page from '../components/Page'
+import { withTranslation } from '../../i18n'
+import Page from '../../components/Page'
 
-const SignIn = ({ t }) => {
+const SignUp = ({ t }) => {
   return (
     <Page>
-      <h1>{t('sign-in')}</h1>
-      <form action="/api/signin" method="post">
+      <h1>{t('create-community')}</h1>
+      <form action="/api/signup" method="post">
         <label htmlFor="subdomain">{t('community')}</label>
         <input id="subdomain" name="subdomain" />
         <label htmlFor="email">{t('email')}</label>
@@ -18,4 +18,4 @@ const SignIn = ({ t }) => {
   )
 }
 
-export default withTranslation('common')(SignIn)
+export default withTranslation('common')(SignUp)
