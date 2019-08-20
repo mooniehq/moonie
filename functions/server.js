@@ -87,9 +87,10 @@ nextApp.prepare().then(() => {
   server.use(auth(passport, nextApp))
   server.use(community(nextApp))
   server.use(home(nextApp))
-  server.use(nextFallback(nextApp))
   server.use(question(nextApp))
   server.use(test)
+
+  server.use(nextFallback(nextApp))
 })
 
 sequelize.sync({ alter: true }).then(() => {

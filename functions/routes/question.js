@@ -13,9 +13,9 @@ module.exports = (nextApp) => {
     return nextApp.render(req, res, '/community/question', { question })
   }))
 
-  router.get('/ask', isLoggedIn, asyncRoute(async (req, res) => {
+  router.get('/ask', isLoggedIn, (req, res) => {
     return nextApp.render(req, res, '/community/ask')
-  }))
+  })
 
   router.post('/api/question', isLoggedIn, asyncRoute(async (req, res) => {
     const {
@@ -34,7 +34,7 @@ module.exports = (nextApp) => {
       author_id,
       community_id
     })
-    return res.redirect('/create-question')
+    return res.redirect('/ask')
   }))
 
   return router
