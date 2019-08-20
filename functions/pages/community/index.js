@@ -3,18 +3,23 @@ import { shape, string } from 'prop-types'
 import Page from '../../components/Page'
 
 const Community = ({
-  user: {
-    email
-  },
+  user,
   community: {
     subdomain
   },
   t
 }) => {
+  let email
+  if (user) {
+    email = user.email
+  }
   return (
     <Page>
       <h1>{subdomain}</h1>
-      <p>{email}</p>
+      {
+        email &&
+        <p>{user.email}</p>
+      }
       <ul>
         <li>
           <a href="/signin">
