@@ -14,11 +14,9 @@ module.exports = (nextApp) => {
     if (question) {
       answers = await Answer.findAll({
         where: {
-          author_id,
-          community_id,
           question_id: question.id
         }
-      }) 
+      })
     }
     return nextApp.render(req, res, '/community/question', { question, answers })
   }))
