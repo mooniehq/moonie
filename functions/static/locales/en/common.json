@@ -6,8 +6,9 @@
     "home": "Home",
     "email": "Email",
     "community": "Community",
-    "communities": "Communities",    
+    "communities": "Communities",
     "password": "Password",
     "submit": "Submit",
-    "create-question": "Create a new question"
+    "create-question": "Create a new question",
+    "create-community": "Create a new community"
 }

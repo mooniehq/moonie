@@ -1,6 +1,6 @@
 const { Model, INTEGER, TEXT } = require('sequelize')
 
-module.exports = function (sequelize) {
+module.exports = (sequelize) => {
 
   class Question extends Model {
 

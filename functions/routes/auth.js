@@ -1,11 +1,12 @@
 const { Router } = require('express')
-const { createCommunity } = require('../services/community-service')
+const asyncRoute = require('route-async')
+const { createUser } = require('../services/user-service')
 
-module.exports = function (passport) {
+module.exports = (passport, nextApp) => {
 
   const router = Router()
 
-  router.get('/api/signout', function (req, res) {
+  router.get('/api/signout', (req, res) => {
     req.logout()
     res.redirect('/')
   })
@@ -14,20 +15,23 @@ module.exports = function (passport) {
     passport.authenticate('local', {
       failureRedirect: '/signin'
     }),
-    function (req, res, next) {
-      req.session.save(function () {
+    (req, res, next) => {
+      req.session.save(() => {
         return res.send('Success')
       })
     })
 
-  router.post('/api/signup', async (req, res) => {
-    try {
-      const { subdomain, email, password } = req.body
-      const { user } = await createCommunity(subdomain, email, password)
-      return res.json(user)
-    } catch (err) {
-      res.send(err)
-    }
+  router.post('/api/signup', asyncRoute(async ({ community, body: { email, password } }, res) => {
+    const { user } = await createUser(community, email, password)
+    return res.json(user)
+  }))
+
+  router.get('/signin', (req, res) => {
+    return nextApp.render(req, res, '/community/signin')
+  })
+
+  router.get('/signup', (req, res) => {
+    return nextApp.render(req, res, '/community/signup')
   })
 
   return router

@@ -1,28 +1,31 @@
 const { Router } = require('express')
+const asyncRoute = require('route-async')
+const { createCommunity } = require('../services/community-service')
 const { Community } = require('../models')
 
-module.exports = function (nextApp) {
+module.exports = (nextApp) => {
 
   const router = Router()
 
-  router.get('/community', async (req, res) => {
-    try {
+  router.get('/communities', asyncRoute(async (req, res) => {
+    const { community } = req
+    if (community) {
+      res.status(404)
+    } else {
       const communities = await Community.findAll().map(community => community.get({ plain: true }))
-      return nextApp.render(req, res, '/community', { communities })
-    } catch (err) {
-      res.send(err)
+      return nextApp.render(req, res, '/home/communities', { communities })
     }
-  })
+  }))
 
-  router.get('/community/:id', async (req, res) => {
-    try {
-      const { id } = req.params
-      const community = await Community.findOne({ where: { id } })
-      return nextApp.render(req, res, '/community/:id', { community })
-    } catch (err) {
-      res.send(err)
-    }
-  })
+  router.get('/create-community', asyncRoute(async (req, res) => {
+    return nextApp.render(req, res, '/home/create-community')
+  }))
+
+  router.post('/api/community', asyncRoute(async (req, res) => {
+    const { subdomain, email, password } = req.body
+    const { user } = await createCommunity(subdomain, email, password)
+    return res.json(user)
+  }))
 
   return router
 }

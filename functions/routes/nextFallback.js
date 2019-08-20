@@ -1,6 +1,6 @@
 const { Router } = require('express')
 
-module.exports = function (nextApp) {
+module.exports = (nextApp) => {
 
   const router = Router()
 

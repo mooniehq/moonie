@@ -7,5 +7,5 @@ const port = process.env.PORT || 3000
 
 server.listen(port, err => {
   if (err) throw err
-  console.log(`Listening on port ${port}`)
+  console.log(`Please visit http://localtest.me:${port}`)
 })

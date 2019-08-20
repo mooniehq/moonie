@@ -1,68 +1,51 @@
 const { Router } = require('express')
+const asyncRoute = require('route-async')
 const { isLoggedIn } = require('../middleware/authorize')
 const { Question, Answer } = require('../models')
 
-module.exports = function (nextApp) {
+module.exports = (nextApp) => {
 
   const router = Router()
 
-  router.get('/question/:id', isLoggedIn, async (req, res) => {
-    try {
-      const {
-        user: {
-          id: author_id,
-          community_id
-        }
-      } = req
-
-      const { id } = req.params
-      const question = await Question.findOne({ 
+  router.get('/question/:id', asyncRoute(async (req, res) => {
+    const { id } = req.params
+    const question = await Question.findOne({ where: { id } })
+    let answers = []
+    if (question) {
+      answers = await Answer.findAll({
         where: {
           author_id,
           community_id,
-          id
-        }  
-      })
-      let answers = []
-      if (question) {
-        answers = await Answer.findAll({
-          where: {
-            author_id,
-            community_id,
-            question_id: question.id
-          }
-        }) 
-      }
-      return nextApp.render(req, res, '/question/:id', { question, answers })
-    } catch (err) {
-      res.send(err)
+          question_id: question.id
+        }
+      }) 
     }
+    return nextApp.render(req, res, '/community/question', { question, answers })
+  }))
+
+  router.get('/ask', isLoggedIn, (req, res) => {
+    return nextApp.render(req, res, '/community/ask')
   })
 
-  router.post('/api/question', isLoggedIn, async (req, res) => {
-    try {
-      const {
-        user: {
-          id: author_id,
-          community_id
-        },
-        body: {
-          title,
-          content
-        }
-      } = req
-      await Question.create({
-        title,
-        content,
-        author_id,
+  router.post('/api/question', isLoggedIn, asyncRoute(async (req, res) => {
+    const {
+      user: {
+        id: author_id,
         community_id
-      })
-      return res.redirect('/create-question')
-    } catch (err) {
-      console.error(err)
-      return res.redirect('/create-question')
-    }
-  })
+      },
+      body: {
+        title,
+        content
+      }
+    } = req
+    await Question.create({
+      title,
+      content,
+      author_id,
+      community_id
+    })
+    return res.redirect('/ask')
+  }))
 
   return router
 }
