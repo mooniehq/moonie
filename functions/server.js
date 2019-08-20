@@ -84,7 +84,7 @@ nextApp.prepare().then(() => {
 
   server.use(lookUpCommunity)
 
-  server.use(auth(passport))
+  server.use(auth(passport, nextApp))
   server.use(community(nextApp))
   server.use(home(nextApp))
   server.use(nextFallback(nextApp))

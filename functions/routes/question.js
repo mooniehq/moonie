@@ -13,6 +13,10 @@ module.exports = (nextApp) => {
     return nextApp.render(req, res, '/community/question', { question })
   }))
 
+  router.get('/ask', isLoggedIn, asyncRoute(async (req, res) => {
+    return nextApp.render(req, res, '/community/ask')
+  }))
+
   router.post('/api/question', isLoggedIn, asyncRoute(async (req, res) => {
     const {
       user: {

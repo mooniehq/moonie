@@ -1,8 +1,8 @@
 const { Router } = require('express')
 const asyncRoute = require('route-async')
-const { createCommunity } = require('../services/community-service')
+const { createUser } = require('../services/user-service')
 
-module.exports = (passport) => {
+module.exports = (passport, nextApp) => {
 
   const router = Router()
 
@@ -21,11 +21,18 @@ module.exports = (passport) => {
       })
     })
 
-  router.post('/api/signup', asyncRoute(async (req, res) => {
-    const { subdomain, email, password } = req.body
-    const { user } = await createCommunity(subdomain, email, password)
+  router.post('/api/signup', asyncRoute(async ({ community, body: { email, password } }, res) => {
+    const { user } = await createUser(community, email, password)
     return res.json(user)
   }))
+
+  router.get('/signin', (req, res) => {
+    return nextApp.render(req, res, '/community/signin')
+  })
+
+  router.get('/signup', (req, res) => {
+    return nextApp.render(req, res, '/community/signup')
+  })
 
   return router
 }

@@ -1,20 +1,21 @@
-const { sequelize, User } = require('../models')
+const { User } = require('../models')
 
-const findUser = async (subdomain, email) => {
-  const users = await sequelize.query(
-    'select m.* from member m inner join community c on m.community_id = c.id where m.email = :email and c.subdomain = :subdomain',
-    {
-      model: User,
-      mapToModel: true,
-      replacements: { email, subdomain },
-      type: sequelize.QueryTypes.SELECT
-    }
-  )
-  if (users.length === 0) {
-    return null
-  }
-  const user = users[0]
+const findUser = async ({ id: community_id }, email) => {
+  const user = await User.findOne({ where: { community_id, email } })
   return user
 }
 
-module.exports = { findUser }
+const createUser = async (community, email, password) => {
+  let user = await findUser(community, email)
+  if (!user) {
+    const { id: community_id } = community
+    user = await User.create({
+      community_id,
+      email,
+      password
+    })
+  }
+  return user
+}
+
+module.exports = { findUser, createUser }

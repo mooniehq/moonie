@@ -3,6 +3,8 @@ const { Community } = require('../models')
 const { appConfig: { baseDomain } } = require('../config/config')
 
 const lookUpCommunity = async (req, res, next) => {
+  delete req.community // make sure community is injected server-side
+
   const { hostname } = req
   const domainIndex = hostname.indexOf(baseDomain)
   let subdomain
