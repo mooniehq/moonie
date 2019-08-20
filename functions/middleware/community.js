@@ -7,7 +7,6 @@ const lookUpCommunity = async (req, res, next) => {
 
   const { hostname } = req
   const domainIndex = hostname.indexOf(baseDomain)
-  console.log(`DOMAIN ${hostname} ${baseDomain}`)
   let subdomain
   if (domainIndex > 1) { // subdomain.basedomain
     subdomain = hostname.substring(0, domainIndex - 1)

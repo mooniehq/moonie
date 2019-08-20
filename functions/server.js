@@ -77,6 +77,7 @@ server.use((err, req, res, next) => {
   // the Express default error handler closes the connection and fails the request.
   // So when you add a custom error handler, you must delegate to the default Express error handler,
   // when the headers have already been sent to the client.
+  console.error(`${req.originalUrl} ${err}`)
   if (res.headersSent) {
     return next(err)
   }
