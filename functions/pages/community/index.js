@@ -36,8 +36,9 @@ const Community = ({
   )
 }
 
-Community.getInitialProps = async ({ query: { community } }) => {
+Community.getInitialProps = async ({ query: { user, community } }) => {
   return {
+    user,
     community
   }
 }
