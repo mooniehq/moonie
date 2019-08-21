@@ -8,8 +8,13 @@ module.exports = (nextApp) => {
   const router = Router()
 
   router.get('/communities', asyncRoute(async (req, res) => {
-    const communities = await Community.findAll().map(community => community.get({ plain: true }))
-    return nextApp.render(req, res, '/home/communities', { communities })
+    const { community } = req
+    if (community) {
+      res.status(404)
+    } else {
+      const communities = await Community.findAll().map(community => community.get({ plain: true }))
+      return nextApp.render(req, res, '/home/communities', { communities })
+    }
   }))
 
   router.get('/create-community', asyncRoute(async (req, res) => {
