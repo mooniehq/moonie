@@ -3,15 +3,24 @@ import { shape, string, arrayOf } from 'prop-types'
 import Page from '../../components/Page'
 
 const Community = ({
+  user,
   community: {
     subdomain
   },
   questions,
   t
 }) => {
+  let email
+  if (user) {
+    email = user.email
+  }
   return (
     <Page>
       <h1>{subdomain}</h1>
+      {
+        email &&
+        <p>{user.email}</p>
+      }
       <ul>
         <li>
           <a href="/signin">
@@ -53,14 +62,19 @@ const Community = ({
   )
 }
 
-Community.getInitialProps = async ({ query: { community, questions } }) => {
+
+Community.getInitialProps = async ({ query: { user, community, questions } }) => {
   return {
+    user,
     community,
     questions
   }
 }
 
 Community.propTypes = {
+  user: shape({
+    email: string
+  }),
   community: shape({
     subdomain: string
   }),
