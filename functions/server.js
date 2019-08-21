@@ -55,6 +55,7 @@ server.use('/healthcheck', healthcheck())
 
 // required for passport
 configPassport(passport) // pass passport for configuration
+server.use((req, res, next) => { console.log(`HEADERS ${req.headers}`); next() })
 server.use(session({
   secret: 'ilovescotchscotchyscotchscotch',
   store: sessionStore,
