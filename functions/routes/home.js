@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const asyncRoute = require('route-async')
-const { Community } = require('../models')
+const { Community, Question } = require('../models')
 
 module.exports = (nextApp) => {
 
@@ -9,7 +9,8 @@ module.exports = (nextApp) => {
   router.get('/', asyncRoute(async (req, res) => {
     const { community } = req
     if (community) {
-      return nextApp.render(req, res, '/community/index', { community })
+      const questions = await Question.findAll({ where: { community_id: community.id }})
+      return nextApp.render(req, res, '/community/index', { community, questions })
     } else {
       const communities = await Community.findAll().map(community => community.get({ plain: true }))
       return nextApp.render(req, res, '/home/index', { communities })
