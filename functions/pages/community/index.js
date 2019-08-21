@@ -32,6 +32,11 @@ const Community = ({
           </a>
         </li>
         <li>
+          <a href="/signout">
+            {t('sign-out')}
+          </a>
+        </li>
+        <li>
           <a href="/ask">
             {t('create-question')}
           </a>
