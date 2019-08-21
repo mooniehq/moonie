@@ -1,7 +1,7 @@
 const { Router } = require('express')
 const asyncRoute = require('route-async')
 const { isLoggedIn } = require('../middleware/authorize')
-const { Question } = require('../models')
+const { Question, Answer } = require('../models')
 
 module.exports = (nextApp) => {
 
@@ -10,7 +10,15 @@ module.exports = (nextApp) => {
   router.get('/question/:id', asyncRoute(async (req, res) => {
     const { id } = req.params
     const question = await Question.findOne({ where: { id } })
-    return nextApp.render(req, res, '/community/question', { question })
+    let answers = []
+    if (question) {
+      answers = await Answer.findAll({
+        where: {
+          question_id: question.id
+        }
+      })
+    }
+    return nextApp.render(req, res, '/community/question', { question, answers })
   }))
 
   router.get('/ask', isLoggedIn, (req, res) => {
@@ -35,6 +43,26 @@ module.exports = (nextApp) => {
       community_id
     })
     return res.redirect('/ask')
+  }))
+
+  router.post('/api/anwser', isLoggedIn, asyncRoute(async (req, res) => {
+    const {
+      user: {
+        id: author_id,
+        community_id
+      },
+      body: {
+        questionId,
+        content
+      }
+    } = req
+    await Answer.create({
+      question_id: questionId,
+      content,
+      author_id,
+      community_id
+    })
+    return res.redirect('/question/' + questionId)
   }))
 
   return router
