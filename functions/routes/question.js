@@ -45,5 +45,25 @@ module.exports = (nextApp) => {
     return res.redirect('/ask')
   }))
 
+  router.post('/api/anwser', isLoggedIn, asyncRoute(async (req, res) => {
+    const {
+      user: {
+        id: author_id,
+        community_id
+      },
+      body: {
+        questionId,
+        content
+      }
+    } = req
+    await Answer.create({
+      question_id: questionId,
+      content,
+      author_id,
+      community_id
+    })
+    return res.redirect('/question/' + questionId)
+  }))
+
   return router
 }
