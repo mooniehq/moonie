@@ -5,11 +5,15 @@ const { isDev } = require('./config/config')
 
 const { lookUpCommunity } = require('./middleware/community')
 
+const answerApi = require('./routes/answer-api')
 const auth = require('./routes/auth')
+const commentApi = require('./routes/comment-api')
 const community = require('./routes/community')
+const communityApi = require('./routes/community-api')
 const home = require('./routes/home')
 const nextFallback = require('./routes/nextFallback')
 const question = require('./routes/question')
+const questionApi = require('./routes/question-api')
 const test = require('./routes/test') // for quick test
 
 const passport = require('passport')
@@ -90,10 +94,14 @@ server.use(lookUpCommunity)
 
 nextApp.prepare().then(() => {
 
+  server.use(answerApi)
   server.use(auth(passport, nextApp))
+  server.use(commentApi)
   server.use(community(nextApp))
+  server.use(communityApi)
   server.use(home(nextApp))
   server.use(question(nextApp))
+  server.use(questionApi)
   server.use(test)
 
   server.use(nextFallback(nextApp))

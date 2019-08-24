@@ -1,7 +1,6 @@
 const { Router } = require('express')
 const asyncRoute = require('route-async')
 const { isHome } = require('../middleware/community')
-const { createCommunity } = require('../services/community-service')
 const { Community } = require('../models')
 
 module.exports = (nextApp) => {
@@ -20,12 +19,6 @@ module.exports = (nextApp) => {
 
   router.get('/create-community', isHome, asyncRoute(async (req, res) => {
     return nextApp.render(req, res, '/home/create-community')
-  }))
-
-  router.post('/api/community', isHome, asyncRoute(async (req, res) => {
-    const { subdomain, email, password } = req.body
-    const { user } = await createCommunity(subdomain, email, password)
-    return res.json(user)
   }))
 
   return router
