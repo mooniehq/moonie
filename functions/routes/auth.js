@@ -22,7 +22,7 @@ module.exports = (passport, nextApp) => {
     })
 
   router.post('/api/signup', asyncRoute(async ({ community, body: { email, password } }, res) => {
-    const { user } = await createUser(community, email, password)
+    await createUser(community, email, password)
     return res.redirect('/')
   }))
 

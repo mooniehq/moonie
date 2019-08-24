@@ -7,7 +7,7 @@ const findUser = async ({ id: community_id }, email) => {
 }
 
 const createUser = async (community, email, password) => {
-  email = email.toLowerCase
+  email = email.toLowerCase()
   let user = await findUser(community, email)
   if (!user) {
     const { id: community_id } = community
