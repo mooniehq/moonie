@@ -10,5 +10,6 @@
     "password": "Password",
     "submit": "Submit",
     "create-question": "Create a new question",
-    "create-community": "Create a new community"
+    "create-community": "Create a new community",
+    "question": "Question"
 }
