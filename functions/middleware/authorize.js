@@ -6,8 +6,7 @@ const isLoggedIn = (req, res, next) => {
     return next()
   } else {
     // if they aren't redirect them to the home page
-    res.status(401)
-    res.send('Unauthorized')
+    res.status(401).send('Unauthorized')
   }
 }
 

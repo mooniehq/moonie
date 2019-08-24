@@ -1,17 +1,19 @@
 const { Router } = require('express')
 const asyncRoute = require('route-async')
+const { isCommunity } = require('../middleware/community')
 const { createUser } = require('../services/user-service')
 
 module.exports = (passport, nextApp) => {
 
   const router = Router()
 
-  router.get('/signout', async (req, res) => {
+  router.get('/signout', isCommunity, asyncRoute(async (req, res) => {
     await req.logout()
     res.redirect('/')
-  })
+  }))
 
   router.post('/api/signin',
+    isCommunity,
     passport.authenticate('local', {
       failureRedirect: '/'
     }),
@@ -21,16 +23,16 @@ module.exports = (passport, nextApp) => {
       })
     })
 
-  router.post('/api/signup', asyncRoute(async ({ community, body: { email, password } }, res) => {
+  router.post('/api/signup', isCommunity, asyncRoute(async ({ community, body: { email, password } }, res) => {
     await createUser(community, email, password)
     return res.redirect('/')
   }))
 
-  router.get('/signin', (req, res) => {
+  router.get('/signin', isCommunity, (req, res) => {
     return nextApp.render(req, res, '/community/signin')
   })
 
-  router.get('/signup', (req, res) => {
+  router.get('/signup', isCommunity, (req, res) => {
     return nextApp.render(req, res, '/community/signup')
   })
 
