@@ -2,6 +2,7 @@ import Showdown from 'showdown'
 import { string, array } from 'prop-types'
 import MarkdownEditor from './MarkdownEditor'
 import Comment from './Comment'
+
 const Answer = ({ id, content, comments }) => {
 
   const markdownToHtmlConverter = new Showdown.Converter({

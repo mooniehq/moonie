@@ -16,11 +16,12 @@ module.exports = (nextApp) => {
         where: {
           question_id: question.id
         }
-      })
+      }).map(answer => answer.get({ plain: true }))
 
-      answers.forEach(async ans => {
-        const comments = await Comment.findAll({ where: { answer_id: ans.id } })
-        ans.comments = comments
+      answers.forEach(async answer => {
+        const comments = await Comment.findAll({ where: { answer_id: answer.id } })
+          .map(comment => comment.get({ plain: true }))
+        answer.comments = comments
       })
     }
     return nextApp.render(req, res, '/community/question', { question, answers })

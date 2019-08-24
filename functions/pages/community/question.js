@@ -29,7 +29,7 @@ const Question = ({ question: { id: questionId, title, content }, answers }) => 
 }
 
 Question.getInitialProps = async ({ query: { question, answers } }) => {
-  console.log(question)
+  console.log(answers)
   return {
     question,
     answers
