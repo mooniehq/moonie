@@ -1,26 +1,12 @@
 import { withTranslation } from '../../i18n'
 import { shape, string } from 'prop-types'
-import Showdown from 'showdown'
 import Page from '../../components/Page'
 import MarkdownEditor from '../../components/MarkdownEditor'
+import Answer from '../../components/Answer'
 
 const Question = ({ question: { id: questionId, title, content }, answers }) => {
-  const markdownToHtmlConverter = new Showdown.Converter({
-    tables: true,
-    simplifiedAutoLink: true,
-    strikethrough: true,
-    tasklists: true
-  })
 
-  const replies = answers.map(answer => {
-    const innerHtml = markdownToHtmlConverter.makeHtml(answer.content)
-    return (
-      <div key={answer.id}>
-        <h5>ans {answer.id}</h5>
-        <div dangerouslySetInnerHTML={{ __html: innerHtml }}/>
-      </div>
-    )
-  })
+  const replies = answers.map(({ id, content }) => <Answer id={id} content={content} />)
   return (
     <Page>
       <h1>{title}</h1>
@@ -51,6 +37,10 @@ Question.getInitialProps = async ({ query: { question, answers } }) => {
 Question.propTypes = {
   question: shape({
     title: string,
+    content: string
+  }),
+  answers: shape({
+    id: string,
     content: string
   })
 }
