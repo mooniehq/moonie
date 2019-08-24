@@ -6,24 +6,24 @@ module.exports = (passport, nextApp) => {
 
   const router = Router()
 
-  router.get('/api/signout', (req, res) => {
-    req.logout()
+  router.get('/signout', async (req, res) => {
+    await req.logout()
     res.redirect('/')
   })
 
   router.post('/api/signin',
     passport.authenticate('local', {
-      failureRedirect: '/signin'
+      failureRedirect: '/'
     }),
     (req, res, next) => {
       req.session.save(() => {
-        return res.send('Success')
+        return res.redirect('/')
       })
     })
 
   router.post('/api/signup', asyncRoute(async ({ community, body: { email, password } }, res) => {
-    const { user } = await createUser(community, email, password)
-    return res.json(user)
+    await createUser(community, email, password)
+    return res.redirect('/')
   }))
 
   router.get('/signin', (req, res) => {

@@ -33,6 +33,11 @@ const Community = ({
           </a>
         </li>
         <li>
+          <a href="/signout">
+            {t('sign-out')}
+          </a>
+        </li>
+        <li>
           <a href="/ask">
             {t('create-question')}
           </a>
@@ -52,7 +57,7 @@ const Community = ({
                   <a href={`/question/${id}`}>
                     {title}
                   </a>
-                </td> 
+                </td>
               </tr>
             ))}
           </tbody>
@@ -62,8 +67,8 @@ const Community = ({
   )
 }
 
-
 Community.getInitialProps = async ({ query: { user, community, questions } }) => {
+  console.log(questions)
   return {
     user,
     community,
