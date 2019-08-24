@@ -1,5 +1,5 @@
 import { withTranslation } from '../../i18n'
-import { shape, string } from 'prop-types'
+import { shape, string, arrayOf } from 'prop-types'
 import Page from '../../components/Page'
 
 const Community = ({
@@ -7,6 +7,7 @@ const Community = ({
   community: {
     subdomain
   },
+  questions,
   t
 }) => {
   let email
@@ -42,14 +43,36 @@ const Community = ({
           </a>
         </li>
       </ul>
+      <table>
+        <thead>
+          <tr key="questions-header">
+            <th>#</th>
+            <th>{t('question')}</th>
+          </tr>
+          <tbody>
+            {questions.map(({ id, title }) => (
+              <tr key={`question-${id}`}>
+                <td>{id}</td>
+                <td>
+                  <a href={`/question/${id}`}>
+                    {title}
+                  </a>
+                </td> 
+              </tr>
+            ))}
+          </tbody>
+        </thead>
+      </table>
     </Page>
   )
 }
 
-Community.getInitialProps = async ({ query: { user, community } }) => {
+
+Community.getInitialProps = async ({ query: { user, community, questions } }) => {
   return {
     user,
-    community
+    community,
+    questions
   }
 }
 
@@ -59,7 +82,11 @@ Community.propTypes = {
   }),
   community: shape({
     subdomain: string
-  })
+  }),
+  questions: arrayOf(shape({
+    title: string,
+    content: string
+  }))
 }
 
 export default withTranslation('common')(Community)
