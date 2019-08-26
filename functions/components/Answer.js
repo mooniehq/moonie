@@ -33,7 +33,7 @@ const Answer = ({ id, content, comments }) => {
         <h2>Add Comment</h2>
         <form action="/api/comment" method="post">
           <input type="hidden" name="answerId" value={id} />
-          <MarkdownEditor name="content" value="" />
+          <MarkdownEditor id="comment-content" name="content" value="" />
           <button type="submit">Send</button>
         </form>
       </div>
