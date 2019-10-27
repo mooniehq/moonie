@@ -8,7 +8,7 @@ const Question = ({ t }) => {
       <h1>{t('create-question')}</h1>
       <form action="/api/question" method="post">
         <input type="text" name="title" />
-        <MarkdownEditor name="content" value="" />
+        <MarkdownEditor id="question-content" name="content" value="" />
         <button type="submit">{t('submit')}</button>
       </form>
     </Page>

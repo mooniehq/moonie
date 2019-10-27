@@ -20,7 +20,7 @@ const Question = ({ question: { id: questionId, title, content }, answers }) => 
         <h2>Post your anwser</h2>
         <form action="/api/anwser" method="post">
           <input type="hidden" name="questionId" value={questionId} />
-          <MarkdownEditor name="content" value="" />
+          <MarkdownEditor id="answer-content" name="content" value="" />
           <button type="submit">Submit</button>
         </form>
       </div>
