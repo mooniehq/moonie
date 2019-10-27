@@ -1,3 +1,4 @@
+const { appConfig } = require('../config/config')
 const { Site } = require('../models')
 const { createUser } = require('./user-service')
 
@@ -13,6 +14,12 @@ const createSite = async (subdomain, email, password) => {
   }
 }
 
+const getSiteUrl = (subdomain) => {
+  const { baseDomain } = appConfig
+  return `${subdomain}.${baseDomain}`
+}
+
 module.exports = {
-  createSite
+  createSite,
+  getSiteUrl
 }

@@ -2,6 +2,7 @@ const { Router } = require('express')
 const asyncRoute = require('route-async')
 const { isHome } = require('../middleware/site')
 const { Site } = require('../models')
+const { getSiteUrl } = require('../services/site-service')
 
 module.exports = (nextApp) => {
 
@@ -12,7 +13,14 @@ module.exports = (nextApp) => {
     if (site) {
       res.status(404)
     } else {
-      const sites = await Site.findAll().map(site => site.get({ plain: true }))
+      const sites = await Site.findAll()
+        .map(site => site.get({ plain: true }))
+        .map(site => {
+          return {
+            ...site,
+            url: getSiteUrl(site.subdomain)
+          }
+        })
       return nextApp.render(req, res, '/hq/sites', { sites })
     }
   }))

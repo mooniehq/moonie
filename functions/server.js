@@ -6,13 +6,13 @@ const { isDev } = require('./config/config')
 const { lookUpSite } = require('./middleware/site')
 
 const answerApi = require('./routes/answer-api')
-const auth = require('./routes/auth')
+const authPages = require('./routes/auth-pages')
 const commentApi = require('./routes/comment-api')
-const site = require('./routes/site')
+const sitePages = require('./routes/site-pages')
 const siteApi = require('./routes/site-api')
-const home = require('./routes/home')
+const homePages = require('./routes/home-pages')
 const nextFallback = require('./routes/nextFallback')
-const question = require('./routes/question')
+const questionPages = require('./routes/question-pages')
 const questionApi = require('./routes/question-api')
 const test = require('./routes/test') // for quick test
 
@@ -103,12 +103,12 @@ const migrate = () => {
 nextApp.prepare().then(() => {
 
   server.use(answerApi)
-  server.use(auth(passport, nextApp))
+  server.use(authPages(passport, nextApp))
   server.use(commentApi)
-  server.use(site(nextApp))
+  server.use(sitePages(nextApp))
   server.use(siteApi)
-  server.use(home(nextApp))
-  server.use(question(nextApp))
+  server.use(homePages(nextApp))
+  server.use(questionPages(nextApp))
   server.use(questionApi)
   server.use(test)
 

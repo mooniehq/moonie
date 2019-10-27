@@ -13,11 +13,11 @@ const Sites = ({ sites, t }) => {
           </tr>
         </thead>
         <tbody>
-          {sites.map(({ id, subdomain }) => (
+          {sites.map(({ id, subdomain, url }) => (
             <tr key={`site-${id}`}>
               <td>{id}</td>
               <td>
-                <a href={`/site/${id}`}>
+                <a href={`//${url}`}>
                   {subdomain}
                 </a>
               </td>
