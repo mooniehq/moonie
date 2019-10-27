@@ -3,13 +3,13 @@ const next = require('next')
 
 const { isDev } = require('./config/config')
 
-const { lookUpCommunity } = require('./middleware/community')
+const { lookUpSite } = require('./middleware/site')
 
 const answerApi = require('./routes/answer-api')
 const auth = require('./routes/auth')
 const commentApi = require('./routes/comment-api')
-const community = require('./routes/community')
-const communityApi = require('./routes/community-api')
+const site = require('./routes/site')
+const siteApi = require('./routes/site-api')
 const home = require('./routes/home')
 const nextFallback = require('./routes/nextFallback')
 const question = require('./routes/question')
@@ -90,7 +90,7 @@ server.use((err, req, res, next) => {
   res.render('error', { error: err })
 })
 
-server.use(lookUpCommunity)
+server.use(lookUpSite)
 
 const migrate = () => {
   sequelize.sync({ alter: true }).then(() => {
@@ -105,8 +105,8 @@ nextApp.prepare().then(() => {
   server.use(answerApi)
   server.use(auth(passport, nextApp))
   server.use(commentApi)
-  server.use(community(nextApp))
-  server.use(communityApi)
+  server.use(site(nextApp))
+  server.use(siteApi)
   server.use(home(nextApp))
   server.use(question(nextApp))
   server.use(questionApi)

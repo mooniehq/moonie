@@ -4,9 +4,9 @@ module.exports = (sequelize) => {
 
   class Question extends Model {
 
-    static associate ({ User, Community }) {
+    static associate ({ User, Site }) {
       Question.belongsTo(User, { as: 'author' })
-      Question.belongsTo(Community)
+      Question.belongsTo(Site)
     }
   }
 
@@ -30,7 +30,7 @@ module.exports = (sequelize) => {
         type: INTEGER,
         allowNull: false
       },
-      community_id: {
+      site_id: {
         type: INTEGER,
         allowNull: false
       }

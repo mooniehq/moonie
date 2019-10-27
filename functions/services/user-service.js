@@ -1,18 +1,18 @@
 const { User } = require('../models')
 
-const findUser = async ({ id: community_id }, email) => {
+const findUser = async ({ id: site_id }, email) => {
   email = email.toLowerCase()
-  const user = await User.findOne({ where: { community_id, email } })
+  const user = await User.findOne({ where: { site_id, email } })
   return user
 }
 
-const createUser = async (community, email, password) => {
+const createUser = async (site, email, password) => {
   email = email.toLowerCase()
-  let user = await findUser(community, email)
+  let user = await findUser(site, email)
   if (!user) {
-    const { id: community_id } = community
+    const { id: site_id } = site
     user = await User.create({
-      community_id,
+      site_id,
       email,
       password
     })

@@ -1,5 +1,5 @@
 import { withTranslation } from '../../i18n'
-import Page from '../../components/Page'
+import Page from '../../components/site/Page'
 import MarkdownEditor from '../../components/MarkdownEditor'
 
 const Question = ({ t }) => {

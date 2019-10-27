@@ -1,6 +1,6 @@
 import { withTranslation } from '../../i18n'
 import { shape, string, array } from 'prop-types'
-import Page from '../../components/Page'
+import Page from '../../components/site/Page'
 import MarkdownEditor from '../../components/MarkdownEditor'
 import Answer from '../../components/Answer'
 

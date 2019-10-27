@@ -5,8 +5,8 @@ module.exports = (sequelize) => {
 
   class User extends Model {
 
-    static associate ({ Community }) {
-      User.belongsTo(Community)
+    static associate ({ Site }) {
+      User.belongsTo(Site)
     }
 
     validPassword (password) {
@@ -14,14 +14,14 @@ module.exports = (sequelize) => {
     }
   }
 
-  const userCommunityUniqueConstraint = 'user_community_id_email'
+  const userSiteUniqueConstraint = 'user_site_id_email'
 
   User.init(
     {
       email: {
         type: STRING,
         allowNull: false,
-        unique: userCommunityUniqueConstraint,
+        unique: userSiteUniqueConstraint,
         validate: {
           isEmail: true
         }
@@ -30,9 +30,9 @@ module.exports = (sequelize) => {
         type: STRING,
         allowNull: false
       },
-      community_id: {
+      site_id: {
         type: INTEGER,
-        unique: 'user_community_id_email'
+        unique: 'user_site_id_email'
       }
     },
     {

@@ -1,10 +1,10 @@
-const { Community } = require('../models')
+const { Site } = require('../models')
 const { appConfig: { baseDomain } } = require('../config/config')
 
-const lookUpCommunity = async (req, res, next) => {
+const lookUpSite = async (req, res, next) => {
 
   try {
-    delete req.community // make sure community is injected server-side
+    delete req.site // make sure site is injected server-side
 
     const { hostname } = req
     const domainIndex = hostname.indexOf(baseDomain)
@@ -13,9 +13,9 @@ const lookUpCommunity = async (req, res, next) => {
       subdomain = hostname.substring(0, domainIndex - 1)
     }
     if (subdomain) {
-      const community = await Community.findOne({ where: { subdomain } })
-      if (community) {
-        req.community = community
+      const site = await Site.findOne({ where: { subdomain } })
+      if (site) {
+        req.site = site
       }
     }
     next()
@@ -25,8 +25,8 @@ const lookUpCommunity = async (req, res, next) => {
   }
 }
 
-const isCommunity = (req, res, next) => {
-  if (req.community) {
+const isSite = (req, res, next) => {
+  if (req.site) {
     next()
   } else {
     res.status(404).send('Not Found')
@@ -34,11 +34,11 @@ const isCommunity = (req, res, next) => {
 }
 
 const isHome = (req, res, next) => {
-  if (req.community) {
+  if (req.site) {
     res.status(404).send('Not Found')
   } else {
     next()
   }
 }
 
-module.exports = { lookUpCommunity, isCommunity, isHome }
+module.exports = { lookUpSite, isSite, isHome }

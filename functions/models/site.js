@@ -2,10 +2,10 @@ const { Model, STRING } = require('sequelize')
 
 module.exports = (sequelize) => {
 
-  class Community extends Model {
+  class Site extends Model {
   }
 
-  Community.init(
+  Site.init(
     {
       subdomain: {
         type: STRING,
@@ -18,9 +18,9 @@ module.exports = (sequelize) => {
     },
     {
       sequelize,
-      tableName: 'community'
+      tableName: 'site'
     }
   )
 
-  return Community
+  return Site
 }

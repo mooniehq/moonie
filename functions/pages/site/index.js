@@ -1,10 +1,10 @@
 import { withTranslation } from '../../i18n'
 import { shape, string, arrayOf } from 'prop-types'
-import Page from '../../components/Page'
+import Page from '../../components/site/Page'
 
-const Community = ({
+const Site = ({
   user,
-  community: {
+  site: {
     subdomain
   },
   questions,
@@ -57,20 +57,20 @@ const Community = ({
   )
 }
 
-Community.getInitialProps = async ({ query: { user, community, questions } }) => {
+Site.getInitialProps = async ({ query: { user, site, questions } }) => {
   console.log(questions)
   return {
     user,
-    community,
+    site,
     questions
   }
 }
 
-Community.propTypes = {
+Site.propTypes = {
   user: shape({
     email: string
   }),
-  community: shape({
+  site: shape({
     subdomain: string
   }),
   questions: arrayOf(shape({
@@ -79,4 +79,4 @@ Community.propTypes = {
   }))
 }
 
-export default withTranslation('common')(Community)
+export default withTranslation('common')(Site)
