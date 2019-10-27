@@ -92,6 +92,14 @@ server.use((err, req, res, next) => {
 
 server.use(lookUpCommunity)
 
+const migrate = () => {
+  sequelize.sync({ alter: true }).then(() => {
+    return sessionStore.sync({ alter: true })
+  }).catch(err => {
+    console.log(err)
+  })
+}
+
 nextApp.prepare().then(() => {
 
   server.use(answerApi)
@@ -104,13 +112,18 @@ nextApp.prepare().then(() => {
   server.use(questionApi)
   server.use(test)
 
+  if (isDev) {
+    server.get('/api/migrate', (req, res) => {
+      migrate()
+      return res.send('OK')
+    })
+  }
+
   server.use(nextFallback(nextApp))
 })
 
-sequelize.sync({ alter: true }).then(() => {
-  return sessionStore.sync({ alter: true })
-}).catch(err => {
-  console.log(err)
-})
+if (!isDev) {
+  migrate()
+}
 
 module.exports = server
