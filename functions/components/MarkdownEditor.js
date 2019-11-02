@@ -3,22 +3,22 @@ import PropTypes from 'prop-types'
 import ReactMde from 'react-simplemde-editor'
 
 class MarkdownEditor extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
-    this.state = { content: "" }
+    this.state = { content: '' }
     this.onChange = this.onChange.bind(this)
   }
 
-  onChange(value) {
+  onChange (value) {
     this.setState({ content: value })
   }
 
-  render() {
+  render () {
     const { id, name } = this.props
     const { content } = this.state
     return (
       <>
-        <textarea name={name} value={content} style={{display:'none'}}/>
+        <textarea name={name} value={content} style={{ display: 'none' }}/>
         <ReactMde id={id} value={content} onChange={this.onChange}/>
       </>
     )

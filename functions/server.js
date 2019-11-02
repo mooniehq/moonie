@@ -3,13 +3,9 @@ const next = require('next')
 
 const { isDev } = require('./config/config')
 
-const { lookUpSite } = require('./middleware/site')
-
 const answerApi = require('./routes/answer-api')
 const authPages = require('./routes/auth-pages')
 const commentApi = require('./routes/comment-api')
-const sitePages = require('./routes/site-pages')
-const siteApi = require('./routes/site-api')
 const homePages = require('./routes/home-pages')
 const nextFallback = require('./routes/nextFallback')
 const questionPages = require('./routes/question-pages')
@@ -90,8 +86,6 @@ server.use((err, req, res, next) => {
   res.render('error', { error: err })
 })
 
-server.use(lookUpSite)
-
 const migrate = () => {
   sequelize.sync({ alter: true }).then(() => {
     return sessionStore.sync({ alter: true })
@@ -105,8 +99,6 @@ nextApp.prepare().then(() => {
   server.use(answerApi)
   server.use(authPages(passport, nextApp))
   server.use(commentApi)
-  server.use(sitePages(nextApp))
-  server.use(siteApi)
   server.use(homePages(nextApp))
   server.use(questionPages(nextApp))
   server.use(questionApi)

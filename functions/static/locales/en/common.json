@@ -1,17 +1,15 @@
 {
-    "all-sites": "All sites",
+    "answer": "Answer",
+    "comment": "Comment",
+    "content": "Content",
     "create-question": "Create a new question",
-    "create-site": "Create site",
     "email": "Email",
     "home": "Home",
-    "our-homepage": "This is our homepage",
     "password": "Password",
     "question": "Question",
     "sign-in": "Sign in",
     "sign-out": "Sign out",
     "sign-up": "Sign up",
-    "site": "Site",
-    "sites": "Sites",
     "submit": "Submit",
-    "welcome-text": "Hello to Moonie"
+    "title": "Title"
 }

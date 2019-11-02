@@ -1,19 +1,17 @@
 const { Router } = require('express')
 const asyncRoute = require('route-async')
-const { isSite } = require('../middleware/site')
 const { createUser } = require('../services/user-service')
 
 module.exports = (passport, nextApp) => {
 
   const router = Router()
 
-  router.get('/signout', isSite, asyncRoute(async (req, res) => {
+  router.get('/signout', asyncRoute(async (req, res) => {
     await req.logout()
     res.redirect('/')
   }))
 
   router.post('/api/signin',
-    isSite,
     passport.authenticate('local', {
       failureRedirect: '/'
     }),
@@ -23,17 +21,17 @@ module.exports = (passport, nextApp) => {
       })
     })
 
-  router.post('/api/signup', isSite, asyncRoute(async ({ site, body: { email, password } }, res) => {
-    await createUser(site, email, password)
+  router.post('/api/signup', asyncRoute(async ({ body: { email, password } }, res) => {
+    await createUser(email, password)
     return res.redirect('/')
   }))
 
-  router.get('/signin', isSite, (req, res) => {
-    return nextApp.render(req, res, '/site/signin')
+  router.get('/signin', (req, res) => {
+    return nextApp.render(req, res, '/signin')
   })
 
-  router.get('/signup', isSite, (req, res) => {
-    return nextApp.render(req, res, '/site/signup')
+  router.get('/signup', (req, res) => {
+    return nextApp.render(req, res, '/signup')
   })
 
   return router

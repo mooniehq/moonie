@@ -21,9 +21,9 @@ module.exports = (passport) => {
       session: true,
       passReqToCallback: true
     },
-    async ({ site }, email, password, done) => {
+    async (req, email, password, done) => {
       try {
-        const user = await findUser(site, email)
+        const user = await findUser(email)
         if (!user || !user.validPassword(password)) {
           return done('Email or password is incorrect.', false)
         } else {

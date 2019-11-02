@@ -4,9 +4,8 @@ module.exports = (sequelize) => {
 
   class Question extends Model {
 
-    static associate ({ User, Site }) {
+    static associate ({ User }) {
       Question.belongsTo(User, { as: 'author' })
-      Question.belongsTo(Site)
     }
   }
 
@@ -27,10 +26,6 @@ module.exports = (sequelize) => {
         }
       },
       author_id: {
-        type: INTEGER,
-        allowNull: false
-      },
-      site_id: {
         type: INTEGER,
         allowNull: false
       }

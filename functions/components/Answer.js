@@ -1,9 +1,11 @@
+import { withTranslation } from '../i18n'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import Showdown from 'showdown'
 import { string, array } from 'prop-types'
 import MarkdownEditor from './MarkdownEditor'
 import Comment from './Comment'
 
-const Answer = ({ id, content, comments }) => {
+const Answer = ({ t, id, content, comments }) => {
 
   const markdownToHtmlConverter = new Showdown.Converter({
     tables: true,
@@ -21,21 +23,21 @@ const Answer = ({ id, content, comments }) => {
   return (
     <>
       <div key={id}>
-        <h5>ans {id}</h5>
+        <div>Answer {id}</div>
         <div dangerouslySetInnerHTML={{ __html: innerHtml }}/>
-      </div>
-
-      <div>
-        <h3>cmt</h3>
-        {childComments}
-      </div>
-      <div>
-        <h2>Add Comment</h2>
-        <form action="/api/comment" method="post">
-          <input type="hidden" name="answerId" value={id} />
-          <MarkdownEditor id="comment-content" name="content" value="" />
-          <button type="submit">Send</button>
-        </form>
+        <div>
+          {childComments}
+        </div>
+        <div>
+          <Form action="/api/comment" method="post">
+            <Input type="hidden" name="answerId" value={id} />
+            <FormGroup>
+              <Label for={`answer-${id}-comment-content`}>{t('comment')}</Label>
+              <MarkdownEditor id={`answer-${id}-comment-content`} name="content" value="" />
+            </FormGroup>
+            <Button type="submit">{t('submit')}</Button>
+          </Form>
+        </div>
       </div>
     </>
   )
@@ -47,4 +49,4 @@ Answer.propTypes = {
   comments: array
 }
 
-export default Answer
+export default withTranslation('common')(Answer)
