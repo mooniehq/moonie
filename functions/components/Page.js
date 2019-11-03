@@ -42,7 +42,7 @@ const Page = ({ t, user, children }) => {
                     {user.email}
                   </DropdownToggle>
                   <DropdownMenu>
-                    <DropdownItem>
+                    <DropdownItem tag="a" href="/signout">
                       {t('sign-out')}
                     </DropdownItem>
                   </DropdownMenu>
@@ -52,7 +52,7 @@ const Page = ({ t, user, children }) => {
             {!user &&
             <>
               <NavItem>
-                <NavLink href="/signin/">{t('sign-in')}</NavLink>
+                <NavLink href="/signin">{t('sign-in')}</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/signup">{t('sign-up')}</NavLink>
