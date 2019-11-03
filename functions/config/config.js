@@ -22,9 +22,7 @@ const dbConfig = {
   }
 }
 
-const port = process.env.PORT || 3000
 const appConfig = {
-  baseDomain: getConfig('DOMAIN', `localtest.me:${port}`)
 }
 
 module.exports = { isDev, dbConfig, appConfig }
