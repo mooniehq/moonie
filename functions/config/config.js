@@ -5,6 +5,7 @@ const getConfig = (key, defaultValue) => {
   if (config) {
     return config
   }
+  // firebase
   try {
     config = functions.config().service[key.toLowerCase()]
   } catch (ignored) {
