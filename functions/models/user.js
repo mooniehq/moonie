@@ -1,4 +1,4 @@
-const { Model, INTEGER, STRING } = require('sequelize')
+const { Model, STRING } = require('sequelize')
 const bcrypt = require('bcryptjs')
 
 module.exports = (sequelize) => {
