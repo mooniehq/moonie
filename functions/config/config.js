@@ -1,14 +1,22 @@
 const functions = require('firebase-functions')
 
-const isDev = process.env.NODE_ENV !== 'production'
-
 const getConfig = (key, defaultValue) => {
-  if (isDev) {
-    return process.env[key] || defaultValue
-  } else {
-    return functions.config().service[key.toLowerCase()]
+  let config = process.env[key]
+  if (config) {
+    return config
   }
+  try {
+    config = functions.config().service[key.toLowerCase()]
+  } catch (ignored) {
+
+  }
+  if (config) {
+    return config
+  }
+  return defaultValue
 }
+
+const isDev = getConfig('NODE_ENV', '') !== 'production'
 
 const dbConfig = {
   username: getConfig('DB_USERNAME', 'postgres'),
