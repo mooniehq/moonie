@@ -1,7 +1,9 @@
+require('dotenv').config()
+
 const express = require('express')
 const next = require('next')
 
-const { isDev } = require('./config/config')
+const { isDev, port } = require('./config/config')
 
 const answerApi = require('./routes/answer-api')
 const authPages = require('./routes/auth-pages')
@@ -112,10 +114,13 @@ nextApp.prepare().then(() => {
   }
 
   server.use(nextFallback(nextApp))
+
+  server.listen(port, err => {
+    if (err) throw err
+    console.log(`Please visit http://localhost:${port}`)
+  })
 })
 
 if (!isDev) {
   migrate()
 }
-
-module.exports = server

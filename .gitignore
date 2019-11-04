@@ -1,7 +1,2 @@
 node_modules
 .next
-.vscode
-.env
-.firebase
-.idea
-functions/firebase-debug.log

@@ -1,3 +1,0 @@
-# Moonie
-
-See Wiki.
