@@ -3,7 +3,6 @@ import { withTranslation } from '../i18n'
 import { shape, string } from 'prop-types'
 import React, { useState } from 'react'
 import {
-  Col,
   Collapse,
   Container,
   Navbar,
@@ -64,9 +63,7 @@ const Page = ({ t, user, children }) => {
       </Navbar>
       <Container>
         <Row>
-          <Col>
-            {children}
-          </Col>
+          {children}
         </Row>
       </Container>
     </div>
