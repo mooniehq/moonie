@@ -6,6 +6,7 @@ const next = require('next')
 const { isDev, port } = require('./config/config')
 
 const answerApi = require('./routes/answer-api')
+const authApi = require('./routes/auth-api')
 const authPages = require('./routes/auth-pages')
 const commentApi = require('./routes/comment-api')
 const homePages = require('./routes/home-pages')
@@ -48,7 +49,8 @@ server.use('/css', express.static('css'))
 // set up our express application
 server.use(morgan('dev')) // log every request to the console
 server.use(cookieParser()) // read cookies (needed for auth)
-server.use(bodyParser({
+server.use(bodyParser.json())
+server.use(bodyParser.urlencoded({
   extended: true
 })) // get information from html forms
 
@@ -99,7 +101,8 @@ const migrate = () => {
 nextApp.prepare().then(() => {
 
   server.use(answerApi)
-  server.use(authPages(passport, nextApp))
+  server.use(authApi(passport))
+  server.use(authPages(nextApp))
   server.use(commentApi)
   server.use(homePages(nextApp))
   server.use(questionPages(nextApp))
