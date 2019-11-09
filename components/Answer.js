@@ -23,7 +23,6 @@ const Answer = ({ t, id, content, comments }) => {
   return (
     <>
       <div key={id}>
-        <div>Answer {id}</div>
         <div dangerouslySetInnerHTML={{ __html: innerHtml }}/>
         <div>
           {childComments}

@@ -12,7 +12,6 @@ const Comment = ({ id, content }) => {
   const innerHtml = markdownToHtmlConverter.makeHtml(content)
   return (
     <div key={id}>
-      <div>Comment {id}</div>
       <div dangerouslySetInnerHTML={{ __html: innerHtml }}/>
     </div>
   )

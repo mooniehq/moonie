@@ -6,15 +6,29 @@ import MarkdownEditor from '../components/MarkdownEditor'
 import Answer from '../components/Answer'
 import ThreeColumnContainer from '../components/ThreeColumnContainer'
 import QuestionHeader from '../components/QuestionHeader'
+import TagsList from '../components/TagsList'
 
 const Question = (props) => {
   const { t, question: { id: questionId, title, content }, answers } = props
+  const tags = [
+    {
+      label: 'java'
+    },
+    {
+      label: 'database'
+    },
+    {
+      label: 'api'
+    }
+  ]
   return (
     <Page {...props}>
       <ThreeColumnContainer>
         <QuestionHeader text={title} />
         <div>
           <p>{content}</p>
+          <TagsList tags={tags} />
+          <h2>{t('answer')}</h2>
           <div>
             {
               answers.map(({ id: answerId, content, comments }) =>
@@ -22,6 +36,7 @@ const Question = (props) => {
               )
             }
           </div>
+          <h2>{t('your-answer')}</h2>
           <div>
             <Form action="/api/anwser" method="post">
               <input type="hidden" name="questionId" value={questionId} />
