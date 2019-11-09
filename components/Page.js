@@ -25,8 +25,8 @@ const Page = ({ t, user, children }) => {
   const toggle = () => setIsOpen(!isOpen)
 
   return (
-    <div>
-      <Navbar color="light" light expand="md">
+    <>
+      <Navbar color="light" light fixed="top" expand="md">
         <NavbarBrand href="/">Community Name</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -66,7 +66,7 @@ const Page = ({ t, user, children }) => {
           {children}
         </Row>
       </Container>
-    </div>
+    </>
   )
 }
 

@@ -3,10 +3,14 @@ import { shape, string, arrayOf } from 'prop-types'
 import {
   Button,
   ButtonGroup,
-  ButtonToolbar
+  ButtonToolbar,
+  Card,
+  CardBody,
+  CardHeader
 } from 'reactstrap'
 import Page from '../components/Page'
 import ThreeColumnContainer from '../components/ThreeColumnContainer'
+import QuestionsList from '../components/QuestionsList'
 
 const Home = (props) => {
   const { t, questions } = props
@@ -14,29 +18,39 @@ const Home = (props) => {
     <Page {...props}>
       <ThreeColumnContainer>
         <div></div>
-        <div>{t('teams')}</div>
         <div>
           <h1>{t('top-questions')}</h1>
-          <div>
+          <div className="d-flex justify-content-end">
             <ButtonToolbar>
               <ButtonGroup>
-                <Button>{t('hot')}</Button>
-                <Button>{t('week')}</Button>
-                <Button>{t('month')}</Button>
+                <Button outline>{t('hot')}</Button>
+                <Button outline>{t('week')}</Button>
+                <Button outline>{t('month')}</Button>
               </ButtonGroup>
             </ButtonToolbar>
           </div>
           <div>
-            {questions.map(({ id, title }) => (
-              <div key={`question-${id}`}>
-                <a href={`/question/${id}`}>
-                  {title}
-                </a>
-              </div>
-            ))}
+            <QuestionsList questions={questions} />
           </div>
         </div>
-        <div>{t('widgets')}</div>
+        <div>
+          <Card>
+            <CardHeader>{t('custom-filters')}</CardHeader>
+            <CardBody>
+              <a href="#">{t('create-custom-filter')}</a>
+            </CardBody>
+          </Card>
+          <Card>
+            <CardHeader>{t('watched-tags')}</CardHeader>
+            <CardBody>
+            </CardBody>
+          </Card>
+          <Card>
+            <CardHeader>{t('ignored-tags')}</CardHeader>
+            <CardBody>
+            </CardBody>
+          </Card>
+        </div>
       </ThreeColumnContainer>
     </Page>
   )

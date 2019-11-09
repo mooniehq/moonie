@@ -4,17 +4,16 @@ import {
 } from 'reactstrap'
 
 const ThreeColumnContainer = (props) => {
-  const [top, left, main, right] = props.children
+  const [top, main, right] = props.children
   return (
     <>
-      <Col sm="12" md="3" xl="2">{left}</Col>
-      <Col sm="12" md="9" xl="10">
+      <Col>
         <Row>
           <Col>{top}</Col>
         </Row>
         <Row>
-          <Col sm="12" md="9" xl="10">{main}</Col>
-          <Col sm="12" md="3" xl="2">{right}</Col>
+          <Col sm="12" md="10" xl="9">{main}</Col>
+          <Col sm="12" md="4" xl="3">{right}</Col>
         </Row>
       </Col>
     </>
