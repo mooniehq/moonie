@@ -11,6 +11,7 @@ import {
 import Page from '../components/Page'
 import ThreeColumnContainer from '../components/ThreeColumnContainer'
 import QuestionsList from '../components/QuestionsList'
+import QuestionHeader from '../components/QuestionHeader'
 
 const Home = (props) => {
   const { t, questions } = props
@@ -19,13 +20,13 @@ const Home = (props) => {
       <ThreeColumnContainer>
         <div></div>
         <div>
-          <h1>{t('top-questions')}</h1>
+          <QuestionHeader text={t('top-questions')} />
           <div className="d-flex justify-content-end">
             <ButtonToolbar>
               <ButtonGroup>
-                <Button outline>{t('hot')}</Button>
-                <Button outline>{t('week')}</Button>
-                <Button outline>{t('month')}</Button>
+                <Button outline href="#">{t('hot')}</Button>
+                <Button outline href="#">{t('week')}</Button>
+                <Button outline href="#">{t('month')}</Button>
               </ButtonGroup>
             </ButtonToolbar>
           </div>

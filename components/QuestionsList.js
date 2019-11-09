@@ -6,7 +6,7 @@ const QuestionsList = ({ t, questions }) => {
   return questions.map(({ id, title }) => {
     const href = `/question/${id}`
     return (
-      <div className="d-flex flex-row" key={`question-${id}`}>
+      <div className="d-flex" key={`question-${id}`}>
         <StatBadge href={href} number="10" text={t('votes')} />
         <StatBadge href={href} number="10" text={t('answers')} />
         <StatBadge href={href} number="10" text={t('views')} />

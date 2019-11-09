@@ -61,7 +61,7 @@ const Page = ({ t, user, children }) => {
           </Nav>
         </Collapse>
       </Navbar>
-      <Container>
+      <Container className="main-container">
         <Row>
           {children}
         </Row>

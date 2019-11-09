@@ -4,30 +4,37 @@ import { Button, Form, FormGroup, Label } from 'reactstrap'
 import Page from '../components/Page'
 import MarkdownEditor from '../components/MarkdownEditor'
 import Answer from '../components/Answer'
+import ThreeColumnContainer from '../components/ThreeColumnContainer'
+import QuestionHeader from '../components/QuestionHeader'
 
 const Question = (props) => {
   const { t, question: { id: questionId, title, content }, answers } = props
   return (
     <Page {...props}>
-      <div>{title}</div>
-      <p>{content}</p>
-      <div>
-        {
-          answers.map(({ id: answerId, content, comments }) =>
-            <Answer id={answerId} content={content} comments={comments} />
-          )
-        }
-      </div>
-      <div>
-        <Form action="/api/anwser" method="post">
-          <input type="hidden" name="questionId" value={questionId} />
-          <FormGroup>
-            <Label for="answer-content">{t('answer')}</Label>
-            <MarkdownEditor id="answer-content" name="content" value="" />
-          </FormGroup>
-          <Button type="submit">{t('submit')}</Button>
-        </Form>
-      </div>
+      <ThreeColumnContainer>
+        <QuestionHeader text={title} />
+        <div>
+          <p>{content}</p>
+          <div>
+            {
+              answers.map(({ id: answerId, content, comments }) =>
+                <Answer id={answerId} content={content} comments={comments} />
+              )
+            }
+          </div>
+          <div>
+            <Form action="/api/anwser" method="post">
+              <input type="hidden" name="questionId" value={questionId} />
+              <FormGroup>
+                <Label for="answer-content">{t('answer')}</Label>
+                <MarkdownEditor id="answer-content" name="content" value="" />
+              </FormGroup>
+              <Button type="submit">{t('submit')}</Button>
+            </Form>
+          </div>
+        </div>
+        <div>{t('related')}</div>
+      </ThreeColumnContainer>
     </Page>
   )
 }
