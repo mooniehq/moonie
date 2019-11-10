@@ -6,7 +6,6 @@ const SignIn = (props) => {
   const { t } = props
   return (
     <Page>
-      <div>{t('sign-in')}</div>
       <Form action="/api/signin" method="post">
         <FormGroup>
           <Label for="email">{t('email')}</Label>
@@ -16,7 +15,7 @@ const SignIn = (props) => {
           <Label for="password">{t('password')}</Label>
           <Input type="password" id="password" name="password" />
         </FormGroup>
-        <Button type="submit">{t('submit')}</Button>
+        <Button type="submit" color="primary">{t('log-in')}</Button>
       </Form>
     </Page>
   )

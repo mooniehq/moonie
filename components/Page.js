@@ -3,8 +3,16 @@ import { withTranslation } from '../i18n'
 import { shape, string } from 'prop-types'
 import React, { useState } from 'react'
 import {
+  Button,
   Collapse,
   Container,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Form,
+  Input,
+  InputGroup,
+  InputGroupAddon,
   Navbar,
   NavbarToggler,
   NavbarBrand,
@@ -12,11 +20,9 @@ import {
   NavItem,
   NavLink,
   UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   Row
 } from 'reactstrap'
+import { FaSearch } from 'react-icons/fa'
 
 const Page = ({ t, user, children }) => {
 
@@ -28,14 +34,21 @@ const Page = ({ t, user, children }) => {
     <>
       <Navbar color="light" light fixed="top" expand="md">
         <NavbarBrand href="/">Community Name</NavbarBrand>
+        <Form>
+          <InputGroup>
+            <InputGroupAddon addonType="prepend">
+              <Button>
+                <FaSearch />
+              </Button>
+            </InputGroupAddon>
+            <Input placeholder={t('search')} />
+          </InputGroup>
+        </Form>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             {user &&
               <>
-                <NavItem>
-                  <NavLink href="/ask">{t('create-question')}</NavLink>
-                </NavItem>
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
                     {user.email}
@@ -51,7 +64,7 @@ const Page = ({ t, user, children }) => {
             {!user &&
             <>
               <NavItem>
-                <NavLink href="/signin">{t('sign-in')}</NavLink>
+                <NavLink href="/signin">{t('log-in')}</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/signup">{t('sign-up')}</NavLink>

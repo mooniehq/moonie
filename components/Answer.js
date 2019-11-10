@@ -27,14 +27,14 @@ const Answer = ({ t, id, content, comments }) => {
         <div>
           {childComments}
         </div>
+        <a href="#">{t('add-comment')}</a>
         <div>
           <Form action="/api/comment" method="post">
             <Input type="hidden" name="answerId" value={id} />
             <FormGroup>
-              <Label for={`answer-${id}-comment-content`}>{t('comment')}</Label>
               <MarkdownEditor id={`answer-${id}-comment-content`} name="content" value="" />
             </FormGroup>
-            <Button type="submit">{t('submit')}</Button>
+            <Button type="submit" color="primary">{t('post-comment')}</Button>
           </Form>
         </div>
       </div>

@@ -12,7 +12,7 @@ const QuestionHeader = ({ t, text }) => (
       <h1>{text}</h1>
     </Col>
     <Col xs="auto">
-      <Button color="success" href="#">{t('ask-question')}</Button>
+      <Button color="primary" href="#">{t('ask-question')}</Button>
     </Col>
   </Row>
 )

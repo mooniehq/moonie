@@ -1,6 +1,14 @@
 import { withTranslation } from '../i18n'
 import { shape, string, array } from 'prop-types'
-import { Button, Form, FormGroup, Label } from 'reactstrap'
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Nav,
+  NavItem,
+  NavLink
+} from 'reactstrap'
 import Page from '../components/Page'
 import MarkdownEditor from '../components/MarkdownEditor'
 import Answer from '../components/Answer'
@@ -29,6 +37,23 @@ const Question = (props) => {
           <p>{content}</p>
           <TagsList tags={tags} />
           <h2>{t('answer')}</h2>
+          <Nav className="justify-content-end" tabs>
+            <NavItem>
+              <NavLink className='active'>
+                {t('active')}
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
+                {t('oldest')}
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
+                {t('votes')}
+              </NavLink>
+            </NavItem>
+          </Nav>
           <div>
             {
               answers.map(({ id: answerId, content, comments }) =>
@@ -44,11 +69,14 @@ const Question = (props) => {
                 <Label for="answer-content">{t('answer')}</Label>
                 <MarkdownEditor id="answer-content" name="content" value="" />
               </FormGroup>
-              <Button type="submit">{t('submit')}</Button>
+              <Button type="submit" color="primary">{t('post-answer')}</Button>
             </Form>
           </div>
         </div>
-        <div>{t('related')}</div>
+        <div>
+          <h4>{t('linked')}</h4>
+          <h4>{t('related')}</h4>
+        </div>
       </ThreeColumnContainer>
     </Page>
   )

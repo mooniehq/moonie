@@ -6,8 +6,11 @@ const SignUp = (props) => {
   const { t } = props
   return (
     <Page {...props}>
-      <div>{t('sign-up')}</div>
       <Form action="/api/signup" method="post">
+        <FormGroup>
+          <Label for="displayName">{t('display-name')}</Label>
+          <Input type="text" id="displayName" name="displayName" />
+        </FormGroup>
         <FormGroup>
           <Label for="email">{t('email')}</Label>
           <Input type="email" id="email" name="email" />
@@ -16,7 +19,7 @@ const SignUp = (props) => {
           <Label for="password">{t('password')}</Label>
           <Input type="password" id="password" name="password" />
         </FormGroup>
-        <Button type="submit">{t('submit')}</Button>
+        <Button type="submit" color="primary">{t('sign-up')}</Button>
       </Form>
     </Page>
   )

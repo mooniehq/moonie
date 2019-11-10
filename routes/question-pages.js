@@ -7,7 +7,7 @@ module.exports = (nextApp) => {
 
   const router = Router()
 
-  router.get('/question/:id', isLoggedIn, asyncRoute(async (req, res) => {
+  router.get('/question/:id', asyncRoute(async (req, res) => {
     const { user } = req
     const { id } = req.params
     const question = await Question.findOne({ where: { id } })

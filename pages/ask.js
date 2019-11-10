@@ -7,17 +7,20 @@ const Ask = (props) => {
   const { t } = props
   return (
     <Page {...props}>
-      <div>{t('create-question')}</div>
+      <h1>{t('ask-question')}</h1>
       <Form action="/api/question" method="post">
         <FormGroup>
           <Label for="title">{t('title')}</Label>
           <Input type="text" id="title" name="title" />
         </FormGroup>
         <FormGroup>
-          <Label for="content">{t('content')}</Label>
+          <Label for="content">{t('body')}</Label>
           <MarkdownEditor id="content" name="content" value="" />
         </FormGroup>
-        <Button type="submit">{t('submit')}</Button>
+        <FormGroup>
+          <Label>{t('tags')}</Label>
+        </FormGroup>
+        <Button type="submit" color="primary">{t('post-question')}</Button>
       </Form>
     </Page>
   )

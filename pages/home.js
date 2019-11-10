@@ -24,6 +24,7 @@ const Home = (props) => {
           <div className="d-flex justify-content-end">
             <ButtonToolbar>
               <ButtonGroup>
+                <Button outline href="#">{t('interesting')}</Button>
                 <Button outline href="#">{t('hot')}</Button>
                 <Button outline href="#">{t('week')}</Button>
                 <Button outline href="#">{t('month')}</Button>
