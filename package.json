@@ -38,7 +38,8 @@
     "reactstrap": "^8.1.1",
     "route-async": "^1.0.5",
     "sequelize": "^5.21.2",
-    "showdown": "^1.9.1"
+    "showdown": "^1.9.1",
+    "uploadfs": "^1.14.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
