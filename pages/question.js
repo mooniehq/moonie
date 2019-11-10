@@ -12,7 +12,7 @@ import {
 import Page from '../components/Page'
 import MarkdownEditor from '../components/MarkdownEditor'
 import Answer from '../components/Answer'
-import ThreeColumnContainer from '../components/ThreeColumnContainer'
+import HasRightSidebar from '../components/HasRightSidebar'
 import QuestionHeader from '../components/QuestionHeader'
 import TagsList from '../components/TagsList'
 
@@ -31,7 +31,7 @@ const Question = (props) => {
   ]
   return (
     <Page {...props}>
-      <ThreeColumnContainer>
+      <HasRightSidebar>
         <QuestionHeader text={title} />
         <div>
           <p>{content}</p>
@@ -77,7 +77,7 @@ const Question = (props) => {
           <h4>{t('linked')}</h4>
           <h4>{t('related')}</h4>
         </div>
-      </ThreeColumnContainer>
+      </HasRightSidebar>
     </Page>
   )
 }

@@ -9,7 +9,7 @@ import {
   CardHeader
 } from 'reactstrap'
 import Page from '../components/Page'
-import ThreeColumnContainer from '../components/ThreeColumnContainer'
+import HasRightSidebar from '../components/HasRightSidebar'
 import QuestionsList from '../components/QuestionsList'
 import QuestionHeader from '../components/QuestionHeader'
 
@@ -17,7 +17,7 @@ const Home = (props) => {
   const { t, questions } = props
   return (
     <Page {...props}>
-      <ThreeColumnContainer>
+      <HasRightSidebar>
         <div></div>
         <div>
           <QuestionHeader text={t('top-questions')} />
@@ -53,7 +53,7 @@ const Home = (props) => {
             </CardBody>
           </Card>
         </div>
-      </ThreeColumnContainer>
+      </HasRightSidebar>
     </Page>
   )
 }

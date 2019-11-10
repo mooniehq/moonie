@@ -1,5 +1,5 @@
 import { withTranslation } from '../i18n'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Button, Form, FormGroup, Input } from 'reactstrap'
 import Showdown from 'showdown'
 import { string, array } from 'prop-types'
 import MarkdownEditor from './MarkdownEditor'

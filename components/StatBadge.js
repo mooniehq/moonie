@@ -1,11 +1,19 @@
 import { string } from 'prop-types'
+import {
+  Card,
+  CardBody
+} from 'reactstrap'
 
 const StatBadge = ({ href, number, text }) => {
   return (
-    <a className="d-inline-flex flex-column" href={href}>
-      <span>{number}</span>
-      <span>{text}</span>
-    </a>
+    <Card>
+      <CardBody>
+        <a className="d-inline-flex flex-column" href={href}>
+          <span className="text-center">{number}</span>
+          <span className="text-center">{text}</span>
+        </a>
+      </CardBody>
+    </Card>
   )
 }
 

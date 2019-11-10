@@ -3,7 +3,7 @@ import {
   Row
 } from 'reactstrap'
 
-const ThreeColumnContainer = (props) => {
+const HasRightSidebar = (props) => {
   const [top, main, right] = props.children
   return (
     <>
@@ -20,4 +20,4 @@ const ThreeColumnContainer = (props) => {
   )
 }
 
-export default ThreeColumnContainer
+export default HasRightSidebar
