@@ -15,6 +15,7 @@ import Answer from '../components/Answer'
 import HasRightSidebar from '../components/HasRightSidebar'
 import QuestionHeader from '../components/QuestionHeader'
 import TagsList from '../components/TagsList'
+import Vote from '../components/Vote'
 
 const Question = (props) => {
   const { t, question: { id: questionId, title, content }, answers } = props
@@ -34,8 +35,13 @@ const Question = (props) => {
       <HasRightSidebar>
         <QuestionHeader text={title} />
         <div>
-          <p>{content}</p>
-          <TagsList tags={tags} />
+          <div className="d-flex">
+            <div><Vote /></div>
+            <div>
+              <p>{content}</p>
+              <TagsList tags={tags} />
+            </div>
+          </div>
           <h2>{t('answer')}</h2>
           <Nav className="justify-content-end" tabs>
             <NavItem>
