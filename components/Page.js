@@ -51,9 +51,9 @@ const Page = ({ t, user, children }) => {
               <>
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
-                    {user.email}
+                    <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" className="rounded-circle"></img>
                   </DropdownToggle>
-                  <DropdownMenu>
+                  <DropdownMenu right>
                     <DropdownItem tag="a" href="/signout">
                       {t('sign-out')}
                     </DropdownItem>
