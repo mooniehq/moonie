@@ -16,6 +16,7 @@ import HasRightSidebar from '../components/HasRightSidebar'
 import QuestionHeader from '../components/QuestionHeader'
 import TagsList from '../components/TagsList'
 import Vote from '../components/Vote'
+import Post from '../components/Post'
 
 const Question = (props) => {
   const { t, question: { id: questionId, title, content }, answers } = props
@@ -35,13 +36,10 @@ const Question = (props) => {
       <HasRightSidebar>
         <QuestionHeader text={title} />
         <div>
-          <div className="d-flex">
-            <div><Vote /></div>
-            <div>
-              <p>{content}</p>
-              <TagsList tags={tags} />
-            </div>
-          </div>
+          <Post>
+            <p>{content}</p>
+            <TagsList tags={tags} />
+          </Post>
           <h2>{t('answer')}</h2>
           <Nav className="justify-content-end" tabs>
             <NavItem>
@@ -63,7 +61,9 @@ const Question = (props) => {
           <div>
             {
               answers.map(({ id: answerId, content, comments }) =>
-                <Answer id={answerId} content={content} comments={comments} />
+                <Post>
+                  <Answer id={answerId} content={content} comments={comments} />
+                </Post>
               )
             }
           </div>

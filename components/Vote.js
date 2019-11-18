@@ -1,8 +1,7 @@
 import { withTranslation } from '../i18n'
-import { string } from 'prop-types'
 import { FaCaretUp, FaCaretDown } from 'react-icons/fa'
 
-const Vote = ({ t, text }) => (
+const Vote = ({ t }) => (
   <h2 className="d-flex align-items-center flex-column">
     <div><FaCaretUp /></div>
     <div>100</div>
@@ -11,7 +10,6 @@ const Vote = ({ t, text }) => (
 )
 
 Vote.propTypes = {
-  text: string
 }
 
 export default withTranslation('common')(Vote)

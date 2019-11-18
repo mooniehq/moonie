@@ -2,18 +2,17 @@ import { withTranslation } from '../i18n'
 import { string } from 'prop-types'
 import {
   Button,
-  Col,
   Row
 } from 'reactstrap'
 
 const QuestionHeader = ({ t, text }) => (
-  <Row>
-    <Col xs="auto" className="mr-auto">
+  <Row className="d-flex">
+    <div className="flex-fill">
       <h1>{text}</h1>
-    </Col>
-    <Col xs="auto">
+    </div>
+    <div>
       <Button color="primary" href="#">{t('ask-question')}</Button>
-    </Col>
+    </div>
   </Row>
 )
 
