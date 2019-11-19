@@ -1,9 +1,6 @@
 import { withTranslation } from '../i18n'
-import {
-  Button,
-  ButtonToolbar
-} from 'reactstrap'
 import Vote from './Vote'
+import UserBadge from './UserBadge'
 
 const Post = ({ t, children }) => (
   <div className="d-flex">
@@ -23,7 +20,7 @@ const Post = ({ t, children }) => (
           </div>
         </div>
         <div>
-          User badge
+          <UserBadge />
         </div>
       </div>
     </div>
