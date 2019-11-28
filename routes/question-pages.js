@@ -15,10 +15,10 @@ module.exports = (nextApp) => {
     const question = await findQuestion(id)
     let answers = []
     if (question) {
-      answers = await findAnswers(id)
+      answers = (await findAnswers(id))
         .map(answer => answer.get({ plain: true }))
         .map(async answer => {
-          const comments = await findComments(answer.id)
+          const comments = (await findComments(answer.id))
             .map(comment => comment.get({ plain: true }))
           return {
             ...answer,

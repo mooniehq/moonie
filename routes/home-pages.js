@@ -8,7 +8,7 @@ module.exports = (nextApp) => {
 
   router.get('/', asyncRoute(async (req, res) => {
     const { user } = req
-    const questions = await findQuestions()
+    const questions = (await findQuestions())
       .map(question => question.get({ plain: true }))
     return nextApp.render(req, res, '/home', { user, questions })
   }))
