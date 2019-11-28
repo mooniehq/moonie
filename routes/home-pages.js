@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const asyncRoute = require('route-async')
-const { Question } = require('../models')
+const { findQuestions } = require('../services/question-service')
 
 module.exports = (nextApp) => {
 
@@ -8,7 +8,7 @@ module.exports = (nextApp) => {
 
   router.get('/', asyncRoute(async (req, res) => {
     const { user } = req
-    const questions = await Question.findAll()
+    const questions = await findQuestions()
       .map(question => question.get({ plain: true }))
     return nextApp.render(req, res, '/home', { user, questions })
   }))

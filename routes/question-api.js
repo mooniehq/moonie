@@ -1,7 +1,7 @@
 const { Router } = require('express')
 const asyncRoute = require('route-async')
 const { isLoggedIn } = require('../middleware/authorize')
-const { Question } = require('../models')
+const { createQuestion } = require('../services/question-service')
 
 const router = Router()
 
@@ -15,11 +15,7 @@ router.post('/api/question', isLoggedIn, asyncRoute(async (req, res) => {
       content
     }
   } = req
-  await Question.create({
-    title,
-    content,
-    author_id
-  })
+  await createQuestion(title, content, author_id)
   return res.redirect('/ask')
 }))
 

@@ -1,7 +1,8 @@
 const { Router } = require('express')
 const asyncRoute = require('route-async')
 const { isLoggedIn } = require('../middleware/authorize')
-const { Answer, Comment } = require('../models')
+const { findAnswer } = require('../services/answer-service')
+const { createComment } = require('../services/comment-service')
 
 const router = Router()
 
@@ -16,14 +17,9 @@ router.post('/api/comment', isLoggedIn, asyncRoute(async (req, res) => {
     }
   } = req
 
-  const answer = await Answer.findOne({ where: { id: answerId } })
+  const answer = await findAnswer(answerId)
   const questionId = answer.question_id
-  await Comment.create({
-    question_id: questionId,
-    answer_id: answerId,
-    content,
-    author_id
-  })
+  await createComment(questionId, answerId, content, author_id)
   return res.redirect('/question/' + questionId)
 }))
 
