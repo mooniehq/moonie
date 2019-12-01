@@ -11,7 +11,7 @@ const Ask = (props) => {
       <HasRightSidebar>
         <div></div>
         <div>
-          <h1>{t('ask-question')}</h1>
+          <h1>{t('ask_question')}</h1>
           <Form action="/api/question" method="post">
             <FormGroup>
               <Label for="title">{t('title')}</Label>
@@ -24,7 +24,7 @@ const Ask = (props) => {
             <FormGroup>
               <Label>{t('tags')}</Label>
             </FormGroup>
-            <Button type="submit" color="primary">{t('post-question')}</Button>
+            <Button type="submit" color="primary">{t('post_question')}</Button>
           </Form>
         </div>
         <div></div>

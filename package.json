@@ -56,7 +56,8 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest": "24.9.0",
     "nodemon": "^2.0.1",
-    "sequelize-cli": "^5.5.1"
+    "sequelize-cli": "^5.5.1",
+    "styled-jsx": "^3.2.4"
   },
   "private": true
 }

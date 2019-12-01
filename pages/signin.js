@@ -27,7 +27,7 @@ const SignIn = (props) => {
                 <Label for="password">{t('password')}</Label>
                 <Input type="password" id="password" name="password" />
               </FormGroup>
-              <Button type="submit" color="primary">{t('log-in')}</Button>
+              <Button type="submit" color="primary">{t('log_in')}</Button>
             </Form>
           </CardBody>
         </Card>

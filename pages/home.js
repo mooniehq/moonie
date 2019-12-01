@@ -10,7 +10,7 @@ import {
 } from 'reactstrap'
 import Page from '../components/Page'
 import HasRightSidebar from '../components/HasRightSidebar'
-import QuestionsList from '../components/QuestionsList'
+import QuestionMiniList from '../components/QuestionMiniList'
 import QuestionHeader from '../components/QuestionHeader'
 
 const Home = (props) => {
@@ -20,7 +20,7 @@ const Home = (props) => {
       <HasRightSidebar>
         <div></div>
         <div>
-          <QuestionHeader text={t('top-questions')} />
+          <QuestionHeader text={t('top_questions')} />
           <div className="d-flex justify-content-end">
             <ButtonToolbar>
               <ButtonGroup>
@@ -31,24 +31,22 @@ const Home = (props) => {
               </ButtonGroup>
             </ButtonToolbar>
           </div>
-          <div>
-            <QuestionsList questions={questions} />
-          </div>
+          <QuestionMiniList questions={questions} />
         </div>
         <div>
           <Card>
-            <CardHeader>{t('custom-filters')}</CardHeader>
+            <CardHeader>{t('custom_filters')}</CardHeader>
             <CardBody>
-              <a href="#">{t('create-custom-filter')}</a>
+              <a href="#">{t('create_custom_filter')}</a>
             </CardBody>
           </Card>
           <Card>
-            <CardHeader>{t('watched-tags')}</CardHeader>
+            <CardHeader>{t('watched_tags')}</CardHeader>
             <CardBody>
             </CardBody>
           </Card>
           <Card>
-            <CardHeader>{t('ignored-tags')}</CardHeader>
+            <CardHeader>{t('ignored_tags')}</CardHeader>
             <CardBody>
             </CardBody>
           </Card>

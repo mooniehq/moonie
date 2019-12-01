@@ -1,15 +1,21 @@
 {
     "answer": "Answer",
+    "answers_count": "{{count}} answer",
+    "answers_count_plural": "{{count}} answers",
     "comment": "Comment",
     "content": "Content",
-    "create-question": "Create a new question",
+    "create_question": "Create a new question",
     "email": "Email",
     "home": "Home",
     "password": "Password",
     "question": "Question",
-    "sign-in": "Sign in",
-    "sign-out": "Sign out",
-    "sign-up": "Sign up",
+    "sign_in": "Sign in",
+    "sign_out": "Sign out",
+    "sign_up": "Sign up",
     "submit": "Submit",
-    "title": "Title"
+    "title": "Title",
+    "views_count": "{{count}} view",
+    "views_count_plural": "{{count}} views",
+    "votes_count": "{{count}} vote",
+    "votes_count_plural": "{{count}} votes"
 }

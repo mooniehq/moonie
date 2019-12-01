@@ -66,7 +66,7 @@ const Question = (props) => {
               )
             }
           </div>
-          <h2>{t('your-answer')}</h2>
+          <h2>{t('your_answer')}</h2>
           <div>
             <Form action="/api/anwser" method="post">
               <input type="hidden" name="questionId" value={questionId} />
@@ -74,7 +74,7 @@ const Question = (props) => {
                 <Label for="answer-content">{t('answer')}</Label>
                 <MarkdownEditor id="answer-content" name="content" value="" />
               </FormGroup>
-              <Button type="submit" color="primary">{t('post-answer')}</Button>
+              <Button type="submit" color="primary">{t('post_answer')}</Button>
             </Form>
           </div>
         </div>

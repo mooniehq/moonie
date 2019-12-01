@@ -55,7 +55,7 @@ const Page = ({ t, user, children }) => {
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem tag="a" href="/signout">
-                      {t('sign-out')}
+                      {t('sign_out')}
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
@@ -64,17 +64,17 @@ const Page = ({ t, user, children }) => {
             {!user &&
             <>
               <NavItem>
-                <NavLink href="/signin">{t('log-in')}</NavLink>
+                <NavLink href="/signin">{t('log_in')}</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/signup">{t('sign-up')}</NavLink>
+                <NavLink href="/signup">{t('sign_up')}</NavLink>
               </NavItem>
             </>
             }
           </Nav>
         </Collapse>
       </Navbar>
-      <Container className="main-container">
+      <Container className="content">
         <Row>
           {children}
         </Row>

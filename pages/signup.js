@@ -20,7 +20,7 @@ const SignUp = (props) => {
           <CardBody>
             <Form action="/api/signup" method="post">
               <FormGroup>
-                <Label for="displayName">{t('display-name')}</Label>
+                <Label for="displayName">{t('display_name')}</Label>
                 <Input type="text" id="displayName" name="displayName" />
               </FormGroup>
               <FormGroup>
@@ -31,7 +31,7 @@ const SignUp = (props) => {
                 <Label for="password">{t('password')}</Label>
                 <Input type="password" id="password" name="password" />
               </FormGroup>
-              <Button type="submit" color="primary">{t('sign-up')}</Button>
+              <Button type="submit" color="primary">{t('sign_up')}</Button>
             </Form>
           </CardBody>
         </Card>

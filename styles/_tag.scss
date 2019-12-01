@@ -1,0 +1,22 @@
+.tags {
+  line-height: 1.125rem;
+  float: left;
+}
+
+.post-tag {
+  font-size: 0.75rem;
+  color: #39739d;
+  background-color: #E1ECF4;
+  border-color: #E1ECF4;
+  display: inline-block;
+  padding: 0.3rem 0.375rem;
+  margin: 0.125rem 0.125rem 0.125rem 0;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  text-align: center;
+  border-width: 0.0625rem;
+  border-style: solid;
+  border-radius: 0.1875rem;
+  transition: all .15s ease-in-out;
+}
