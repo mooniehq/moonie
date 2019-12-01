@@ -7,9 +7,6 @@ $btn-line-height: 0.9375rem !default;
 
 $primary: #0095ff;
 
-$mini-counts-badge-color: #848d95;
-$mini-counts-color: #6a737c;
-
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../node_modules/easymde/dist/easymde.min.css";
 
@@ -46,22 +43,6 @@ a {
   font-size: 0.8125rem;
 }
 
-.mb8 {
-  margin-bottom: 8px !important;
-}
-
-.ml12 {
-  margin-left: 12px !important;
-}
-
-.pb8 {
-  padding-bottom: 8px !important;
-}
-
-.mb16 {
-  margin-bottom: 16px !important;
-}
-
 .fl1 {
   flex: 1 auto !important;
 }
@@ -70,13 +51,13 @@ a {
   flex-wrap: wrap !important;
 }
 
-.bc-black-2 {
-  border-color: #e4e6e8 !important;
-}
-
 .bb {
   border-bottom-style: solid !important;
   border-bottom-width: 1px !important;
+}
+
+.bc-black-2 {
+  border-color: #e4e6e8 !important;
 }
 
 .ws-nowrap {
@@ -87,16 +68,28 @@ a {
   margin-bottom: 8px !important;
 }
 
-.mr16 {
-  margin-right: 16px !important;
+.mb16 {
+  margin-bottom: 16px !important;
 }
 
-.fc-light {
-  color: #6a737c !important;
+.ml12 {
+  margin-left: 12px !important;
 }
 
 .mr2 {
   margin-right: 2px !important;
+}
+
+.mr16 {
+  margin-right: 16px !important;
+}
+
+.pb8 {
+  padding-bottom: 8px !important;
+}
+
+.fc-light {
+  color: #6a737c !important;
 }
 
 @import "question-mini-list";
