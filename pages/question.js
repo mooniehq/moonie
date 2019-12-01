@@ -1,5 +1,5 @@
 import { withTranslation } from '../i18n'
-import { shape, string, array } from 'prop-types'
+import { shape, number, string, array } from 'prop-types'
 import {
   Button,
   Form,
@@ -15,11 +15,10 @@ import Answer from '../components/Answer'
 import HasRightSidebar from '../components/HasRightSidebar'
 import QuestionHeader from '../components/QuestionHeader'
 import TagsList from '../components/TagsList'
-import Vote from '../components/Vote'
 import Post from '../components/Post'
 
 const Question = (props) => {
-  const { t, question: { id: questionId, title, content }, answers } = props
+  const { t, question: { id: questionId, title, content, answers } } = props
   const tags = [
     {
       label: 'java'
@@ -101,13 +100,14 @@ Question.propTypes = {
     email: string
   }),
   question: shape({
+    id: number,
     title: string,
-    content: string
-  }),
-  answers: shape({
-    id: string,
     content: string,
-    comments: array
+    answers: shape({
+      id: number,
+      content: string,
+      comments: array
+    })
   })
 }
 

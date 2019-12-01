@@ -1,5 +1,5 @@
 import { withTranslation } from '../i18n'
-import { shape, string } from 'prop-types'
+import { shape, number, string } from 'prop-types'
 import StatBadge from './StatBadge'
 import TagsList from './TagsList'
 
@@ -33,7 +33,7 @@ const QuestionSummary = ({ t, question: { id, title } }) => {
 
 QuestionSummary.propTypes = {
   question: shape({
-    id: string,
+    id: number,
     title: string
   })
 }
