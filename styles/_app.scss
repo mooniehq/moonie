@@ -1,5 +1,12 @@
 $font-family-sans-serif: Arial,"Helvetica Neue",Helvetica,sans-serif !default;
 
+$btn-font-size: 0.8125rem;
+$btn-padding-y: 0.65rem !default;
+$btn-padding-x: 0.65rem !default;
+$btn-line-height: 0.9375rem !default;
+
+$primary: #0095ff;
+
 $mini-counts-badge-color: #848d95;
 $mini-counts-color: #6a737c;
 
@@ -22,5 +29,90 @@ a {
   padding-top: 5rem;
 }
 
+.grid {
+  display: flex;
+}
+
+.ow-break-word {
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+}
+
+.fs-headline1 {
+  font-size: 1.6875rem !important;
+}
+
+.fs-sm {
+  font-size: 0.8125rem;
+}
+
+.mb8 {
+  margin-bottom: 8px !important;
+}
+
+.ml12 {
+  margin-left: 12px !important;
+}
+
+.pb8 {
+  padding-bottom: 8px !important;
+}
+
+.mb16 {
+  margin-bottom: 16px !important;
+}
+
+.fl1 {
+  flex: 1 auto !important;
+}
+
+.fw-wrap {
+  flex-wrap: wrap !important;
+}
+
+.bc-black-2 {
+  border-color: #e4e6e8 !important;
+}
+
+.bb {
+  border-bottom-style: solid !important;
+  border-bottom-width: 1px !important;
+}
+
+.ws-nowrap {
+  white-space: nowrap !important;
+}
+
+.mb8 {
+  margin-bottom: 8px !important;
+}
+
+.mr16 {
+  margin-right: 16px !important;
+}
+
+.fc-light {
+  color: #6a737c !important;
+}
+
+.mr2 {
+  margin-right: 2px !important;
+}
+
 @import "question-mini-list";
 @import "tag";
+
+.question-header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.question-header .question-hyperlink {
+  color: #242729;
+  font-size: 1.6875rem;
+  font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+  line-height: 1.35;
+  font-weight: normal;
+  margin-bottom: 0;
+}
