@@ -4,7 +4,7 @@ import Tag from './Tag'
 
 const TagsList = ({ t, tags }) => {
   return (
-    <div className="tags">
+    <div>
       {tags.map(tag => (
         <Tag tag={tag} />
       ))}
