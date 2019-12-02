@@ -3,7 +3,7 @@ import { shape, number, string } from 'prop-types'
 import MiniCountsBadge from './MiniCountsBadge'
 import TagsList from './TagsList'
 
-const QuestionNarrowSummary = ({ t, question: { id, title } }) => {
+const QuestionHomeListSummary = ({ t, question: { id, title } }) => {
   const href = `/question/${id}`
   const tags = [
     {
@@ -40,11 +40,11 @@ const QuestionNarrowSummary = ({ t, question: { id, title } }) => {
   )
 }
 
-QuestionNarrowSummary.propTypes = {
+QuestionHomeListSummary.propTypes = {
   question: shape({
     id: number,
     title: string
   })
 }
 
-export default withTranslation('common')(QuestionNarrowSummary)
+export default withTranslation('common')(QuestionHomeListSummary)

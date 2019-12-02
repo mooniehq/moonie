@@ -5,7 +5,7 @@ import {
   ButtonToolbar
 } from 'reactstrap'
 
-const QuestionMiniListFilter = ({ t }) => (
+const QuestionHomeListFilter = ({ t }) => (
   <div className="d-flex justify-content-end mb-3">
     <ButtonToolbar>
       <ButtonGroup>
@@ -17,7 +17,7 @@ const QuestionMiniListFilter = ({ t }) => (
   </div>
 )
 
-QuestionMiniListFilter.propTypes = {
+QuestionHomeListFilter.propTypes = {
 }
 
-export default withTranslation('common')(QuestionMiniListFilter)
+export default withTranslation('common')(QuestionHomeListFilter)

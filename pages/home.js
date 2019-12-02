@@ -7,9 +7,9 @@ import {
 } from 'reactstrap'
 import Page from '../components/Page'
 import HasRightSidebar from '../components/HasRightSidebar'
-import QuestionMiniList from '../components/QuestionMiniList'
-import QuestionMiniListHeader from '../components/QuestionMiniListHeader'
-import QuestionMiniListFilter from '../components/QuestionMiniListFilter'
+import QuestionHomeList from '../components/QuestionHomeList'
+import QuestionHomeListHeader from '../components/QuestionHomeListHeader'
+import QuestionHomeListFilter from '../components/QuestionHomeListFilter'
 
 const Home = (props) => {
   const { t, questions } = props
@@ -18,9 +18,9 @@ const Home = (props) => {
       <HasRightSidebar>
         <div></div>
         <div>
-          <QuestionMiniListHeader text={t('top_questions')} />
-          <QuestionMiniListFilter />
-          <QuestionMiniList questions={questions} />
+          <QuestionHomeListHeader text={t('top_questions')} />
+          <QuestionHomeListFilter />
+          <QuestionHomeList questions={questions} />
         </div>
         <div>
           <Card>

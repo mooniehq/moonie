@@ -1,11 +1,11 @@
 import { withTranslation } from '../i18n'
-import { FaCaretUp, FaCaretDown } from 'react-icons/fa'
+import { AiFillCaretUp, AiFillCaretDown } from 'react-icons/ai'
 
 const Vote = ({ t }) => (
-  <h2 className="d-flex align-items-center flex-column">
-    <div><FaCaretUp /></div>
-    <div>100</div>
-    <div><FaCaretDown /></div>
+  <h2 className="vote d-flex align-items-center flex-column m-1 text-black-50">
+    <div><AiFillCaretUp /></div>
+    <div className="fs-title">100</div>
+    <div><AiFillCaretDown /></div>
   </h2>
 )
 

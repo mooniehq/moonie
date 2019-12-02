@@ -7,20 +7,16 @@
   color: #6a737c !important;
 }
 
-.fs-headline1 {
-  font-size: 1.6875rem !important;
+.fs-sm {
+  font-size: $btn-font-size;
 }
 
-.fs-sm {
-  font-size: 0.8125rem;
+.fs-title {
+  font-size: 1.61538462rem !important
 }
 
 .fl1 {
   flex: 1 auto !important;
-}
-
-.fw-wrap {
-  flex-wrap: wrap !important;
 }
 
 .bb {
@@ -30,10 +26,6 @@
 
 .bc-black-2 {
   border-color: #e4e6e8 !important;
-}
-
-.ws-nowrap {
-  white-space: nowrap !important;
 }
 
 .mb8 {

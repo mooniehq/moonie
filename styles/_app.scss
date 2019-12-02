@@ -1,5 +1,16 @@
 $font-family-sans-serif: Arial,"Helvetica Neue",Helvetica,sans-serif !default;
 
+$body-color: #242729 !default;
+
+$font-size-base: 0.9375rem !default;
+$h1-font-size: 1.6875rem !default;
+
+$headings-font-weight: 400 !default;
+
+$text-muted: #6a737c !default;
+$text-black-50: #848d95 !default;
+$text-dark: #242729 !default;
+
 $btn-font-size: 0.8125rem;
 $btn-padding-y: 0.65rem !default;
 $btn-padding-x: 0.65rem !default;
@@ -31,24 +42,12 @@ html {
   font-size: 16px;
 }
 
-h1 {
-  margin-bottom: 1.6875rem;
-}
-
-h2, h3, h4 {
-  font-weight: 400;
-}
-
 a {
   color: #07C;
 }
 
 .content {
   padding-top: 5rem;
-}
-
-.grid {
-  display: flex;
 }
 
 @import "utils";
@@ -68,4 +67,13 @@ a {
   line-height: 1.35;
   font-weight: normal;
   margin-bottom: 0;
+}
+
+.vote {
+  width: 2.25rem;
+
+  svg {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
 }

@@ -6,26 +6,26 @@ import {
 
 const QuestionHeader = ({ t, text }) => (
   <div>
-    <div className="question-header grid">
-      <h1 className="grid--cell fs-headline1 fl1 ow-break-word mb8">
+    <div className="question-header d-flex">
+      <h1 className="flex-grow-1 mb-2">
         <a className="question-hyperlink" href="#">{text}</a>
       </h1>
-      <div className="ml12 aside-cta grid--cell">
+      <div>
         <Button color="primary" href="/ask">{t('ask_question')}</Button>
       </div>
     </div>
-    <div className="fs-sm grid fw-wrap pb8 mb16 bb bc-black-2">
-      <div className="grid--cell ws-nowrap mr16 mb8" title="2019-12-01 07:35:39Z">
-        <span className="fc-light mr2">Asked</span><span> </span>
-        <time dateTime="2019-12-01T07:35:39">today</time>
+    <div className="fs-sm d-flex flex-wrap pb-2 mb-3 bb bc-black-2">
+      <div className="text-nowrap mr-3 mb-2" title="2019-12-01 07:35:39Z">
+        <span className="text-muted">Asked</span><span> </span>
+        <time className="text-dark" dateTime="2019-12-01T07:35:39">today</time>
       </div>
-      <div className="grid--cell ws-nowrap mr16 mb8">
-        <span className="fc-light mr2">Active</span><span> </span>
-        <time dateTime="2019-12-01T07:35:39">today</time>
+      <div className="text-nowrap mr-3 mb-2">
+        <span className="text-muted">Active</span><span> </span>
+        <time className="text-dark" dateTime="2019-12-01T07:35:39">today</time>
       </div>
-      <div className="grid--cell ws-nowrap mb8" title="Viewed 20 times">
-        <span className="fc-light mr2">Viewed</span><span> </span>
-        <span>20 times</span>
+      <div className="text-nowrap mb-2" title="Viewed 20 times">
+        <span className="text-muted">Viewed</span><span> </span>
+        <span className="text-dark">20 times</span>
       </div>
     </div>
   </div>

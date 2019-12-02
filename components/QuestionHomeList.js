@@ -1,21 +1,21 @@
 import { withTranslation } from '../i18n'
 import { arrayOf, object } from 'prop-types'
-import QuestionNarrowSummary from './QuestionNarrowSummary'
+import QuestionHomeListSummary from './QuestionHomeListSummary'
 
-const QuestionMiniList = ({ t, questions }) => {
+const QuestionHomeList = ({ t, questions }) => {
   return (
     <div className="qlist-wrapper">
       <div className="question-mini-list">
         {questions.map(question => (
-          <QuestionNarrowSummary question={question} />
+          <QuestionHomeListSummary question={question} />
         ))}
       </div>
     </div>
   )
 }
 
-QuestionMiniList.propTypes = {
+QuestionHomeList.propTypes = {
   questions: arrayOf(object)
 }
 
-export default withTranslation('common')(QuestionMiniList)
+export default withTranslation('common')(QuestionHomeList)

@@ -4,10 +4,10 @@ import UserBadge from './UserBadge'
 
 const Post = ({ t, children }) => (
   <div className="d-flex">
-    <div>
+    <div className="pr-3">
       <Vote />
     </div>
-    <div className="flex-fill">
+    <div className="flex-grow">
       <div>
         {children}
       </div>
