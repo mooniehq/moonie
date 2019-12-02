@@ -6,15 +6,15 @@ import {
 
 const QuestionHeader = ({ t, text }) => (
   <div>
-    <div className="question-header d-flex">
+    <div className="question-header d-flex flex-row flex-nowrap justify-content-between font-weight-normal">
       <h1 className="flex-grow-1 mb-2">
-        <a className="question-hyperlink" href="#">{text}</a>
+        <a className="question-hyperlink mb-0" href="#">{text}</a>
       </h1>
       <div>
         <Button color="primary" href="/ask">{t('ask_question')}</Button>
       </div>
     </div>
-    <div className="fs-sm d-flex flex-wrap pb-2 mb-3 bb bc-black-2">
+    <div className="d-flex flex-wrap pb-2 mb-3 bb bc-black-2 fs-13">
       <div className="text-nowrap mr-3 mb-2" title="2019-12-01 07:35:39Z">
         <span className="text-muted">Asked</span><span> </span>
         <time className="text-dark" dateTime="2019-12-01T07:35:39">today</time>

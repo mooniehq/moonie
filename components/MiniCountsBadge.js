@@ -2,11 +2,9 @@ import { string } from 'prop-types'
 
 const MiniCountsBadge = ({ number, text, title }) => {
   return (
-    <div className="mini-counts-badge text-center">
-      <div className="mini-counts">
-        <span className="text-muted" title={title}>{number}</span>
-      </div>
-      <div className="text-black-50">{text}</div>
+    <div className="mini-counts-badge text-center d-inline-block">
+      <div className="text-muted fs-17 mb-1 font-weight-light" title={title}>{number}</div>
+      <div className="fs-11 fc-lighter">{text}</div>
     </div>
   )
 }

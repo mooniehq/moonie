@@ -14,49 +14,36 @@ import MarkdownEditor from '../components/MarkdownEditor'
 import Answer from '../components/Answer'
 import HasRightSidebar from '../components/HasRightSidebar'
 import QuestionHeader from '../components/QuestionHeader'
-import TagsList from '../components/TagsList'
 import Post from '../components/Post'
 
 const Question = (props) => {
   const { t, question: { id: questionId, title, content, answers } } = props
-  const tags = [
-    {
-      label: 'java'
-    },
-    {
-      label: 'database'
-    },
-    {
-      label: 'api'
-    }
-  ]
   return (
     <Page {...props}>
       <HasRightSidebar>
         <QuestionHeader text={title} />
         <div>
-          <Post>
-            <p>{content}</p>
-            <TagsList tags={tags} />
-          </Post>
-          <h2>{t('answer')}</h2>
-          <Nav className="justify-content-end" tabs>
-            <NavItem>
-              <NavLink className='active'>
-                {t('active')}
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink>
-                {t('oldest')}
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink>
-                {t('votes')}
-              </NavLink>
-            </NavItem>
-          </Nav>
+          <Post content={content} />
+          <div className="mt-2">
+            <h2>{t('answer')}</h2>
+            <Nav className="answer-tabs justify-content-end fs-12" tabs>
+              <NavItem>
+                <NavLink className='active'>
+                  {t('active')}
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink>
+                  {t('oldest')}
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink>
+                  {t('votes')}
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </div>
           <div>
             {
               answers.map(({ id: answerId, content, comments }) =>

@@ -4,11 +4,11 @@ $body-color: #242729 !default;
 
 $font-size-base: 0.9375rem !default;
 $h1-font-size: 1.6875rem !default;
+$h2-font-size: 1.125rem !default;
 
 $headings-font-weight: 400 !default;
 
 $text-muted: #6a737c !default;
-$text-black-50: #848d95 !default;
 $text-dark: #242729 !default;
 
 $btn-font-size: 0.8125rem;
@@ -52,21 +52,11 @@ a {
 
 @import "utils";
 @import "question-mini-list";
-@import "tag";
-
-.question-header {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-}
 
 .question-header .question-hyperlink {
   color: #242729;
   font-size: 1.6875rem;
-  font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
   line-height: 1.35;
-  font-weight: normal;
-  margin-bottom: 0;
 }
 
 .vote {
@@ -75,5 +65,20 @@ a {
   svg {
     height: 2.5rem;
     width: 2.5rem;
+  }
+}
+
+.post-actions {
+  a {
+    @extend .fc-lighter;
+    padding: 0 0.25rem 0.125rem;
+  }
+}
+
+.answer-tabs {
+  margin-top: -1.5rem;
+
+  &.nav-tabs .nav-link.active {
+    border-top: 0.125rem solid #F48024;
   }
 }

@@ -7,8 +7,24 @@
   color: #6a737c !important;
 }
 
-.fs-sm {
-  font-size: $btn-font-size;
+.fc-lighter {
+  color: #848d95 !important;
+}
+
+.fs-17 {
+  font-size: 1.0625rem !important;
+}
+
+.fs-11 {
+  font-size: 0.6875rem !important;
+}
+
+.fs-12 {
+  font-size: 0.75rem !important;
+}
+
+.fs-13 {
+  font-size: 0.8125rem !important;
 }
 
 .fs-title {
@@ -26,28 +42,4 @@
 
 .bc-black-2 {
   border-color: #e4e6e8 !important;
-}
-
-.mb8 {
-  margin-bottom: 8px !important;
-}
-
-.mb16 {
-  margin-bottom: 16px !important;
-}
-
-.ml12 {
-  margin-left: 12px !important;
-}
-
-.mr2 {
-  margin-right: 2px !important;
-}
-
-.mr16 {
-  margin-right: 16px !important;
-}
-
-.pb8 {
-  padding-bottom: 8px !important;
 }
