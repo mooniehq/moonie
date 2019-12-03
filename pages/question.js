@@ -1,5 +1,5 @@
 import { withTranslation } from '../i18n'
-import { shape, number, string, array } from 'prop-types'
+import { shape, number, string, arrayOf } from 'prop-types'
 import {
   Button,
   Form,
@@ -11,19 +11,19 @@ import {
 } from 'reactstrap'
 import Page from '../components/Page'
 import MarkdownEditor from '../components/MarkdownEditor'
-import Answer from '../components/Answer'
 import HasRightSidebar from '../components/HasRightSidebar'
 import QuestionHeader from '../components/QuestionHeader'
 import Post from '../components/Post'
 
 const Question = (props) => {
-  const { t, question: { id: questionId, title, content, answers } } = props
+  const { t, question } = props
+  const { id: questionId, title, content, comments, answers } = question
   return (
     <Page {...props}>
       <HasRightSidebar>
         <QuestionHeader text={title} />
         <div>
-          <Post content={content} />
+          <Post {...question} />
           <div className="mt-2">
             <h2>{t('answer')}</h2>
             <Nav className="answer-tabs justify-content-end fs-12" tabs>
@@ -46,10 +46,8 @@ const Question = (props) => {
           </div>
           <div>
             {
-              answers.map(({ id: answerId, content, comments }) =>
-                <Post>
-                  <Answer id={answerId} content={content} comments={comments} />
-                </Post>
+              answers.map((answer) =>
+                <Post {...answer} />
               )
             }
           </div>
@@ -90,11 +88,16 @@ Question.propTypes = {
     id: number,
     title: string,
     content: string,
-    answers: shape({
+    comments: arrayOf(shape({
+      id: number
+    })),
+    answers: arrayOf(shape({
       id: number,
       content: string,
-      comments: array
-    })
+      comments: arrayOf(shape({
+        id: number
+      }))
+    }))
   })
 }
 

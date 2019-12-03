@@ -1,7 +1,7 @@
 const { Post } = require('../models')
 const { toPlain } = require('../utils/sequelize-utils')
 const { findAnswers } = require('../services/answer-service')
-const { findComments } = require('../services/comment-service')
+const { findCommentsByAnswer, findCommentsByQuestion } = require('../services/comment-service')
 
 const findQuestions = async () => {
   let questions = await Post.findAll({ where: { type: Post.TYPE.QUESTION } })
@@ -29,14 +29,16 @@ const findFullQuestion = async (id) => {
     let answers = []
     answers = await findAnswers(id)
     answers = await Promise.all(answers.map(async (answer) => {
-      const comments = await findComments(answer.id)
+      const comments = await findCommentsByAnswer(answer.id)
       return {
         ...answer,
         comments
       }
     }))
+    const comments = await findCommentsByQuestion(id)
     question = {
       ...question,
+      comments,
       answers
     }
   }

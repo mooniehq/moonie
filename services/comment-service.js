@@ -5,8 +5,18 @@ const { toPlain } = require('../utils/sequelize-utils')
  *
  * @param { number } answer_id
  */
-const findComments = async (answer_id) => {
+const findCommentsByAnswer = async (answer_id) => {
   let comments = await Post.findAll({ where: { type: Post.TYPE.COMMENT, answer_id } })
+  comments = comments.map(toPlain)
+  return comments
+}
+
+/**
+ *
+ * @param { number } question_id
+ */
+const findCommentsByQuestion = async (question_id) => {
+  let comments = await Post.findAll({ where: { type: Post.TYPE.COMMENT, question_id, answer_id: null } })
   comments = comments.map(toPlain)
   return comments
 }
@@ -30,4 +40,4 @@ const createComment = async (question_id, answer_id, content, author_id) => {
   return comment
 }
 
-module.exports = { findComments, createComment }
+module.exports = { findCommentsByAnswer, findCommentsByQuestion, createComment }
