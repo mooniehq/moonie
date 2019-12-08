@@ -1,5 +1,5 @@
 import Showdown from 'showdown'
-import { string } from 'prop-types'
+import { number, string } from 'prop-types'
 
 const Comment = ({ id, content }) => {
 
@@ -11,14 +11,14 @@ const Comment = ({ id, content }) => {
   })
   const innerHtml = markdownToHtmlConverter.makeHtml(content)
   return (
-    <div key={id}>
+    <div key={`comment-${id}`} className="comment border-bottom bc-black-2 p-2 fs-13">
       <div dangerouslySetInnerHTML={{ __html: innerHtml }}/>
     </div>
   )
 }
 
 Comment.propTypes = {
-  id: string,
+  id: number,
   content: string
 }
 

@@ -32,26 +32,26 @@ const Page = ({ t, user, children }) => {
 
   return (
     <>
-      <Navbar color="light" light fixed="top" expand="md">
+      <Navbar className="border-bottom bc-black-2" color="light" light fixed="top" expand="md">
+        <NavbarToggler onClick={toggle} />
         <NavbarBrand href="/">Community Name</NavbarBrand>
         <Form>
           <InputGroup>
             <InputGroupAddon addonType="prepend">
-              <Button>
+              <Button size="sm">
                 <FaSearch />
               </Button>
             </InputGroupAddon>
-            <Input placeholder={t('search')} />
+            <Input bsSize="sm" placeholder={t('search')} />
           </InputGroup>
         </Form>
-        <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             {user &&
               <>
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
-                    <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" className="rounded-circle"></img>
+                    <img src="https://avatars0.githubusercontent.com/u/36872529?s=460&v=4" className="profile-picture rounded-circle"></img>
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem tag="a" href="/signout">

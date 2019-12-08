@@ -82,3 +82,28 @@ a {
     border-top: 0.125rem solid #F48024;
   }
 }
+
+.user-badge {
+  background-color: #E1ECF4;
+  padding: 0.3125rem 0.375rem 0.4375rem 0.4375rem;
+}
+
+.comment {
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.navbar .profile-picture {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.card {
+  margin-bottom: 1rem;
+
+  .card-header {
+    color: #6a737c;
+  }
+}

@@ -17,14 +17,14 @@ import Post from '../components/Post'
 
 const Question = (props) => {
   const { t, question } = props
-  const { id: questionId, title, content, comments, answers } = question
+  const { id: questionId, title, answers } = question
   return (
     <Page {...props}>
       <HasRightSidebar>
         <QuestionHeader text={title} />
         <div>
           <Post {...question} />
-          <div className="mt-2">
+          <div className="mt-4 mb-2">
             <h2>{t('answer')}</h2>
             <Nav className="answer-tabs justify-content-end fs-12" tabs>
               <NavItem>
@@ -47,16 +47,17 @@ const Question = (props) => {
           <div>
             {
               answers.map((answer) =>
-                <Post {...answer} />
+                <div className="pt-4 pb-4 border-bottom bc-black-2">
+                  <Post {...answer} />
+                </div>
               )
             }
           </div>
-          <h2>{t('your_answer')}</h2>
-          <div>
+          <h2 className="pt-4 mb-4">{t('your_answer')}</h2>
+          <div className="pb-4">
             <Form action="/api/anwser" method="post">
               <input type="hidden" name="questionId" value={questionId} />
               <FormGroup>
-                <Label for="answer-content">{t('answer')}</Label>
                 <MarkdownEditor id="answer-content" name="content" value="" />
               </FormGroup>
               <Button type="submit" color="primary">{t('post_answer')}</Button>
@@ -64,8 +65,8 @@ const Question = (props) => {
           </div>
         </div>
         <div>
-          <h4>{t('linked')}</h4>
-          <h4>{t('related')}</h4>
+          <h5>{t('linked')}</h5>
+          <h5>{t('related')}</h5>
         </div>
       </HasRightSidebar>
     </Page>
