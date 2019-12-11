@@ -2,14 +2,13 @@ import { withTranslation } from '../i18n'
 import React, { useState } from 'react';
 import { arrayOf, number, shape, string } from 'prop-types'
 import { Button, Form, FormGroup, Input } from 'reactstrap'
-import Showdown from 'showdown'
 import Vote from './Vote'
 import UserBadge from './UserBadge'
 import TagsList from './TagsList'
 import Comment from './Comment'
 import MarkdownEditor from './MarkdownEditor'
 
-const Post = ({ t, id, question_id, content, comments }) => {
+const Post = ({ t, id, question_id, htmlContent, comments }) => {
 
   const [showCommentForm, setShowCommentForm] = useState(false)
 
@@ -20,17 +19,8 @@ const Post = ({ t, id, question_id, content, comments }) => {
     question_id = id
   }
 
-  const markdownToHtmlConverter = new Showdown.Converter({
-    tables: true,
-    simplifiedAutoLink: true,
-    strikethrough: true,
-    tasklists: true
-  })
-
-  const renderedContent = markdownToHtmlConverter.makeHtml(content)
-
-  const childComments = comments.map(({ id: commentId, content }) =>
-    <Comment id={commentId} content={content} />
+  const childComments = comments.map(({ id: commentId, htmlContent }) =>
+    <Comment id={commentId} htmlContent={htmlContent} />
   )
   const tags = [
     {
@@ -49,7 +39,7 @@ const Post = ({ t, id, question_id, content, comments }) => {
         <Vote />
       </div>
       <div className="flex-grow flex-fill">
-        <div className="mb-1" dangerouslySetInnerHTML={{ __html: renderedContent }} />
+        <div className="mb-1" dangerouslySetInnerHTML={{ __html: htmlContent }} />
         <TagsList tags={tags} />
         <div className="d-flex justify-content-between mt-4 fs-13">
           <div className="btn-toolbar post-actions">
@@ -89,7 +79,7 @@ const Post = ({ t, id, question_id, content, comments }) => {
 Post.propTypes = {
   id: number,
   question_id: number,
-  content: string,
+  htmlContent: string,
   comments: arrayOf(shape({
     id: number
   }))

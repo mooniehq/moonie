@@ -1,12 +1,10 @@
 const { Post } = require('../models')
-const { toPlain } = require('../utils/sequelize-utils')
 const { findAnswers } = require('../services/answer-service')
 const { findCommentsByAnswer, findCommentsByQuestion } = require('../services/comment-service')
+const { findPostById, findPosts, createPost } = require('./post-service')
 
 const findQuestions = async () => {
-  let questions = await Post.findAll({ where: { type: Post.TYPE.QUESTION } })
-  questions = questions.map(toPlain)
-  return questions
+  return findPosts({ type: Post.TYPE.QUESTION })
 }
 
 /**
@@ -14,9 +12,7 @@ const findQuestions = async () => {
  * @param { number } id
  */
 const findQuestion = async (id) => {
-  let question = await Post.findOne({ where: { id } })
-  question = toPlain(question)
-  return question
+  return findPostById(id)
 }
 
 /**
@@ -52,14 +48,13 @@ const findFullQuestion = async (id) => {
  * @param { number } author_id
  */
 const createQuestion = async (title, content, author_id) => {
-  let question = await Post.create({
+  const question = {
     type: Post.TYPE.QUESTION,
     title,
     content,
     author_id
-  })
-  question = toPlain(question)
-  return question
+  }
+  return createPost(question)
 }
 
 module.exports = { findQuestions, findQuestion, findFullQuestion, createQuestion }
