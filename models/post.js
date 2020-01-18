@@ -33,6 +33,13 @@ module.exports = function (sequelize) {
           notEmpty: true
         }
       },
+      htmlContent: {
+        type: TEXT,
+        allowNull: false,
+        validate: {
+          notEmpty: true
+        }
+      },
       question_id: {
         type: INTEGER
       },
