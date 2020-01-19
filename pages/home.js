@@ -24,18 +24,7 @@ const Home = (props) => {
         </div>
         <div>
           <Card>
-            <CardHeader>{t('custom_filters')}</CardHeader>
-            <CardBody>
-              <a href="#">{t('create_custom_filter')}</a>
-            </CardBody>
-          </Card>
-          <Card>
             <CardHeader>{t('watched_tags')}</CardHeader>
-            <CardBody>
-            </CardBody>
-          </Card>
-          <Card>
-            <CardHeader>{t('ignored_tags')}</CardHeader>
             <CardBody>
             </CardBody>
           </Card>
