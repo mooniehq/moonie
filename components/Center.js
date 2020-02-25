@@ -1,13 +1,9 @@
-import {
-  Col
-} from 'reactstrap'
-
 const Center = ({ children }) => {
   return (
     <>
-      <Col className="d-flex justify-content-center">
+      <div>
         {children}
-      </Col>
+      </div>
     </>
   )
 }

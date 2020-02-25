@@ -1,28 +1,6 @@
-import '../styles/index.scss'
 import { withTranslation } from '../i18n'
 import { shape, string } from 'prop-types'
 import React, { useState } from 'react'
-import {
-  Button,
-  Collapse,
-  Container,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Form,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  Row
-} from 'reactstrap'
-import { FaSearch } from 'react-icons/fa'
 
 const Page = ({ t, user, children }) => {
 
@@ -32,53 +10,44 @@ const Page = ({ t, user, children }) => {
 
   return (
     <>
-      <Navbar className="border-bottom bc-black-2" color="light" light fixed="top" expand="md">
-        <NavbarToggler onClick={toggle} />
-        <NavbarBrand href="/">Community Name</NavbarBrand>
-        <Form>
-          <InputGroup>
-            <InputGroupAddon addonType="prepend">
-              <Button size="sm">
-                <FaSearch />
-              </Button>
-            </InputGroupAddon>
-            <Input bsSize="sm" placeholder={t('search')} />
-          </InputGroup>
-        </Form>
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="ml-auto" navbar>
+      <div>
+        <a href="#" onClick={toggle}>Toggle</a>
+        <a href="/">Community Name</a>
+        <form>
+          <input type="text" placeholder={t('search')} />
+        </form>
+        <div>
+          <div>
             {user &&
               <>
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>
-                    <img src="https://avatars0.githubusercontent.com/u/36872529?s=460&v=4" className="profile-picture rounded-circle"></img>
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem tag="a" href="/signout">
+                <div>
+                  <a href="#">
+                    <img src="https://avatars0.githubusercontent.com/u/36872529?s=460&v=4"></img>
+                  </a>
+                  <div>
+                    <a href="/signout">
                       {t('sign_out')}
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
+                    </a>
+                  </div>
+                </div>
               </>
             }
             {!user &&
             <>
-              <NavItem>
-                <NavLink href="/signin">{t('log_in')}</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/signup">{t('sign_up')}</NavLink>
-              </NavItem>
+              <div>
+                <a href="/signin">{t('log_in')}</a>
+              </div>
+              <div>
+                <a href="/signup">{t('sign_up')}</a>
+              </div>
             </>
             }
-          </Nav>
-        </Collapse>
-      </Navbar>
-      <Container className="content">
-        <Row>
-          {children}
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
+      <div>
+        {children}
+      </div>
     </>
   )
 }

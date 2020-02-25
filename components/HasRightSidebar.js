@@ -1,21 +1,16 @@
-import {
-  Col,
-  Row
-} from 'reactstrap'
-
 const HasRightSidebar = (props) => {
   const [top, main, right] = props.children
   return (
     <>
-      <Col>
-        <Row>
-          <Col>{top}</Col>
-        </Row>
-        <Row>
-          <Col sm="12" md="10" xl="9">{main}</Col>
-          <Col sm="12" md="4" xl="3">{right}</Col>
-        </Row>
-      </Col>
+      <div>
+        <div>
+          <div>{top}</div>
+        </div>
+        <div>
+          <div>{main}</div>
+          <div>{right}</div>
+        </div>
+      </div>
     </>
   )
 }

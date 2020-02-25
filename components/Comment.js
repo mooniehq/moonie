@@ -3,7 +3,7 @@ import { number, string } from 'prop-types'
 const Comment = ({ id, htmlContent }) => {
 
   return (
-    <div key={`comment-${id}`} className="comment border-bottom bc-black-2 p-2 fs-13">
+    <div key={`comment-${id}`}>
       <div dangerouslySetInnerHTML={{ __html: htmlContent }}/>
     </div>
   )

@@ -1,10 +1,5 @@
 import { withTranslation } from '../i18n'
 import { shape, string, arrayOf } from 'prop-types'
-import {
-  Card,
-  CardBody,
-  CardHeader
-} from 'reactstrap'
 import Page from '../components/Page'
 import HasRightSidebar from '../components/HasRightSidebar'
 import QuestionHomeList from '../components/QuestionHomeList'
@@ -16,18 +11,13 @@ const Home = (props) => {
   return (
     <Page {...props}>
       <HasRightSidebar>
-        <div></div>
         <div>
           <QuestionHomeListHeader text={t('top_questions')} />
           <QuestionHomeListFilter />
           <QuestionHomeList questions={questions} />
         </div>
         <div>
-          <Card>
-            <CardHeader>{t('watched_tags')}</CardHeader>
-            <CardBody>
-            </CardBody>
-          </Card>
+          <div>{t('watched_tags')}</div>
         </div>
       </HasRightSidebar>
     </Page>

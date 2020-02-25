@@ -1,9 +1,9 @@
-const withSass = require('@zeit/next-sass')
+const withCss = require('@zeit/next-css')
 const withImages = require('next-images')
 const compose = require('next-compose')
 
 module.exports = compose(
-  [ withSass, {} ],
-  [ withImages, {} ],
+  [withCss, {}],
+  [withImages, {}],
   {}
 )

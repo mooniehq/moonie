@@ -1,13 +1,4 @@
 import { withTranslation } from '../i18n'
-import {
-  Card,
-  CardBody,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input
-} from 'reactstrap'
 import Page from '../components/Page'
 import Center from '../components/Center'
 
@@ -16,21 +7,19 @@ const SignIn = (props) => {
   return (
     <Page>
       <Center>
-        <Card>
-          <CardBody>
-            <Form action="/api/signin" method="post">
-              <FormGroup>
-                <Label for="email">{t('email')}</Label>
-                <Input type="email" id="email" name="email" />
-              </FormGroup>
-              <FormGroup>
-                <Label for="password">{t('password')}</Label>
-                <Input type="password" id="password" name="password" />
-              </FormGroup>
-              <Button type="submit" color="primary">{t('log_in')}</Button>
-            </Form>
-          </CardBody>
-        </Card>
+        <div>
+          <form action="/api/signin" method="post">
+            <div>
+              <label htmlFor="email">{t('email')}</label>
+              <input type="email" id="email" name="email" />
+            </div>
+            <div>
+              <label htmlFor="password">{t('password')}</label>
+              <input type="password" id="password" name="password" />
+            </div>
+            <button type="submit">{t('log_in')}</button>
+          </form>
+        </div>
       </Center>
     </Page>
   )

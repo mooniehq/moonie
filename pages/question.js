@@ -1,14 +1,5 @@
 import { withTranslation } from '../i18n'
 import { shape, number, string, arrayOf } from 'prop-types'
-import {
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Nav,
-  NavItem,
-  NavLink
-} from 'reactstrap'
 import Page from '../components/Page'
 import MarkdownEditor from '../components/MarkdownEditor'
 import HasRightSidebar from '../components/HasRightSidebar'
@@ -24,44 +15,38 @@ const Question = (props) => {
         <QuestionHeader text={title} />
         <div>
           <Post {...question} />
-          <div className="mt-4 mb-2">
+          <div>
             <h2>{t('answer')}</h2>
-            <Nav className="answer-tabs justify-content-end fs-12" tabs>
-              <NavItem>
-                <NavLink className='active'>
-                  {t('active')}
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink>
-                  {t('oldest')}
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink>
-                  {t('votes')}
-                </NavLink>
-              </NavItem>
-            </Nav>
+            <div>
+              <a>
+                {t('active')}
+              </a>
+              <a>
+                {t('oldest')}
+              </a>
+              <a>
+                {t('votes')}
+              </a>
+            </div>
           </div>
           <div>
             {
               answers.map((answer) =>
-                <div className="pt-4 pb-4 border-bottom bc-black-2">
+                <div>
                   <Post {...answer} />
                 </div>
               )
             }
           </div>
-          <h2 className="pt-4 mb-4">{t('your_answer')}</h2>
-          <div className="pb-4">
-            <Form action="/api/anwser" method="post">
+          <h2>{t('your_answer')}</h2>
+          <div>
+            <form action="/api/anwser" method="post">
               <input type="hidden" name="questionId" value={questionId} />
-              <FormGroup>
+              <div>
                 <MarkdownEditor id="answer-content" name="content" value="" />
-              </FormGroup>
-              <Button type="submit" color="primary">{t('post_answer')}</Button>
-            </Form>
+              </div>
+              <button type="submit">{t('post_answer')}</button>
+            </form>
           </div>
         </div>
         <div>

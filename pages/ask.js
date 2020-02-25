@@ -1,5 +1,4 @@
 import { withTranslation } from '../i18n'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import Page from '../components/Page'
 import MarkdownEditor from '../components/MarkdownEditor'
 import HasRightSidebar from '../components/HasRightSidebar'
@@ -12,22 +11,21 @@ const Ask = (props) => {
         <div></div>
         <div>
           <h1>{t('ask_question')}</h1>
-          <Form action="/api/question" method="post">
-            <FormGroup>
-              <Label for="title">{t('title')}</Label>
-              <Input type="text" id="title" name="title" />
-            </FormGroup>
-            <FormGroup>
-              <Label for="content">{t('body')}</Label>
+          <form action="/api/question" method="post">
+            <div>
+              <label htmlFor="title">{t('title')}</label>
+              <input type="text" id="title" name="title" />
+            </div>
+            <div>
+              <label htmlFor="content">{t('body')}</label>
               <MarkdownEditor id="content" name="content" value="" />
-            </FormGroup>
-            <FormGroup>
-              <Label>{t('tags')}</Label>
-            </FormGroup>
-            <Button type="submit" color="primary">{t('post_question')}</Button>
-          </Form>
+            </div>
+            <div>
+              <label>{t('tags')}</label>
+            </div>
+            <button type="submit">{t('post_question')}</button>
+          </form>
         </div>
-        <div></div>
       </HasRightSidebar>
     </Page>
   )

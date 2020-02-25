@@ -44,7 +44,7 @@ if (!isDev) {
 }
 
 // allow static file
-server.use('/css', express.static('css'))
+server.use('/static', express.static('static'))
 
 // set up our express application
 server.use(morgan('dev')) // log every request to the console

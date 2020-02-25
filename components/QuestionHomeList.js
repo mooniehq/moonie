@@ -4,12 +4,10 @@ import QuestionHomeListSummary from './QuestionHomeListSummary'
 
 const QuestionHomeList = ({ t, questions }) => {
   return (
-    <div className="qlist-wrapper">
-      <div className="question-mini-list">
-        {questions.map(question => (
-          <QuestionHomeListSummary question={question} />
-        ))}
-      </div>
+    <div>
+      {questions.map(question => (
+        <QuestionHomeListSummary question={question} />
+      ))}
     </div>
   )
 }

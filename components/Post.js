@@ -1,7 +1,6 @@
 import { withTranslation } from '../i18n'
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { arrayOf, number, shape, string } from 'prop-types'
-import { Button, Form, FormGroup, Input } from 'reactstrap'
 import Vote from './Vote'
 import UserBadge from './UserBadge'
 import TagsList from './TagsList'
@@ -34,41 +33,39 @@ const Post = ({ t, id, question_id, htmlContent, comments }) => {
     }
   ]
   return (
-    <div className="d-flex">
-      <div className="pr-3">
+    <div>
+      <div>
         <Vote />
       </div>
-      <div className="flex-grow flex-fill">
-        <div className="mb-1" dangerouslySetInnerHTML={{ __html: htmlContent }} />
+      <div>
+        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
         <TagsList tags={tags} />
-        <div className="d-flex justify-content-between mt-4 fs-13">
-          <div className="btn-toolbar post-actions">
+        <div>
+          <div>
             <a href="#">{t('share')}</a>
             <a href="#">{t('edit')}</a>
             <a href="#">{t('flag')}</a>
           </div>
           <UserBadge />
         </div>
-        <div className="mt-4 mb-4 border-top bc-black-2">
+        <div>
           {childComments}
         </div>
         <a onClick={() => setShowCommentForm(!showCommentForm)}>{t('add_comment')}</a>
         {showCommentForm && (
           <div>
-            <Form action="/api/comment" method="post">
+            <form action="/api/comment" method="post">
               {
                 answer_id &&
-                <Input type="hidden" name="answerId" value={answer_id} />
+                <input type="hidden" name="answerId" value={answer_id} />
               }
               {
                 question_id &&
-                <Input type="hidden" name="questionId" value={question_id} />
+                <input type="hidden" name="questionId" value={question_id} />
               }
-              <FormGroup>
-                <MarkdownEditor id={`answer-${id}-comment-content`} name="content" value="" />
-              </FormGroup>
-              <Button type="submit" color="primary">{t('post_comment')}</Button>
-            </Form>
+              <MarkdownEditor id={`answer-${id}-comment-content`} name="content" value="" />
+              <button type="submit">{t('post_comment')}</button>
+            </form>
           </div>
         )}
       </div>
