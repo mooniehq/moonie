@@ -57,7 +57,6 @@
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-standard": "^4.0.1",
     "file-loader": "^4.1.0",
-    "fomantic-ui": "^2.8.4",
     "gulp": "^4.0.2",
     "jest": "25.1.0",
     "nodemon": "^2.0.2",
