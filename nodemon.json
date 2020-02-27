@@ -1,4 +1,4 @@
 {
   "verbose": true,
-  "ignore": [ "components/*", "next/*", "pages/*" ]
+  "ignore": [ "components/", "next/", "pages/", "semantic/" ]
 }

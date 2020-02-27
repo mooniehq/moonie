@@ -8,41 +8,52 @@ const Page = ({ t, user, children }) => {
 
   const toggle = () => setIsOpen(!isOpen)
 
+  // <div class="ui top fixed menu">
+  //   <div class="item">
+  //     <img src="/images/logo.png">
+  //   </div>
+  //   <a class="item">Features</a>
+  //   <a class="item">Testimonials</a>
+  //   <a class="item">Sign-in</a>
+  // </div>
+
   return (
     <>
-      <div>
-        <a href="#" onClick={toggle}>Toggle</a>
-        <a href="/">Community Name</a>
-        <form>
-          <input type="text" placeholder={t('search')} />
-        </form>
-        <div>
-          <div>
-            {user &&
-              <>
-                <div>
-                  <a href="#">
-                    <img src="https://avatars0.githubusercontent.com/u/36872529?s=460&v=4"></img>
-                  </a>
-                  <div>
-                    <a href="/signout">
-                      {t('sign_out')}
-                    </a>
-                  </div>
-                </div>
-              </>
-            }
-            {!user &&
+      <div className="ui top fixed menu">
+        <div className="item">
+          <a href="/">Community Name</a>
+        </div>
+        <div className="ui category search item">
+          <div className="ui transparent icon input">
+            <input className="prompt" type="text" placeholder={t('search')} />
+            <i className="search link icon"></i>
+          </div>
+        </div>
+        <div className="right menu">
+          {user &&
             <>
-              <div>
-                <a href="/signin">{t('log_in')}</a>
-              </div>
-              <div>
-                <a href="/signup">{t('sign_up')}</a>
+              <div className="item">
+                <a href="#">
+                  <img src="https://avatars0.githubusercontent.com/u/36872529?s=460&v=4"></img>
+                </a>
+                <div>
+                  <a href="/signout">
+                    {t('sign_out')}
+                  </a>
+                </div>
               </div>
             </>
-            }
-          </div>
+          }
+          {!user &&
+          <>
+            <div className="item">
+              <a href="/signin">{t('log_in')}</a>
+            </div>
+            <div className="item">
+              <a href="/signup">{t('sign_up')}</a>
+            </div>
+          </>
+          }
         </div>
       </div>
       <div>
