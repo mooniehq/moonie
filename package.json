@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "nodemon app.js --config nodemon.json",
     "lint": "eslint **/**.js",
-    "build": "next build",
+    "build": "cd semantic && gulp build && cd .. && next build",
     "start": "node app.js",
     "debug": "nodemon --inspect app.js --config nodemon.json",
     "test": "jest",
@@ -59,6 +59,7 @@
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-standard": "^4.0.1",
     "file-loader": "^4.1.0",
+    "gulp": "^4.0.2",
     "jest": "25.1.0",
     "nodemon": "^2.0.2",
     "sequelize-cli": "^5.5.1",
