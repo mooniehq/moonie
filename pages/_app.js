@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable import/no-webpack-loader-syntax */
 /**
  *  Magic file for next-i18next
@@ -13,13 +14,13 @@ import 'easymde/dist/easymde.min.css'
 import '../semantic/dist/semantic.css'
 import '../css/tailwind.css'
 
-import('expose-loader?$!jquery')
-import('expose-loader?jQuery!jquery')
 
 const DynamicComponentWithNoSSR = dynamic(
   () => {
+    import('expose-loader?$!jquery')
+    import('expose-loader?jQuery!jquery')
     import('../semantic/dist/semantic.js')
-    return <div></div>
+    return <></>
   },
   { ssr: false }
 )
