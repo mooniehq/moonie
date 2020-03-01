@@ -1,11 +1,10 @@
 import { withTranslation } from '../i18n'
-import { AiFillCaretUp, AiFillCaretDown } from 'react-icons/ai'
 
 const Vote = ({ t }) => (
   <h2>
-    <div><AiFillCaretUp /></div>
+    <i className="chevron up icon"></i>
     <div>100</div>
-    <div><AiFillCaretDown /></div>
+    <i className="chevron down icon"></i>
   </h2>
 )
 

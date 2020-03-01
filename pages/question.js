@@ -17,17 +17,6 @@ const Question = (props) => {
           <Post {...question} />
           <div>
             <h2>{t('answer')}</h2>
-            <div>
-              <a>
-                {t('active')}
-              </a>
-              <a>
-                {t('oldest')}
-              </a>
-              <a>
-                {t('votes')}
-              </a>
-            </div>
           </div>
           <div>
             {

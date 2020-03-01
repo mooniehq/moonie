@@ -4,11 +4,13 @@ import QuestionHomeListSummary from './QuestionHomeListSummary'
 
 const QuestionHomeList = ({ t, questions }) => {
   return (
-    <div>
-      {questions.map(question => (
-        <QuestionHomeListSummary question={question} />
-      ))}
-    </div>
+    <table className="ui celled table">
+      <tbody>
+        {questions.map(question => (
+          <QuestionHomeListSummary question={question} />
+        ))}
+      </tbody>
+    </table>
   )
 }
 
