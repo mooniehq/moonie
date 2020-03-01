@@ -1,4 +1,12 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import dynamic from 'next/dynamic'
+
+const DynamicComponent = dynamic(() => {
+  const jquery = require('jquery')
+  window.jQuery = jquery
+  window.$ = jquery
+  require('../semantic/dist/semantic')
+})
 
 class MyDocument extends Document {
   static async getInitialProps (ctx) {
@@ -12,6 +20,7 @@ class MyDocument extends Document {
         <Head />
         <body>
           <Main />
+          <DynamicComponent />
           <NextScript />
         </body>
       </Html>

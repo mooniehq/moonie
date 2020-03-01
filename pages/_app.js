@@ -13,7 +13,6 @@ import 'easymde/dist/easymde.min.css'
 import '../semantic/dist/semantic.css'
 import '../css/tailwind.css'
 
-
 class MyApp extends App {
   render () {
     const { Component, pageProps } = this.props
