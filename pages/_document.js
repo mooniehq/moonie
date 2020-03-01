@@ -1,12 +1,15 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import dynamic from 'next/dynamic'
 
-const DynamicComponent = dynamic(() => {
-  const jquery = require('jquery')
-  window.jQuery = jquery
-  window.$ = jquery
-  require('../semantic/dist/semantic')
-})
+const DynamicComponent = dynamic(
+  () => {
+    const jquery = require('jquery')
+    window.jQuery = jquery
+    window.$ = jquery
+    require('../semantic/dist/semantic')
+  },
+  { ssr: false }
+)
 
 class MyDocument extends Document {
   static async getInitialProps (ctx) {
