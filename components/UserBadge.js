@@ -6,8 +6,8 @@ const UserBadge = ({ t }) => (
     <a className="ui image label">
       <img src="https://avatars0.githubusercontent.com/u/36872529?s=460&v=4"></img>
       <div className="detail">
-        <div>User name</div>
-        <div>Reputation</div>
+        <div>Alex</div>
+        <div>123</div>
       </div>
     </a>
   </div>
