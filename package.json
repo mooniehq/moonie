@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "nodemon app.js --config nodemon.json",
     "lint": "eslint **/**.js",
-    "build": "cd semantic && gulp build && cd .. && next build",
+    "build:semantic": "cd semantic && gulp build && cd ..",
+    "build": "npm run build:semantic && next build",
     "start": "node app.js",
     "debug": "nodemon --inspect app.js --config nodemon.json",
     "test": "jest",

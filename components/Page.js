@@ -1,12 +1,12 @@
 import { withTranslation } from '../i18n'
 import { shape, string } from 'prop-types'
-import React, { useState } from 'react'
+import React from 'react'
 
 const Page = ({ t, user, children }) => {
 
-  const [isOpen, setIsOpen] = useState(false)
+  // const [isOpen, setIsOpen] = useState(false)
 
-  const toggle = () => setIsOpen(!isOpen)
+  // const toggle = () => setIsOpen(!isOpen)
 
   // <div class="ui top fixed menu">
   //   <div class="item">
@@ -32,12 +32,13 @@ const Page = ({ t, user, children }) => {
         <div className="right menu">
           {user &&
             <>
-              <div className="item">
+              <div className="ui simple dropdown item">
                 <a href="#">
-                  <img src="https://avatars0.githubusercontent.com/u/36872529?s=460&v=4"></img>
+                  <img className="ui avatar image" src="https://avatars0.githubusercontent.com/u/36872529?s=460&v=4"></img>
                 </a>
-                <div>
-                  <a href="/signout">
+                <i className="dropdown icon"></i>
+                <div className="menu">
+                  <a className="item" href="/signout">
                     {t('sign_out')}
                   </a>
                 </div>
@@ -50,7 +51,7 @@ const Page = ({ t, user, children }) => {
               <a href="/signin">{t('log_in')}</a>
             </div>
             <div className="item">
-              <a href="/signup">{t('sign_up')}</a>
+              <a className="ui primary button" href="/signup">{t('sign_up')}</a>
             </div>
           </>
           }
