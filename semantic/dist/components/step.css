@@ -28,7 +28,7 @@
   background: '';
   -webkit-box-shadow: none;
           box-shadow: none;
-  line-height: 1.15384615em;
+  line-height: 1.14285714em;
   border-radius: 0.2307em;
   border: 1px solid rgba(0, 0, 0, 0.13);
 }
@@ -74,7 +74,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   margin: 0 0;
-  padding: 1.15384615em 2em;
+  padding: 1.14285714em 2em;
   background: #FFFFFF;
   color: rgba(0, 0, 0, 0.87);
   -webkit-box-shadow: none;
@@ -97,8 +97,8 @@
   top: 50%;
   right: 0;
   background-color: #FFFFFF;
-  width: 1.15384615em;
-  height: 1.15384615em;
+  width: 1.14285714em;
+  height: 1.14285714em;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.13);
   border-width: 0 1px 1px 0;
@@ -136,8 +136,8 @@
 
 /* Title */
 .ui.steps .step .title {
-  font-family: 'Arial', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size: 1.15384615em;
+  font-family: '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 1.14285714em;
   font-weight: bold;
 }
 .ui.steps .step > .title {
@@ -147,7 +147,7 @@
 /* Description */
 .ui.steps .step .description {
   font-weight: normal;
-  font-size: 0.92307692em;
+  font-size: 0.92857143em;
   color: rgba(0, 0, 0, 0.87);
 }
 .ui.steps .step > .description {
@@ -235,12 +235,12 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   border-radius: 0;
-  padding: 1.15384615em 2em;
+  padding: 1.14285714em 2em;
   border-right: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.13);
 }
 .ui.vertical.steps .step:first-child {
-  padding: 1.15384615em 2em;
+  padding: 1.14285714em 2em;
   border-radius: 0.2307em 0.2307em 0 0;
 }
 .ui.vertical.steps .step:last-child {
@@ -292,12 +292,12 @@
         -ms-flex-direction: column;
             flex-direction: column;
     border-radius: 0;
-    padding: 1.15384615em 2em;
+    padding: 1.14285714em 2em;
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.13);
   }
   .ui.steps:not(.unstackable) .step:first-child {
-    padding: 1.15384615em 2em;
+    padding: 1.14285714em 2em;
     border-radius: 0.2307em 0.2307em 0 0;
   }
   .ui.steps:not(.unstackable) .step:last-child {
@@ -308,7 +308,7 @@
 /* Arrow */
   .ui.steps:not(.unstackable) .step:after {
     top: unset;
-    bottom: -1.15384615em;
+    bottom: -1.14285714em;
     right: 50%;
     -webkit-transform: translateY(-50%) translateX(50%) rotate(45deg);
             transform: translateY(-50%) translateX(50%) rotate(45deg);
@@ -445,12 +445,12 @@
         -ms-flex-direction: column;
             flex-direction: column;
     border-radius: 0;
-    padding: 1.15384615em 2em;
+    padding: 1.14285714em 2em;
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.13);
   }
   .ui[class*="tablet stackable"].steps .step:first-child {
-    padding: 1.15384615em 2em;
+    padding: 1.14285714em 2em;
     border-radius: 0.2307em 0.2307em 0 0;
   }
   .ui[class*="tablet stackable"].steps .step:last-child {
@@ -461,7 +461,7 @@
 /* Arrow */
   .ui[class*="tablet stackable"].steps .step:after {
     top: unset;
-    bottom: -1.15384615em;
+    bottom: -1.14285714em;
     right: 50%;
     -webkit-transform: translateY(-50%) translateX(50%) rotate(45deg);
             transform: translateY(-50%) translateX(50%) rotate(45deg);
@@ -583,31 +583,31 @@
 }
 .ui.mini.steps .step,
 .ui.mini.step {
-  font-size: 0.76923077rem;
+  font-size: 0.78571429rem;
 }
 .ui.tiny.steps .step,
 .ui.tiny.step {
-  font-size: 0.84615385rem;
+  font-size: 0.85714286rem;
 }
 .ui.small.steps .step,
 .ui.small.step {
-  font-size: 0.92307692rem;
+  font-size: 0.92857143rem;
 }
 .ui.large.steps .step,
 .ui.large.step {
-  font-size: 1.15384615rem;
+  font-size: 1.14285714rem;
 }
 .ui.big.steps .step,
 .ui.big.step {
-  font-size: 1.30769231rem;
+  font-size: 1.28571429rem;
 }
 .ui.huge.steps .step,
 .ui.huge.step {
-  font-size: 1.46153846rem;
+  font-size: 1.42857143rem;
 }
 .ui.massive.steps .step,
 .ui.massive.step {
-  font-size: 1.69230769rem;
+  font-size: 1.71428571rem;
 }
 
 /*--------------

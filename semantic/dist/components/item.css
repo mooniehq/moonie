@@ -141,14 +141,14 @@
 .ui.items > .item > .content > .header {
   display: inline-block;
   margin: -0.21425em 0 0;
-  font-family: 'Arial', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
 }
 
 /* Default Header Size */
 .ui.items > .item > .content > .header:not(.ui) {
-  font-size: 1.30769231em;
+  font-size: 1.28571429em;
 }
 
 /*--------------
@@ -464,25 +464,25 @@
   font-size: 1em;
 }
 .ui.mini.items > .item {
-  font-size: 0.76923077em;
+  font-size: 0.78571429em;
 }
 .ui.tiny.items > .item {
-  font-size: 0.84615385em;
+  font-size: 0.85714286em;
 }
 .ui.small.items > .item {
-  font-size: 0.92307692em;
+  font-size: 0.92857143em;
 }
 .ui.large.items > .item {
-  font-size: 1.15384615em;
+  font-size: 1.14285714em;
 }
 .ui.big.items > .item {
-  font-size: 1.30769231em;
+  font-size: 1.28571429em;
 }
 .ui.huge.items > .item {
-  font-size: 1.46153846em;
+  font-size: 1.42857143em;
 }
 .ui.massive.items > .item {
-  font-size: 1.69230769em;
+  font-size: 1.71428571em;
 }
 
 /*---------------

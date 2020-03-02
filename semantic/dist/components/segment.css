@@ -165,7 +165,7 @@
 .ui.placeholder.segment > .inline > .button {
   display: inline-block;
   width: auto;
-  margin: 0 0.38461538rem 0 0;
+  margin: 0 0.35714286rem 0 0;
 }
 .ui.placeholder.segment > .inline > .button:last-child {
   margin-right: 0;
@@ -818,31 +818,31 @@
 }
 .ui.mini.segments .segment,
 .ui.mini.segment {
-  font-size: 0.76923077rem;
+  font-size: 0.78571429rem;
 }
 .ui.tiny.segments .segment,
 .ui.tiny.segment {
-  font-size: 0.84615385rem;
+  font-size: 0.85714286rem;
 }
 .ui.small.segments .segment,
 .ui.small.segment {
-  font-size: 0.92307692rem;
+  font-size: 0.92857143rem;
 }
 .ui.large.segments .segment,
 .ui.large.segment {
-  font-size: 1.15384615rem;
+  font-size: 1.14285714rem;
 }
 .ui.big.segments .segment,
 .ui.big.segment {
-  font-size: 1.30769231rem;
+  font-size: 1.28571429rem;
 }
 .ui.huge.segments .segment,
 .ui.huge.segment {
-  font-size: 1.46153846rem;
+  font-size: 1.42857143rem;
 }
 .ui.massive.segments .segment,
 .ui.massive.segment {
-  font-size: 1.69230769rem;
+  font-size: 1.71428571rem;
 }
 
 

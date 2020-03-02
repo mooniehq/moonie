@@ -4,19 +4,6 @@ import React from 'react'
 
 const Page = ({ t, user, children }) => {
 
-  // const [isOpen, setIsOpen] = useState(false)
-
-  // const toggle = () => setIsOpen(!isOpen)
-
-  // <div class="ui top fixed menu">
-  //   <div class="item">
-  //     <img src="/images/logo.png">
-  //   </div>
-  //   <a class="item">Features</a>
-  //   <a class="item">Testimonials</a>
-  //   <a class="item">Sign-in</a>
-  // </div>
-
   return (
     <>
       <div className="ui top fixed menu">
@@ -57,7 +44,7 @@ const Page = ({ t, user, children }) => {
           }
         </div>
       </div>
-      <div>
+      <div className="pt-20">
         {children}
       </div>
     </>

@@ -70,7 +70,7 @@
   background: #F9FAFB;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.87);
-  padding: 0.92307692em 0.76923077em;
+  padding: 0.92857143em 0.78571429em;
   vertical-align: inherit;
   font-style: none;
   font-weight: bold;
@@ -103,7 +103,7 @@
   background: #F9FAFB;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.87);
-  padding: 0.76923077em 0.76923077em;
+  padding: 0.78571429em 0.78571429em;
   vertical-align: middle;
   font-style: normal;
   font-weight: normal;
@@ -144,7 +144,7 @@
 /* Table Cells */
 .ui.table > tbody > tr > td,
 .ui.table > tr > td {
-  padding: 0.76923077em 0.76923077em;
+  padding: 0.78571429em 0.78571429em;
   text-align: inherit;
 }
 
@@ -1044,7 +1044,7 @@
 .ui.table tbody tr td.selectable > a:not(.ui) {
   display: block;
   color: inherit;
-  padding: 0.76923077em 0.76923077em;
+  padding: 0.78571429em 0.78571429em;
 }
 .ui.table > tr > td.selectable,
 .ui.table > tbody > tr > td.selectable,
@@ -2181,10 +2181,10 @@
   font-size: 1em;
 }
 .ui.mini.table {
-  font-size: 0.76923077rem;
+  font-size: 0.78571429rem;
 }
 .ui.tiny.table {
-  font-size: 0.84615385rem;
+  font-size: 0.85714286rem;
 }
 .ui.small.table {
   font-size: 0.9em;
@@ -2193,13 +2193,13 @@
   font-size: 1.1em;
 }
 .ui.big.table {
-  font-size: 1.30769231rem;
+  font-size: 1.28571429rem;
 }
 .ui.huge.table {
-  font-size: 1.46153846rem;
+  font-size: 1.42857143rem;
 }
 .ui.massive.table {
-  font-size: 1.69230769rem;
+  font-size: 1.71428571rem;
 }
 
 
