@@ -39,16 +39,18 @@ const QuestionHomeListSummary = ({ t, question: { id, title } }) => {
             {title}
           </a>
         </h3>
-        <div>
-          <TagsList tags={tags} />
-        </div>
-        <div>
-          <a href={href}>asked <span title="2019-12-01 07:16:24Z">10 mins ago</span></a><span> </span>
-          <a className="ui image label">
-            <img src="https://avatars0.githubusercontent.com/u/36872529?s=460&v=4"></img>
-            Veronika
-            <div className="detail" title={t('reputation-score')}>1</div>
-          </a>
+        <div className="flex justify-between">
+          <div>
+            <TagsList tags={tags} />
+          </div>
+          <div>
+            <a href={href}>asked <span title="2019-12-01 07:16:24Z">10 mins ago</span></a><span> </span>
+            <a className="ui image label">
+              <img src="https://avatars0.githubusercontent.com/u/36872529?s=460&v=4"></img>
+              Veronika
+              <div className="detail" title={t('reputation-score')}>1</div>
+            </a>
+          </div>
         </div>
       </td>
     </tr>

@@ -2,7 +2,7 @@ import { string } from 'prop-types'
 
 const MiniCountsBadge = ({ number, text, title }) => {
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <div title={title}>{number}</div>
       <div>{text}</div>
     </div>

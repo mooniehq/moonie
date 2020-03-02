@@ -4,7 +4,7 @@ import QuestionHomeListSummary from './QuestionHomeListSummary'
 
 const QuestionHomeList = ({ t, questions }) => {
   return (
-    <table className="ui celled table">
+    <table className="ui unstackable table">
       <tbody>
         {questions.map(question => (
           <QuestionHomeListSummary question={question} />
