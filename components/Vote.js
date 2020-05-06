@@ -1,7 +1,7 @@
 import { withTranslation } from '../i18n'
 
 const Vote = ({ t }) => (
-  <h2>
+  <h2 className="flex flex-col items-center">
     <i className="chevron up icon"></i>
     <div>100</div>
     <i className="chevron down icon"></i>
