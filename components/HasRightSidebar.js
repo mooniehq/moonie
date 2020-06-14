@@ -2,13 +2,13 @@ const HasRightSidebar = (props) => {
   const [top, main, right] = props.children
   return (
     <>
-      <div>
+      <div className="ui container">
         <div>
           <div>{top}</div>
         </div>
-        <div>
-          <div>{main}</div>
-          <div>{right}</div>
+        <div className="ui stackable padded grid">
+          <div className="twelve wide column">{main}</div>
+          <div className="four wide column">{right}</div>
         </div>
       </div>
     </>

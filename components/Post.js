@@ -33,18 +33,18 @@ const Post = ({ t, id, question_id, htmlContent, comments }) => {
     }
   ]
   return (
-    <div>
-      <div>
+    <div className="flex">
+      <div className="mr-5">
         <Vote />
       </div>
-      <div>
-        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+      <div className="flex-1">
+        <div className="mb-5" dangerouslySetInnerHTML={{ __html: htmlContent }} />
         <TagsList tags={tags} />
-        <div>
-          <div>
-            <a href="#">{t('share')}</a>
-            <a href="#">{t('edit')}</a>
-            <a href="#">{t('flag')}</a>
+        <div className="flex mt-6">
+          <div className="flex-1">
+            <a className="mr-3" href="#">{t('share')}</a>
+            <a className="mr-3" href="#">{t('edit')}</a>
+            <a className="mr-3" href="#">{t('flag')}</a>
           </div>
           <UserBadge />
         </div>

@@ -13,21 +13,23 @@ const Question = (props) => {
     <Page {...props}>
       <HasRightSidebar>
         <QuestionHeader text={title} />
-        <div>
-          <Post {...question} />
+        <div className="min-w-0 flex flex-col">
+          <div className="border-gray-t py-5 flex-1">
+            <Post {...question} />
+          </div>
           <div>
             <h2>{t('answer')}</h2>
           </div>
           <div>
             {
               answers.map((answer) =>
-                <div>
+                <div className="border-gray-t py-5">
                   <Post {...answer} />
                 </div>
               )
             }
           </div>
-          <h2>{t('your_answer')}</h2>
+          <h2 className="border-gray-t py-5">{t('your_answer')}</h2>
           <div>
             <form action="/api/anwser" method="post">
               <input type="hidden" name="questionId" value={questionId} />

@@ -5,3 +5,8 @@
 @import 'tailwindcss/components';
 
 @import 'tailwindcss/utilities';
+
+.border-gray-t {
+  @apply border-t;
+  @apply border-gray-300;
+}
