@@ -1,0 +1,18 @@
+.border-gray-t {
+  @apply border-t;
+  @apply border-gray-300;
+}
+
+.vote {
+  & i.icon {
+    margin-right: 0;
+  }
+}
+
+.post {
+  & .author-badge {
+    & .time {
+      display: block;
+    }
+  }
+}

@@ -6,6 +6,7 @@ import UserBadge from './UserBadge'
 import TagsList from './TagsList'
 import Comment from './Comment'
 import MarkdownEditor from './MarkdownEditor'
+import AuthorBadge from './AuthorBadge'
 
 const Post = ({ t, id, question_id, htmlContent, comments }) => {
 
@@ -33,7 +34,7 @@ const Post = ({ t, id, question_id, htmlContent, comments }) => {
     }
   ]
   return (
-    <div className="flex">
+    <div className="post flex">
       <div className="mr-5">
         <Vote />
       </div>
@@ -46,7 +47,7 @@ const Post = ({ t, id, question_id, htmlContent, comments }) => {
             <a className="mr-3" href="#">{t('edit')}</a>
             <a className="mr-3" href="#">{t('flag')}</a>
           </div>
-          <UserBadge />
+          <AuthorBadge />
         </div>
         <div>
           {childComments}

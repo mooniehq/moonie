@@ -2,6 +2,8 @@ import { withTranslation } from '../i18n'
 import { shape, number, string } from 'prop-types'
 import MiniCountsBadge from './MiniCountsBadge'
 import TagsList from './TagsList'
+import UserBadge from './UserBadge'
+import AuthorBadge from './AuthorBadge'
 
 const QuestionHomeListSummary = ({ t, question: { id, title } }) => {
   const href = `/question/${id}`
@@ -17,7 +19,7 @@ const QuestionHomeListSummary = ({ t, question: { id, title } }) => {
     }
   ]
   return (
-    <tr key={`question-${id}`}>
+    <tr className="align-top" key={`question-${id}`}>
       <td>
         <a href={href}>
           <MiniCountsBadge number="0" text={t('votes')} title={t('votes_count', { count: 0 })} />
@@ -34,23 +36,14 @@ const QuestionHomeListSummary = ({ t, question: { id, title } }) => {
         </a>
       </td>
       <td>
-        <h3>
-          <a href={href}>
-            {title}
-          </a>
-        </h3>
+        <a href={href}>
+          {title}
+        </a>
         <div className="flex justify-between">
           <div>
             <TagsList tags={tags} />
           </div>
-          <div>
-            <a href={href}>asked <span title="2019-12-01 07:16:24Z">10 mins ago</span></a><span> </span>
-            <a className="ui image label">
-              <img src="https://avatars0.githubusercontent.com/u/36872529?s=460&v=4"></img>
-              Veronika
-              <div className="detail" title={t('reputation-score')}>1</div>
-            </a>
-          </div>
+          <AuthorBadge />
         </div>
       </td>
     </tr>

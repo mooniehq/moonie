@@ -2,3 +2,4 @@
      User Global Variables
 *******************************/
 @pageMinWidth : 500px;
+@bold: 500;
