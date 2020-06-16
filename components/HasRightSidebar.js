@@ -6,7 +6,7 @@ const HasRightSidebar = (props) => {
         <div>
           <div>{top}</div>
         </div>
-        <div className="ui stackable padded grid">
+        <div className="ui stackable grid">
           <div className="twelve wide column">{main}</div>
           <div className="four wide column">{right}</div>
         </div>

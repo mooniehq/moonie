@@ -1,5 +1,6 @@
 import { withTranslation } from '../i18n'
 import { string } from 'prop-types'
+import AskQuestion from './AskQuestion'
 
 const QuestionHeader = ({ t, text }) => (
   <div>
@@ -8,7 +9,7 @@ const QuestionHeader = ({ t, text }) => (
         <a href="#">{text}</a>
       </h1>
       <div>
-        <a className="ui blue button" href="/ask">{t('ask_question')}</a>
+        <AskQuestion />
       </div>
     </div>
     <div className="flex">

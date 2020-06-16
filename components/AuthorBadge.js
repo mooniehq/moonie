@@ -4,7 +4,7 @@ import UserBadge from './UserBadge'
 
 const AuthorBadge = ({ t, href }) => (
   <div className="author-badge">
-    <a className="time" href={href}><span title="2019-12-01 07:16:24Z">10 mins ago</span></a><span> </span>
+    <span title="2019-12-01 07:16:24Z">10 mins ago</span>
     <UserBadge />
   </div>
 )
