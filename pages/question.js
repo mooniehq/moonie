@@ -5,6 +5,7 @@ import MarkdownEditor from '../components/MarkdownEditor'
 import HasRightSidebar from '../components/HasRightSidebar'
 import QuestionHeader from '../components/QuestionHeader'
 import Post from '../components/Post'
+import Card from '../components/Card'
 
 const Question = (props) => {
   const { t, question } = props
@@ -41,8 +42,14 @@ const Question = (props) => {
           </div>
         </div>
         <div>
-          <h5>{t('linked')}</h5>
-          <h5>{t('related')}</h5>
+          <Card>
+            <div>{t('linked')}</div>
+            <div></div>
+          </Card>
+          <Card>
+            <div>{t('related')}</div>
+            <div></div>
+          </Card>
         </div>
       </HasRightSidebar>
     </Page>
