@@ -11,7 +11,8 @@ const nextConfig = {
           limit: 8192,
           publicPath: '/_next/static/',
           outputPath: 'static/',
-          name: '[name].[ext]'
+          name: '[name].[ext]',
+          esModule: false
         }
       }
     })
