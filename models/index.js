@@ -13,7 +13,8 @@ fs
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js')
   })
   .forEach(file => {
-    const model = sequelize.import(path.join(__dirname, file))
+    const modelGenerator = require('./' + file.slice(0, -3))
+    const model = modelGenerator.call(this, sequelize)
     db[model.name] = model
   })
 

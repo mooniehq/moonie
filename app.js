@@ -26,7 +26,8 @@ const healthcheck = require('express-healthcheck')
 const session = require('express-session')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
-const nextI18NextMiddleware = require('next-i18next/middleware').default
+const i18next = require('i18next')
+const nextI18NextMiddleware = require('i18next-http-middleware')
 const nextI18next = require('./i18n')
 
 const configPassport = require('./config/passport')
@@ -71,7 +72,13 @@ server.use(passport.initialize())
 server.use(passport.session()) // persistent login sessions
 server.use(flash()) // use connect-flash for flash messages stored in session
 
-server.use(nextI18NextMiddleware(nextI18next))
+i18next.use(nextI18NextMiddleware.LanguageDetector).init({
+  preload: ['en']
+})
+server.use(
+  nextI18NextMiddleware.handle(i18next, {
+  })
+)
 
 // authRouter.use(nocache())
 
