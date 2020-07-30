@@ -20,7 +20,7 @@ const Page = ({ t, user, children }) => {
           {user &&
             <>
               <div className="ui simple dropdown item">
-                <a href="#">
+                <a>
                   <img className="ui avatar image" src="https://avatars0.githubusercontent.com/u/36872529?s=460&v=4"></img>
                 </a>
                 <i className="dropdown icon"></i>

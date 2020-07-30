@@ -43,9 +43,9 @@ const Post = ({ t, id, question_id, htmlContent, comments }) => {
         <TagsList tags={tags} />
         <div className="flex mt-6">
           <div className="flex-1">
-            <a className="mr-3" href="#">{t('share')}</a>
-            <a className="mr-3" href="#">{t('edit')}</a>
-            <a className="mr-3" href="#">{t('flag')}</a>
+            <a className="mr-3">{t('share')}</a>
+            <a className="mr-3">{t('edit')}</a>
+            <a className="mr-3">{t('flag')}</a>
           </div>
           <AuthorBadge />
         </div>

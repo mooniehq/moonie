@@ -1,3 +1,7 @@
+a {
+  cursor: pointer;
+}
+
 .border-gray-t {
   @apply border-t;
   @apply border-gray-300;

@@ -37,12 +37,12 @@
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: left;
   line-height: 1.21428571em;
-  font-family: '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   padding: 0.67857143em 1em;
   background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.13);
+  border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.2307em;
+  border-radius: 0.28571429rem;
   -webkit-transition: border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
   transition: border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
   transition: box-shadow 0.1s ease, border-color 0.1s ease;
@@ -79,7 +79,7 @@
 
 .ui.disabled.input,
 .ui.input:not(.disabled) input[disabled] {
-  opacity: 0.3;
+  opacity: 0.45;
 }
 .ui.disabled.input > input,
 .ui.input:not(.disabled) input[disabled] {
@@ -189,33 +189,33 @@
   color: #da9796 !important;
 }
 .ui.input.info > input {
-  background-color: #E6F1F6;
+  background-color: #F8FFFF;
   border-color: #A9D5DE;
-  color: #4E575B;
+  color: #276F86;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
 /* Placeholder */
 .ui.input.info > input::-webkit-input-placeholder {
-  color: #b5bdc0;
+  color: #98cfe1;
 }
 .ui.input.info > input::-moz-placeholder {
-  color: #b5bdc0;
+  color: #98cfe1;
 }
 .ui.input.info > input:-ms-input-placeholder {
-  color: #b5bdc0 !important;
+  color: #98cfe1 !important;
 }
 
 /* Focused Placeholder */
 .ui.input.info > input:focus::-webkit-input-placeholder {
-  color: #9aa4a8;
+  color: #70bdd6;
 }
 .ui.input.info > input:focus::-moz-placeholder {
-  color: #9aa4a8;
+  color: #70bdd6;
 }
 .ui.input.info > input:focus:-ms-input-placeholder {
-  color: #9aa4a8 !important;
+  color: #70bdd6 !important;
 }
 .ui.input.success > input {
   background-color: #FCFFF5;
@@ -249,31 +249,31 @@
 .ui.input.warning > input {
   background-color: #FFFAF3;
   border-color: #C9BA9B;
-  color: #613A00;
+  color: #573A08;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
 /* Placeholder */
 .ui.input.warning > input::-webkit-input-placeholder {
-  color: #ffab2e;
+  color: #edad3e;
 }
 .ui.input.warning > input::-moz-placeholder {
-  color: #ffab2e;
+  color: #edad3e;
 }
 .ui.input.warning > input:-ms-input-placeholder {
-  color: #ffab2e !important;
+  color: #edad3e !important;
 }
 
 /* Focused Placeholder */
 .ui.input.warning > input:focus::-webkit-input-placeholder {
-  color: #fa9500;
+  color: #e39715;
 }
 .ui.input.warning > input:focus::-moz-placeholder {
-  color: #fa9500;
+  color: #e39715;
 }
 .ui.input.warning > input:focus:-ms-input-placeholder {
-  color: #fa9500 !important;
+  color: #e39715 !important;
 }
 
 
@@ -345,7 +345,7 @@
   height: 100%;
   width: 2.67142857em;
   opacity: 0.5;
-  border-radius: 0 0.2307em 0.2307em 0;
+  border-radius: 0 0.28571429rem 0.28571429rem 0;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
@@ -377,7 +377,7 @@
 .ui[class*="left icon"].input > i.icon {
   right: auto;
   left: 1px;
-  border-radius: 0.2307em 0 0 0.2307em;
+  border-radius: 0.28571429rem 0 0 0.28571429rem;
 }
 .ui[class*="left icon"].input > i.circular.icon {
   right: auto;
@@ -446,7 +446,7 @@
   top: 1px;
   right: 1px;
   font-size: 0.64285714em;
-  border-radius: 0 0.2307em 0 0;
+  border-radius: 0 0.28571429rem 0 0;
 }
 
 /* Spacing with corner label */
@@ -624,7 +624,7 @@
 .ui.action.input > .dropdown:first-child,
 .ui.action.input > .button:first-child,
 .ui.action.input > .buttons:first-child > .button {
-  border-radius: 0.2307em 0 0 0.2307em;
+  border-radius: 0.28571429rem 0 0 0.28571429rem;
 }
 .ui.action.input > .dropdown:not(:first-child),
 .ui.action.input > .button:not(:first-child),
@@ -634,7 +634,7 @@
 .ui.action.input > .dropdown:last-child,
 .ui.action.input > .button:last-child,
 .ui.action.input > .buttons:last-child > .button {
-  border-radius: 0 0.2307em 0.2307em 0;
+  border-radius: 0 0.28571429rem 0.28571429rem 0;
 }
 
 /* Input Focus */

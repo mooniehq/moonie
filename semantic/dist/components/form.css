@@ -100,7 +100,7 @@
 .ui.form input[type="text"],
 .ui.form input[type="file"],
 .ui.form input[type="url"] {
-  font-family: '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0;
   outline: none;
   -webkit-appearance: none;
@@ -109,7 +109,7 @@
   padding: 0.67857143em 1em;
   font-size: 1em;
   background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.13);
+  border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
@@ -126,7 +126,7 @@
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   padding: 0.78571429em 1em;
   background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.13);
+  border: 1px solid rgba(34, 36, 38, 0.15);
   outline: none;
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
@@ -135,7 +135,7 @@
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
   font-size: 1em;
-  font-family: '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.2857;
   resize: vertical;
 }
@@ -209,7 +209,7 @@
   height: auto;
   width: 100%;
   background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.13);
+  border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 0.28571429rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
@@ -403,8 +403,8 @@
   border-color: #85B7D9;
   border-radius: 0.28571429rem;
   background: #FFFFFF;
-  -webkit-box-shadow: 0 0 0 0 #51A7E8 inset;
-          box-shadow: 0 0 0 0 #51A7E8 inset;
+  -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
+          box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
 }
 .ui.form .ui.action.input:not([class*="left action"]) input:not([type]):focus,
 .ui.form .ui.action.input:not([class*="left action"]) input[type="date"]:focus,
@@ -441,8 +441,8 @@
   border-color: #85B7D9;
   border-radius: 0.28571429rem;
   background: #FFFFFF;
-  -webkit-box-shadow: 0 0 0 0 #51A7E8 inset;
-          box-shadow: 0 0 0 0 #51A7E8 inset;
+  -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
+          box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
   -webkit-appearance: none;
 }
 
@@ -619,7 +619,7 @@
 .ui.form .fields.error .field .ui.multiple.selection.dropdown > .label,
 .ui.form .field.error .ui.multiple.selection.dropdown > .label {
   background-color: #EACBCB;
-  color: #991111;
+  color: #9F3A38;
 }
 
 /* Hover */
@@ -696,11 +696,11 @@
 .ui.ui.form .field.info label,
 .ui.ui.form .fields.info .field .input,
 .ui.ui.form .field.info .input {
-  color: #4E575B;
+  color: #276F86;
 }
 .ui.form .fields.info .field .corner.label,
 .ui.form .field.info .corner.label {
-  border-color: #4E575B;
+  border-color: #276F86;
   color: #FFFFFF;
 }
 .ui.form .fields.info .field textarea,
@@ -731,8 +731,8 @@
 .ui.form .field.info input[type="text"],
 .ui.form .field.info input[type="file"],
 .ui.form .field.info input[type="url"] {
-  color: #4E575B;
-  background: #E6F1F6;
+  color: #276F86;
+  background: #F8FFFF;
   border-color: #A9D5DE;
   border-radius: '';
   -webkit-box-shadow: none;
@@ -752,9 +752,9 @@
 .ui.form .field.info input[type="text"]:focus,
 .ui.form .field.info input[type="file"]:focus,
 .ui.form .field.info input[type="url"]:focus {
-  background: #E6F1F6;
+  background: #F8FFFF;
   border-color: #A9D5DE;
-  color: #4E575B;
+  color: #276F86;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -774,8 +774,8 @@
 .ui.form .field.info .transparent.input textarea,
 .ui.form .field.info input.transparent,
 .ui.form .field.info textarea.transparent {
-  background-color: #E6F1F6 !important;
-  color: #4E575B !important;
+  background-color: #F8FFFF !important;
+  color: #276F86 !important;
 }
 
 /* Autofilled */
@@ -787,22 +787,22 @@
 
 /* Placeholder */
 .ui.form .info ::-webkit-input-placeholder {
-  color: #b5bdc0;
+  color: #98cfe1;
 }
 .ui.form .info :-ms-input-placeholder {
-  color: #b5bdc0 !important;
+  color: #98cfe1 !important;
 }
 .ui.form .info ::-moz-placeholder {
-  color: #b5bdc0;
+  color: #98cfe1;
 }
 .ui.form .info :focus::-webkit-input-placeholder {
-  color: #9aa4a8;
+  color: #70bdd6;
 }
 .ui.form .info :focus:-ms-input-placeholder {
-  color: #9aa4a8 !important;
+  color: #70bdd6 !important;
 }
 .ui.form .info :focus::-moz-placeholder {
-  color: #9aa4a8;
+  color: #70bdd6;
 }
 
 /*------------------
@@ -814,8 +814,8 @@
 .ui.form .field.info .ui.dropdown,
 .ui.form .field.info .ui.dropdown .text,
 .ui.form .field.info .ui.dropdown .item {
-  background: #E6F1F6;
-  color: #4E575B;
+  background: #F8FFFF;
+  color: #276F86;
 }
 .ui.form .fields.info .field .ui.dropdown,
 .ui.form .field.info .ui.dropdown {
@@ -832,7 +832,7 @@
 .ui.form .fields.info .field .ui.multiple.selection.dropdown > .label,
 .ui.form .field.info .ui.multiple.selection.dropdown > .label {
   background-color: #cce3ea;
-  color: #4E575B;
+  color: #276F86;
 }
 
 /* Hover */
@@ -861,20 +861,20 @@
 .ui.form .field.info .checkbox:not(.toggle):not(.slider) label,
 .ui.form .fields.info .field .checkbox:not(.toggle):not(.slider) .box,
 .ui.form .field.info .checkbox:not(.toggle):not(.slider) .box {
-  color: #4E575B;
+  color: #276F86;
 }
 .ui.form .fields.info .field .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .field.info .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .fields.info .field .checkbox:not(.toggle):not(.slider) .box:before,
 .ui.form .field.info .checkbox:not(.toggle):not(.slider) .box:before {
-  background: #E6F1F6;
+  background: #F8FFFF;
   border-color: #A9D5DE;
 }
 .ui.form .fields.info .field .checkbox label:after,
 .ui.form .field.info .checkbox label:after,
 .ui.form .fields.info .field .checkbox .box:after,
 .ui.form .field.info .checkbox .box:after {
-  color: #4E575B;
+  color: #276F86;
 }
 
 /* On Form */
@@ -1122,11 +1122,11 @@
 .ui.ui.form .field.warning label,
 .ui.ui.form .fields.warning .field .input,
 .ui.ui.form .field.warning .input {
-  color: #613A00;
+  color: #573A08;
 }
 .ui.form .fields.warning .field .corner.label,
 .ui.form .field.warning .corner.label {
-  border-color: #613A00;
+  border-color: #573A08;
   color: #FFFFFF;
 }
 .ui.form .fields.warning .field textarea,
@@ -1157,7 +1157,7 @@
 .ui.form .field.warning input[type="text"],
 .ui.form .field.warning input[type="file"],
 .ui.form .field.warning input[type="url"] {
-  color: #613A00;
+  color: #573A08;
   background: #FFFAF3;
   border-color: #C9BA9B;
   border-radius: '';
@@ -1180,7 +1180,7 @@
 .ui.form .field.warning input[type="url"]:focus {
   background: #FFFAF3;
   border-color: #C9BA9B;
-  color: #613A00;
+  color: #573A08;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -1201,7 +1201,7 @@
 .ui.form .field.warning input.transparent,
 .ui.form .field.warning textarea.transparent {
   background-color: #FFFAF3 !important;
-  color: #613A00 !important;
+  color: #573A08 !important;
 }
 
 /* Autofilled */
@@ -1213,22 +1213,22 @@
 
 /* Placeholder */
 .ui.form .warning ::-webkit-input-placeholder {
-  color: #ffab2e;
+  color: #edad3e;
 }
 .ui.form .warning :-ms-input-placeholder {
-  color: #ffab2e !important;
+  color: #edad3e !important;
 }
 .ui.form .warning ::-moz-placeholder {
-  color: #ffab2e;
+  color: #edad3e;
 }
 .ui.form .warning :focus::-webkit-input-placeholder {
-  color: #fa9500;
+  color: #e39715;
 }
 .ui.form .warning :focus:-ms-input-placeholder {
-  color: #fa9500 !important;
+  color: #e39715 !important;
 }
 .ui.form .warning :focus::-moz-placeholder {
-  color: #fa9500;
+  color: #e39715;
 }
 
 /*------------------
@@ -1241,7 +1241,7 @@
 .ui.form .field.warning .ui.dropdown .text,
 .ui.form .field.warning .ui.dropdown .item {
   background: #FFFAF3;
-  color: #613A00;
+  color: #573A08;
 }
 .ui.form .fields.warning .field .ui.dropdown,
 .ui.form .field.warning .ui.dropdown {
@@ -1258,7 +1258,7 @@
 .ui.form .fields.warning .field .ui.multiple.selection.dropdown > .label,
 .ui.form .field.warning .ui.multiple.selection.dropdown > .label {
   background-color: #eaeacc;
-  color: #613A00;
+  color: #573A08;
 }
 
 /* Hover */
@@ -1287,7 +1287,7 @@
 .ui.form .field.warning .checkbox:not(.toggle):not(.slider) label,
 .ui.form .fields.warning .field .checkbox:not(.toggle):not(.slider) .box,
 .ui.form .field.warning .checkbox:not(.toggle):not(.slider) .box {
-  color: #613A00;
+  color: #573A08;
 }
 .ui.form .fields.warning .field .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .field.warning .checkbox:not(.toggle):not(.slider) label:before,
@@ -1300,7 +1300,7 @@
 .ui.form .field.warning .checkbox label:after,
 .ui.form .fields.warning .field .checkbox .box:after,
 .ui.form .field.warning .checkbox .box:after {
-  color: #613A00;
+  color: #573A08;
 }
 
 /*--------------------
@@ -1311,11 +1311,11 @@
 .ui.form .disabled.field,
 .ui.form .field :disabled {
   pointer-events: none;
-  opacity: 0.3;
+  opacity: 0.45;
 }
 .ui.form .field.disabled > label,
 .ui.form .fields.disabled > label {
-  opacity: 0.3;
+  opacity: 0.45;
 }
 .ui.form .field.disabled :disabled {
   opacity: 1;
@@ -1341,7 +1341,7 @@
   z-index: 100;
 }
 .ui.loading.form.segments:before {
-  border-radius: 0.2307em;
+  border-radius: 0.28571429rem;
 }
 .ui.loading.form:after {
   position: absolute;
@@ -1540,7 +1540,7 @@
 }
 
 /* Swap to full width on mobile */
-@media only screen and (max-width: 1048.98px) {
+@media only screen and (max-width: 767.98px) {
   .ui.form .fields {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -1626,7 +1626,7 @@
 }
 
 /* Swap to full width on mobile */
-@media only screen and (max-width: 1048.98px) {
+@media only screen and (max-width: 767.98px) {
   .ui.form:not(.unstackable) .two.fields:not(.unstackable) > .fields,
   .ui.form:not(.unstackable) .two.fields:not(.unstackable) > .field,
   .ui.form:not(.unstackable) .three.fields:not(.unstackable) > .fields,

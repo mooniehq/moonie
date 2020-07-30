@@ -171,7 +171,7 @@ ol.ui.list ol li,
 .ui.list > .item .header {
   display: block;
   margin: 0;
-  font-family: '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.87);
 }
@@ -193,11 +193,11 @@ ol.ui.list ol li,
 .ui.list .list > a.item,
 .ui.list > a.item {
   cursor: pointer;
-  color: #4078C0;
+  color: #4183C4;
 }
 .ui.list .list > a.item:hover,
 .ui.list > a.item:hover {
-  color: #4078C0;
+  color: #1e70bf;
 }
 
 /* Linked Item Icons */
@@ -212,11 +212,11 @@ ol.ui.list ol li,
 .ui.list .list > .item a.header,
 .ui.list > .item a.header {
   cursor: pointer;
-  color: #4078C0 !important;
+  color: #4183C4 !important;
 }
 .ui.list .list > .item > a.header:hover,
 .ui.list > .item > a.header:hover {
-  color: #4078C0 !important;
+  color: #1e70bf !important;
 }
 
 /* Floated Content */
@@ -392,7 +392,7 @@ ol.ui.list ol li,
 }
 .ui.inverted.list .list > a.item:hover,
 .ui.inverted.list > a.item:hover {
-  color: #4078C0;
+  color: #1e70bf;
 }
 
 /* Linking Content */
@@ -400,7 +400,7 @@ ol.ui.list ol li,
   color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.inverted.list .item a:not(.ui):hover {
-  color: #4078C0 !important;
+  color: #1e70bf !important;
 }
 
 /*-------------------
@@ -703,7 +703,7 @@ ol.ui.suffixed.list li:before,
   --------------------*/
 
 .ui.divided.list > .item {
-  border-top: 1px solid rgba(0, 0, 0, 0.13);
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.divided.list .list > .item {
   border-top: none;
@@ -767,7 +767,7 @@ ol.ui.suffixed.list li:before,
 }
 .ui.divided.horizontal.list > .item {
   border-top: none;
-  border-right: 1px solid rgba(0, 0, 0, 0.13);
+  border-right: 1px solid rgba(34, 36, 38, 0.15);
   margin: 0;
   line-height: 0.6;
 }
@@ -788,12 +788,12 @@ ol.ui.suffixed.list li:before,
 
 .ui.celled.list > .item,
 .ui.celled.list > .list {
-  border-top: 1px solid rgba(0, 0, 0, 0.13);
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
 .ui.celled.list > .item:last-child {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 /* Padding on all elements */
@@ -849,7 +849,7 @@ ol.ui.suffixed.list li:before,
 .ui.horizontal.celled.list .list > .item,
 .ui.horizontal.celled.list > .item {
   border-top: none;
-  border-left: 1px solid rgba(0, 0, 0, 0.13);
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
   margin: 0;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -858,7 +858,7 @@ ol.ui.suffixed.list li:before,
 .ui.horizontal.celled.list .list > .item:last-child,
 .ui.horizontal.celled.list > .item:last-child {
   border-bottom: none;
-  border-right: 1px solid rgba(0, 0, 0, 0.13);
+  border-right: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 /* Inverted */

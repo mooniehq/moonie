@@ -6,7 +6,7 @@ const QuestionHeader = ({ t, text }) => (
   <div>
     <div className="flex">
       <h1 className="flex-1">
-        <a href="#">{text}</a>
+        <a>{text}</a>
       </h1>
       <div>
         <AskQuestion />
