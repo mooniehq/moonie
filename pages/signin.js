@@ -8,16 +8,16 @@ const SignIn = (props) => {
     <Page>
       <Center>
         <div>
-          <form action="/api/signin" method="post">
-            <div>
+          <form className="ui form" action="/api/signin" method="post">
+            <div className="field">
               <label htmlFor="email">{t('email')}</label>
               <input type="email" id="email" name="email" />
             </div>
-            <div>
+            <div className="field">
               <label htmlFor="password">{t('password')}</label>
               <input type="password" id="password" name="password" />
             </div>
-            <button type="submit">{t('log_in')}</button>
+            <button className="ui button" type="submit">{t('log_in')}</button>
           </form>
         </div>
       </Center>

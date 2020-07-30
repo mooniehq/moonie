@@ -462,7 +462,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  min-width: 500px;
+  min-width: 320px;
   background: #FFFFFF;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -482,7 +482,7 @@ h5 {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.28571429em;
   margin: calc(2rem - 0.1428571428571429em) 0 1rem;
-  font-weight: 500;
+  font-weight: bold;
   padding: 0;
 }
 
@@ -687,7 +687,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   padding: 0.78571429em 1.5em 0.78571429em;
   text-transform: none;
   text-shadow: none;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1em;
   font-style: normal;
   text-align: center;
@@ -1854,7 +1854,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   line-height: 1.78571429em;
   color: rgba(0, 0, 0, 0.4);
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   -webkit-box-shadow: 0 0 0 1px transparent inset;
   box-shadow: 0 0 0 1px transparent inset;
 }
@@ -5818,7 +5818,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   margin: 1rem 0;
   line-height: 1;
   height: 0;
-  font-weight: 500;
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: rgba(0, 0, 0, 0.85);
@@ -22783,7 +22783,7 @@ i.flag.zimbabwe:before {
   margin: calc(2rem - 0.1428571428571429em) 0 1rem;
   padding: 0 0;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1.28571429em;
   text-transform: none;
   color: rgba(0, 0, 0, 0.87);
@@ -23043,7 +23043,7 @@ h6.ui.header .sub.header {
 .ui.sub.header {
   padding: 0;
   margin-bottom: 0.14285714rem;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 0.85714286em;
   text-transform: uppercase;
   color: '';
@@ -33776,7 +33776,7 @@ img.ui.bordered.image {
   padding: 0.5833em 0.833em;
   color: rgba(0, 0, 0, 0.6);
   text-transform: none;
-  font-weight: 500;
+  font-weight: bold;
   border: 0 solid transparent;
   border-radius: 0.28571429rem;
   -webkit-transition: background 0.1s ease;
@@ -33832,7 +33832,7 @@ a.ui.label {
 .ui.label > .detail {
   display: inline-block;
   vertical-align: top;
-  font-weight: 500;
+  font-weight: bold;
   margin-left: 1em;
   opacity: 0.8;
 }
@@ -36344,7 +36344,7 @@ ol.ui.list ol li,
   display: block;
   margin: 0;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-weight: 500;
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -40094,7 +40094,7 @@ ol.ui.suffixed.list li:before,
 .ui.steps .step .title {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1.14285714em;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .ui.steps .step > .title {
@@ -40171,7 +40171,7 @@ ol.ui.suffixed.list li:before,
   font-size: 2.5em;
   counter-increment: ordered;
   font-family: inherit;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .ui.ordered.steps .step > * {
@@ -41000,7 +41000,7 @@ span.ui.massive.text {
 *******************************/
 
 .ui.breadcrumb .active.section {
-  font-weight: 500;
+  font-weight: bold;
 }
 
 /*******************************
@@ -41106,7 +41106,7 @@ span.ui.massive.text {
   margin: 0 0 0.28571429rem 0;
   color: rgba(0, 0, 0, 0.87);
   font-size: 0.92857143em;
-  font-weight: 500;
+  font-weight: bold;
   text-transform: none;
 }
 
@@ -42656,7 +42656,7 @@ span.ui.massive.text {
   margin: 0 0 0.28571429rem 0;
   color: rgba(0, 0, 0, 0.87);
   font-size: 0.92857143em;
-  font-weight: 500;
+  font-weight: bold;
   text-transform: none;
 }
 
@@ -42925,7 +42925,7 @@ span.ui.massive.text {
   margin-bottom: 0;
   vertical-align: baseline;
   font-size: 0.92857143em;
-  font-weight: 500;
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
   text-transform: none;
 }
@@ -45618,13 +45618,13 @@ span.ui.massive.text {
   margin: 0;
   background: '';
   text-transform: normal;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .ui.vertical.menu .item > .header:not(.ui) {
   margin: 0 0 0.5em;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 /*--------------
@@ -45683,7 +45683,7 @@ span.ui.massive.text {
 
 .ui.menu .ui.dropdown .menu > .active.item {
   background: rgba(0, 0, 0, 0.03) !important;
-  font-weight: 500 !important;
+  font-weight: bold !important;
   color: rgba(0, 0, 0, 0.95) !important;
 }
 
@@ -46104,7 +46104,7 @@ Floated Menu / Item
 
 .ui.vertical.menu .item .menu .active.item {
   background-color: transparent;
-  font-weight: 500;
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.95);
 }
 
@@ -46153,7 +46153,7 @@ Floated Menu / Item
   color: rgba(0, 0, 0, 0.95);
   border-top-width: 1px;
   border-color: #D4D4D5;
-  font-weight: 500;
+  font-weight: bold;
   margin-bottom: -1px;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -46540,7 +46540,7 @@ Floated Menu / Item
   -webkit-box-shadow: none;
   box-shadow: none;
   border-color: currentColor;
-  font-weight: 500;
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.95);
 }
 
@@ -46652,7 +46652,7 @@ Floated Menu / Item
   color: rgba(0, 0, 0, 0.85);
   font-size: 0.92857143em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 /* Image */
@@ -47980,7 +47980,7 @@ Floated Menu / Item
 .ui.message .header {
   display: block;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-weight: 500;
+  font-weight: bold;
   margin: -0.14285714em 0 0 0;
 }
 
@@ -48760,7 +48760,7 @@ Floated Menu / Item
   padding: 0.92857143em 0.78571429em;
   vertical-align: inherit;
   font-style: none;
-  font-weight: 500;
+  font-weight: bold;
   text-transform: none;
   border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   border-left: none;
@@ -48938,7 +48938,7 @@ Floated Menu / Item
   .ui.table:not(.unstackable) > tr > td:first-child,
   .ui.table:not(.unstackable) > tbody > tr > td:first-child,
   .ui.table:not(.unstackable) > tfoot > tr > td:first-child {
-    font-weight: 500;
+    font-weight: bold;
   }
 
   /* Definition Table */
@@ -49332,7 +49332,7 @@ Floated Menu / Item
 .ui.definition.table > tfoot > tr > td:first-child:not(.ignored),
 .ui.definition.table tr td.definition {
   background: rgba(0, 0, 0, 0.03);
-  font-weight: 500;
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.95);
   text-transform: '';
   -webkit-box-shadow: '';
@@ -51538,7 +51538,7 @@ Floated Menu / Item
   content: 'Ad';
   color: #FFFFFF;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .ui.mobile.test.ad:after {
@@ -51747,7 +51747,7 @@ Floated Menu / Item
 
 .ui.cards > .card > .content > .header:not(.ui),
 .ui.card > .content > .header:not(.ui) {
-  font-weight: 500;
+  font-weight: bold;
   font-size: 1.28571429em;
   margin-top: -0.21425em;
   line-height: 1.28571429em;
@@ -53153,7 +53153,7 @@ a.inverted.ui.card:hover,
 .ui.comments .comment .author {
   font-size: 1em;
   color: rgba(0, 0, 0, 0.87);
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .ui.comments .comment a.author {
@@ -53493,7 +53493,7 @@ a.inverted.ui.card:hover,
 .ui.feed > .event > .content .summary {
   margin: 0;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -53514,7 +53514,7 @@ a.inverted.ui.card:hover,
 
 .ui.feed > .event > .content .user {
   display: inline-block;
-  font-weight: 500;
+  font-weight: bold;
   margin-right: 0;
   vertical-align: baseline;
 }
@@ -53862,7 +53862,7 @@ a.inverted.ui.card:hover,
   display: inline-block;
   margin: -0.21425em 0 0;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-weight: 500;
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
 }
 
@@ -54467,7 +54467,7 @@ a.inverted.ui.card:hover,
 .ui.statistic > .label {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
   text-transform: uppercase;
   text-align: center;
@@ -54510,7 +54510,7 @@ a.inverted.ui.card:hover,
 .ui.statistic > .text.value {
   line-height: 1em;
   min-height: 2em;
-  font-weight: 500;
+  font-weight: bold;
   text-align: center;
 }
 
@@ -55190,7 +55190,7 @@ a.inverted.ui.card:hover,
   margin: 0;
   padding: 0.75em 1em;
   color: rgba(0, 0, 0, 0.4);
-  font-weight: 500;
+  font-weight: bold;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
   -webkit-transition: background 0.1s ease, color 0.1s ease;
   transition: background 0.1s ease, color 0.1s ease;
@@ -57014,7 +57014,7 @@ body.dimmable > .dimmer {
 .ui.dropdown .menu > .header {
   margin: 1rem 0 0.75rem;
   padding: 0 1.14285714rem;
-  font-weight: 500;
+  font-weight: bold;
   text-transform: uppercase;
 }
 
@@ -57757,7 +57757,7 @@ select.ui.dropdown {
 }
 
 .ui.inline.dropdown > .text {
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .ui.inline.dropdown .menu {
@@ -57778,7 +57778,7 @@ select.ui.dropdown {
 
 .ui.dropdown .menu .active.item {
   background: transparent;
-  font-weight: 500;
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.95);
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -59252,7 +59252,7 @@ select.ui.dropdown {
 .ui.modal > .header:not(.ui) {
   font-size: 1.42857143rem;
   line-height: 1.28571429em;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 /*--------------
@@ -60203,7 +60203,7 @@ a.ui.nag {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1.14285714em;
   line-height: 1.2;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .ui.popup > .header + .content {
@@ -61150,7 +61150,7 @@ a.ui.nag {
   color: rgba(255, 255, 255, 0.7);
   text-shadow: none;
   margin-top: -0.5em;
-  font-weight: 500;
+  font-weight: bold;
   text-align: left;
 }
 
@@ -61165,7 +61165,7 @@ a.ui.nag {
   left: 0;
   bottom: auto;
   color: rgba(0, 0, 0, 0.87);
-  font-weight: 500;
+  font-weight: bold;
   text-shadow: none;
   margin-top: 0.2em;
   text-align: center;
@@ -63653,7 +63653,7 @@ a.ui.nag {
 .ui.search > .results .result .title {
   margin: -0.14285714em 0 0;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 1em;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -63680,7 +63680,7 @@ a.ui.nag {
 .ui.search > .results > .message .header {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -63698,7 +63698,7 @@ a.ui.nag {
   background: #F3F4F5;
   padding: 0.92857143em 1em;
   color: rgba(0, 0, 0, 0.87);
-  font-weight: 500;
+  font-weight: bold;
   text-align: center;
 }
 
@@ -63894,7 +63894,7 @@ a.ui.nag {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1em;
   padding: 0.4em 1em;
-  font-weight: 500;
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.4);
   border-bottom: 1px solid rgba(34, 36, 38, 0.1);
 }
