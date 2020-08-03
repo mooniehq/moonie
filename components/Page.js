@@ -44,7 +44,7 @@ const Page = ({ t, user, children }) => {
           }
         </div>
       </div>
-      <div className="pt-20">
+      <div className="container mx-auto pt-20">
         {children}
       </div>
     </>

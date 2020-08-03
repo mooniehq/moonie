@@ -1,13 +1,14 @@
 import { withTranslation } from '../i18n'
 import Page from '../components/Page'
 import Center from '../components/Center'
+import Card from '../components/Card'
 
 const SignIn = (props) => {
   const { t } = props
   return (
     <Page>
       <Center>
-        <div>
+        <Card>
           <form className="ui form" action="/api/signin" method="post">
             <div className="field">
               <label htmlFor="email">{t('email')}</label>
@@ -19,7 +20,7 @@ const SignIn = (props) => {
             </div>
             <button className="ui button" type="submit">{t('log_in')}</button>
           </form>
-        </div>
+        </Card>
       </Center>
     </Page>
   )

@@ -1,13 +1,13 @@
 const HasRightSidebar = (props) => {
   const [top, main, right] = props.children
   return (
-    <div className="container mx-auto">
+    <div>
       <div>
         <div>{top}</div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
-        <div className="col-span-3">{main}</div>
-        <div className="col-span-1">{right}</div>
+      <div className="flex content-start flex-wrap">
+        <div className="w-auto md:w-2/3 md:pr-4">{main}</div>
+        <div className="w-auto md:w-1/3 md:pl-4">{right}</div>
       </div>
     </div>
   )

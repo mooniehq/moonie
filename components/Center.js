@@ -1,10 +1,8 @@
 const Center = ({ children }) => {
   return (
-    <>
-      <div>
-        {children}
-      </div>
-    </>
+    <div className="w-1/3 mx-auto">
+      {children}
+    </div>
   )
 }
 
