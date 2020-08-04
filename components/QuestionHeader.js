@@ -1,17 +1,9 @@
 import { withTranslation } from '../i18n'
 import { string } from 'prop-types'
-import AskQuestion from './AskQuestion'
 
 const QuestionHeader = ({ t, text }) => (
   <div>
-    <div className="flex flex-wrap lg:flex-no-wrap">
-      <h1 className="flex-100">
-        <a>{text}</a>
-      </h1>
-      <div>
-        <AskQuestion />
-      </div>
-    </div>
+    <h1>{text}</h1>
     <div className="flex">
       <div className="mr-5" title="2019-12-01 07:35:39Z">
         <span className="text-gray-600">Asked</span><span> </span>

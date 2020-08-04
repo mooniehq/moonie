@@ -1,6 +1,7 @@
 import { withTranslation } from '../i18n'
 import { shape, string } from 'prop-types'
 import React from 'react'
+import AskQuestion from './AskQuestion'
 
 const Page = ({ t, user, children }) => {
 
@@ -17,6 +18,9 @@ const Page = ({ t, user, children }) => {
           </div>
         </div>
         <div className="right menu">
+          <div className="item">
+            <AskQuestion />
+          </div>
           {user &&
             <>
               <div className="ui simple dropdown item">
@@ -44,7 +48,7 @@ const Page = ({ t, user, children }) => {
           }
         </div>
       </div>
-      <div className="container mx-auto pt-20">
+      <div className="container mx-auto center-content">
         {children}
       </div>
     </>
